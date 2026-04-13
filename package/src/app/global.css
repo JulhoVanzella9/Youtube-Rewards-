@@ -5,12 +5,12 @@
 }
 
 :root {
-  --tikcash-red: #fe2c55;
-  --tikcash-cyan: #25f4ee;
-  --tikcash-dark: #121212;
-  --tikcash-darker: #0a0a0a;
-  --tikcash-card: #1a1a2e;
-  --tikcash-card-hover: #222240;
+  --youcash-red: #FF0000;
+  --youcash-dark: #282828;
+  --youcash-darkbg: #0F0F0F;
+  --youcash-darker: #0a0a0a;
+  --youcash-card: #1a1a1a;
+  --youcash-card-hover: #222222;
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.08);
   --text-primary: #ffffff;
@@ -20,29 +20,29 @@
   --bg-secondary: #0a0a0a;
   --bg-card: #1a1a1a;
   --border-color: rgba(255, 255, 255, 0.08);
-  --gradient-primary: linear-gradient(135deg, #fe2c55 0%, #ff6b81 50%, #25f4ee 100%);
-  --gradient-button: linear-gradient(135deg, #fe2c55 0%, #ff4070 100%);
-  --gradient-card: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  --shadow-glow: 0 0 20px rgba(254, 44, 85, 0.15);
+  --gradient-primary: linear-gradient(135deg, #FF0000 0%, #FF3333 50%, #CC0000 100%);
+  --gradient-button: linear-gradient(135deg, #FF0000 0%, #E60000 100%);
+  --gradient-card: linear-gradient(145deg, #1a1a1a 0%, #1a1a1a 100%);
+  --shadow-glow: 0 0 20px rgba(255, 0, 0, 0.15);
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Light Theme Variables */
 [data-theme="light"] {
-  --tikcash-dark: #f5f5f5;
-  --tikcash-darker: #ffffff;
-  --tikcash-card: #ffffff;
-  --tikcash-card-hover: #f0f0f0;
+  --youcash-dark: #F2F2F2;
+  --youcash-darker: #ffffff;
+  --youcash-card: #ffffff;
+  --youcash-card-hover: #f0f0f0;
   --glass: rgba(0, 0, 0, 0.03);
   --glass-border: rgba(0, 0, 0, 0.08);
-  --text-primary: #121212;
+  --text-primary: #0F0F0F;
   --text-secondary: rgba(0, 0, 0, 0.6);
   --text-muted: rgba(0, 0, 0, 0.4);
-  --bg-primary: #f5f5f5;
+  --bg-primary: #F2F2F2;
   --bg-secondary: #ffffff;
   --bg-card: #ffffff;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+  --border-color: #E5E5E5;
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #F2F2F2 100%);
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
@@ -68,8 +68,8 @@ body {
 
 /* Light theme body override */
 [data-theme="light"] body {
-  background-color: #f5f5f5 !important;
-  color: #121212 !important;
+  background-color: #F2F2F2 !important;
+  color: #0F0F0F !important;
 }
 
 /* Dark theme body */
@@ -79,12 +79,12 @@ body {
 }
 
 ::selection {
-  background-color: rgba(254, 44, 85, 0.4);
+  background-color: rgba(255, 0, 0, 0.4);
   color: var(--text-primary);
 }
 
 [data-theme="light"] ::selection {
-  background-color: rgba(254, 44, 85, 0.3);
+  background-color: rgba(255, 0, 0, 0.3);
   color: #000000;
 }
 
@@ -185,7 +185,7 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 }
 
 /* ============================================
-   3D BUTTON SYSTEM - Premium TikCash Style
+   3D BUTTON SYSTEM - Premium YouCash Style
    ============================================ */
 
 /* Base 3D Button */
@@ -214,13 +214,13 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 3D Primary Button (Red/Pink) */
+/* 3D Primary Button (Red) */
 .btn-3d-primary {
-  background: linear-gradient(145deg, #ff3366 0%, #fe2c55 50%, #e91e4a 100%);
+  background: linear-gradient(145deg, #FF3333 0%, #FF0000 50%, #CC0000 100%);
   color: #fff;
   box-shadow: 
-    0 4px 0 0 #b8183a,
-    0 6px 12px rgba(254, 44, 85, 0.4),
+    0 4px 0 0 #990000,
+    0 6px 12px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.2),
     inset 0 -1px 0 rgba(0,0,0,0.1);
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -229,8 +229,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 .btn-3d-primary:hover {
   transform: perspective(1000px) translateY(-2px) translateZ(4px);
   box-shadow: 
-    0 6px 0 0 #b8183a,
-    0 10px 20px rgba(254, 44, 85, 0.5),
+    0 6px 0 0 #990000,
+    0 10px 20px rgba(255, 0, 0, 0.5),
     inset 0 1px 0 rgba(255,255,255,0.25),
     inset 0 -1px 0 rgba(0,0,0,0.1);
 }
@@ -238,8 +238,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 .btn-3d-primary:active {
   transform: perspective(1000px) translateY(2px) translateZ(0);
   box-shadow: 
-    0 2px 0 0 #b8183a,
-    0 3px 8px rgba(254, 44, 85, 0.3),
+    0 2px 0 0 #990000,
+    0 3px 8px rgba(255, 0, 0, 0.3),
     inset 0 1px 0 rgba(255,255,255,0.15),
     inset 0 -1px 0 rgba(0,0,0,0.15);
   transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
@@ -247,11 +247,11 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 /* 3D Red Button (alias for primary) */
 .btn-3d-red {
-  background: linear-gradient(145deg, #ff3366 0%, #fe2c55 50%, #e91e4a 100%);
+  background: linear-gradient(145deg, #FF3333 0%, #FF0000 50%, #CC0000 100%);
   color: #fff;
   box-shadow: 
-    0 4px 0 0 #b8183a,
-    0 6px 12px rgba(254, 44, 85, 0.4),
+    0 4px 0 0 #990000,
+    0 6px 12px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.2),
     inset 0 -1px 0 rgba(0,0,0,0.1);
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -260,8 +260,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 .btn-3d-red:hover {
   transform: perspective(1000px) translateY(-2px) translateZ(4px);
   box-shadow: 
-    0 6px 0 0 #b8183a,
-    0 10px 20px rgba(254, 44, 85, 0.5),
+    0 6px 0 0 #990000,
+    0 10px 20px rgba(255, 0, 0, 0.5),
     inset 0 1px 0 rgba(255,255,255,0.25),
     inset 0 -1px 0 rgba(0,0,0,0.1);
 }
@@ -269,8 +269,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 .btn-3d-red:active {
   transform: perspective(1000px) translateY(2px) translateZ(0);
   box-shadow: 
-    0 2px 0 0 #b8183a,
-    0 3px 8px rgba(254, 44, 85, 0.3),
+    0 2px 0 0 #990000,
+    0 3px 8px rgba(255, 0, 0, 0.3),
     inset 0 1px 0 rgba(255,255,255,0.15),
     inset 0 -1px 0 rgba(0,0,0,0.15);
   transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
@@ -278,20 +278,45 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 /* Animated Red Button */
 .btn-3d-red.btn-3d-animated {
-  --btn-shadow-color: #b8183a;
-  --btn-glow-color: rgba(254, 44, 85, 0.4);
+  --btn-shadow-color: #990000;
+  --btn-glow-color: rgba(255, 0, 0, 0.4);
 }
 
 /* 3D Cyan Button */
 .btn-3d-cyan {
-  background: linear-gradient(145deg, #2ffff5 0%, #25f4ee 50%, #1ad4ce 100%);
-  color: #000;
+  background: linear-gradient(145deg, #3D3D3D 0%, #282828 50%, #1F1F1F 100%);
+  color: #fff;
   box-shadow: 
-    0 4px 0 0 #15a8a3,
-    0 6px 12px rgba(37, 244, 238, 0.4),
+    0 4px 0 0 #0f0f0f,
+    0 6px 12px rgba(40, 40, 40, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.3),
     inset 0 -1px 0 rgba(0,0,0,0.1);
   text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn-3d-cyan:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #0f0f0f,
+    0 10px 20px rgba(40, 40, 40, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.btn-3d-cyan:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #0f0f0f,
+    0 3px 8px rgba(40, 40, 40, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated Cyan Button */
+.btn-3d-cyan.btn-3d-animated {
+  --btn-shadow-color: #0f0f0f;
+  --btn-glow-color: rgba(40, 40, 40, 0.4);
 }
 
 .btn-3d-cyan:hover {
@@ -427,8 +452,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 .btn-3d-sm.btn-3d-primary {
   box-shadow: 
-    0 3px 0 0 #b8183a,
-    0 4px 10px rgba(254, 44, 85, 0.4),
+    0 3px 0 0 #990000,
+    0 4px 10px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.2),
     inset 0 -1px 0 rgba(0,0,0,0.1);
 }
@@ -442,8 +467,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 .btn-3d-lg.btn-3d-primary {
   box-shadow: 
-    0 5px 0 0 #b8183a,
-    0 8px 16px rgba(254, 44, 85, 0.4),
+    0 5px 0 0 #990000,
+    0 8px 16px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.2),
     inset 0 -1px 0 rgba(0,0,0,0.1);
 }
@@ -461,16 +486,16 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 @keyframes btn-pulse-glow {
   0%, 100% {
     box-shadow: 
-      0 4px 0 0 var(--btn-shadow-color, #b8183a),
-      0 6px 12px var(--btn-glow-color, rgba(254, 44, 85, 0.4)),
+      0 4px 0 0 var(--btn-shadow-color, #990000),
+      0 6px 12px var(--btn-glow-color, rgba(255, 0, 0, 0.4)),
       inset 0 1px 0 rgba(255,255,255,0.2),
       inset 0 -1px 0 rgba(0,0,0,0.1);
   }
   50% {
     box-shadow: 
-      0 4px 0 0 var(--btn-shadow-color, #b8183a),
-      0 8px 25px var(--btn-glow-color, rgba(254, 44, 85, 0.6)),
-      0 0 40px var(--btn-glow-color, rgba(254, 44, 85, 0.3)),
+      0 4px 0 0 var(--btn-shadow-color, #990000),
+      0 8px 25px var(--btn-glow-color, rgba(255, 0, 0, 0.6)),
+      0 0 40px var(--btn-glow-color, rgba(255, 0, 0, 0.3)),
       inset 0 1px 0 rgba(255,255,255,0.25),
       inset 0 -1px 0 rgba(0,0,0,0.1);
   }
@@ -514,8 +539,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 /* Animated Primary Button */
 .btn-3d-animated {
-  --btn-shadow-color: #b8183a;
-  --btn-glow-color: rgba(254, 44, 85, 0.4);
+  --btn-shadow-color: #990000;
+  --btn-glow-color: rgba(255, 0, 0, 0.4);
   animation: btn-pulse-glow 2s ease-in-out infinite;
 }
 
@@ -623,16 +648,16 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 .card-play-btn:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 
-    0 6px 0 0 #b8183a,
-    0 10px 24px rgba(254, 44, 85, 0.6),
+    0 6px 0 0 #990000,
+    0 10px 24px rgba(255, 0, 0, 0.6),
     inset 0 1px 0 rgba(255,255,255,0.3) !important;
 }
 
 .card-play-btn:active {
   transform: translateY(2px) scale(0.98);
   box-shadow: 
-    0 2px 0 0 #b8183a,
-    0 3px 10px rgba(254, 44, 85, 0.4),
+    0 2px 0 0 #990000,
+    0 3px 10px rgba(255, 0, 0, 0.4),
     inset 0 1px 0 rgba(255,255,255,0.15) !important;
 }
 
@@ -671,7 +696,7 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
   background-size: 200% 100%;
 }
 
-/* Snap scroll for TikCash feed */
+/* Snap scroll for YouCash feed */
 .snap-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
@@ -699,8 +724,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 /* Pulse animation */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(254, 44, 85, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
 }
 
 /* Float animation */
@@ -729,8 +754,8 @@ a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; co
 
 /* Glow pulse */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 5px rgba(254, 44, 85, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(254, 44, 85, 0.6); }
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); }
 }
 
 /* Mobile safe areas */

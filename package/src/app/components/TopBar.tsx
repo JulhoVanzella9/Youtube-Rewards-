@@ -138,7 +138,7 @@ export default function TopBar() {
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
       </svg>
     )},
-    { label: "TikCash", href: "/create", icon: (
+    { label: "YouCash", href: "/create", icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
       </svg>
@@ -152,7 +152,7 @@ export default function TopBar() {
 
   // Bottom section menu items (actions)
   const bottomMenuItems = [
-    { label: t("installApp") || "Install App", href: "#install", isInstall: true, badge: "App", badgeColor: "#fe2c55", icon: (
+    { label: t("installApp") || "Install App", href: "#install", isInstall: true, badge: "App", badgeColor: "#FF0000", icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
@@ -167,7 +167,7 @@ export default function TopBar() {
   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
   </svg>
   )},
-  { label: t("requestRefundBtn") || "Request Refund", href: "/refund", isRefund: true, badge: "30 days", badgeColor: "#fe2c55", icon: (
+  { label: t("requestRefundBtn") || "Request Refund", href: "/refund", isRefund: true, badge: "30 days", badgeColor: "#FF0000", icon: (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
   </svg>
@@ -261,7 +261,7 @@ export default function TopBar() {
             </svg>
           </motion.button>
 
-          {/* TikCash Logo */}
+          {/* YouCash Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <motion.div 
               whileHover={{ scale: 1.05 }} 
@@ -270,12 +270,8 @@ export default function TopBar() {
             >
               <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
                 <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill={isDarkMode ? "#fff" : "#000"}/>
-                  <text x="20" y="32" textAnchor="middle" fill={isDarkMode ? "#000" : "#fff"} fontSize="14" fontWeight="800" fontFamily="system-ui">$</text>
-                  <circle cx="36" cy="12" r="7" fill="#25F4EE" stroke={isDarkMode ? "#000" : "#fff"} strokeWidth="2"/>
-                  <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800" fontFamily="system-ui">$</text>
+                  <rect x="10" y="10" width="28" height="28" rx="8" fill="#FF0000" />
+                  <polygon points="22,20 22,32 32,26" fill="#FFFFFF" />
                 </svg>
               </div>
               <span style={{
@@ -283,10 +279,10 @@ export default function TopBar() {
                 fontWeight: 800,
                 color: isDarkMode ? "#fff" : "#000",
                 letterSpacing: "-0.5px",
-                fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif",
+                fontFamily: "Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 whiteSpace: "nowrap",
               }}>
-                Tik<span style={{ color: "#fe2c55" }}>Cash</span>
+                You<span style={{ color: "#FF0000" }}>Cash</span>
               </span>
             </motion.div>
           </Link>
@@ -438,16 +434,16 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                           display: "flex", alignItems: "center", gap: "14px",
                           padding: "16px 18px", borderRadius: "14px",
                           background: pathname === item.href 
-                            ? (isDarkMode ? "rgba(254,44,85,0.15)" : "rgba(254,44,85,0.1)")
+                            ? (isDarkMode ? "rgba(255,0,0,0.15)" : "rgba(255,0,0,0.1)")
                             : (isDarkMode ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)"),
                           border: pathname === item.href 
-                            ? "1px solid rgba(254,44,85,0.3)" 
+                            ? "1px solid rgba(255,0,0,0.3)" 
                             : `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`,
                           cursor: "pointer",
                           transition: "all 0.2s",
                         }}
                       >
-                        <span style={{ color: pathname === item.href ? "#fe2c55" : (isDarkMode ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)") }}>
+                        <span style={{ color: pathname === item.href ? "#FF0000" : (isDarkMode ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)") }}>
                           {item.icon}
                         </span>
                         <span style={{ 

@@ -37,9 +37,9 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="TikCash" />
-        <title>TikCash - Earn Money Rating Videos</title>
-        <meta name="description" content="TikCash - Earn money by rating videos. Join now and start earning!" />
+        <meta name="apple-mobile-web-app-title" content="YouCash" />
+        <title>YouCash - Earn Money Rating Videos</title>
+        <meta name="description" content="YouCash - Earn money by rating videos. Join now and start earning!" />
         <meta name="version" content="1.0.7" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
         <meta name="theme-color" content="#000000" />

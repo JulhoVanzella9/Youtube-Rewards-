@@ -1,11 +1,11 @@
 {
-  "name": "TikCash",
-  "short_name": "TikCash",
+  "name": "YouCash",
+  "short_name": "YouCash",
   "description": "Earn money by rating videos",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#fe2c55",
+  "theme_color": "#FF0000",
   "orientation": "portrait",
   "scope": "/",
   "icons": [

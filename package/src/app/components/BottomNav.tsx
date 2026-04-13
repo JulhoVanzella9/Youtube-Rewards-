@@ -29,7 +29,7 @@ export default function BottomNav() {
       href: "/",
       label: t("home"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#fe2c55" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#FF0000" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
@@ -39,7 +39,7 @@ export default function BottomNav() {
       href: "/courses",
       label: t("class"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#25f4ee" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#282828" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
         </svg>
@@ -56,11 +56,11 @@ export default function BottomNav() {
         }}>
           <div style={{
             position: "absolute", left: 0, width: "32px", height: "32px",
-            borderRadius: "8px", background: "#25f4ee",
+            borderRadius: "8px", background: "#282828",
           }} />
           <div style={{
             position: "absolute", right: 0, width: "32px", height: "32px",
-            borderRadius: "8px", background: "#fe2c55",
+            borderRadius: "8px", background: "#FF0000",
           }} />
           <div style={{
             position: "relative", width: "32px", height: "32px",
@@ -79,7 +79,7 @@ export default function BottomNav() {
       href: "/support",
       label: t("support"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#25f4ee" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#282828" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
       ),
@@ -88,7 +88,7 @@ export default function BottomNav() {
       href: "/wallet",
       label: t("wallet"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#ffd700" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#FF0000" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
           <line x1="1" y1="10" x2="23" y2="10"/>
         </svg>
@@ -157,8 +157,8 @@ export default function BottomNav() {
                     width: "24px",
                     height: "3px",
                     borderRadius: "2px",
-                    background: tab.href === "/" ? "#fe2c55" : tab.href === "/wallet" ? "#ffd700" : "#25f4ee",
-                    boxShadow: `0 0 8px ${tab.href === "/" ? "rgba(254,44,85,0.5)" : tab.href === "/wallet" ? "rgba(255,215,0,0.5)" : "rgba(37,244,238,0.5)"}`,
+                  background: tab.href === "/" ? "#FF0000" : tab.href === "/wallet" ? "#ffd700" : "#282828",
+                    boxShadow: `0 0 8px ${tab.href === "/" ? "rgba(255,0,0,0.5)" : tab.href === "/wallet" ? "rgba(255,215,0,0.5)" : "rgba(40,40,40,0.5)"}`,
                   }}
                 />
               )}
