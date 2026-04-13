@@ -1,0 +1,1836 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --tikcash-red: #fe2c55;
+  --tikcash-cyan: #25f4ee;
+  --tikcash-dark: #121212;
+  --tikcash-darker: #0a0a0a;
+  --tikcash-card: #1a1a2e;
+  --tikcash-card-hover: #222240;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --gradient-primary: linear-gradient(135deg, #fe2c55 0%, #ff6b81 50%, #25f4ee 100%);
+  --gradient-button: linear-gradient(135deg, #fe2c55 0%, #ff4070 100%);
+  --gradient-card: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  --shadow-glow: 0 0 20px rgba(254, 44, 85, 0.15);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --tikcash-dark: #f5f5f5;
+  --tikcash-darker: #ffffff;
+  --tikcash-card: #ffffff;
+  --tikcash-card-hover: #f0f0f0;
+  --glass: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --text-primary: #121212;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-muted: rgba(0, 0, 0, 0.4);
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100%;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+}
+
+/* Light theme body override */
+[data-theme="light"] body {
+  background-color: #f5f5f5 !important;
+  color: #121212 !important;
+}
+
+/* Dark theme body */
+[data-theme="dark"] body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+::selection {
+  background-color: rgba(254, 44, 85, 0.4);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] ::selection {
+  background-color: rgba(254, 44, 85, 0.3);
+  color: #000000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+[data-theme="light"] ::-webkit-scrollbar-thumb { 
+  background: rgba(0,0,0,0.15); 
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { 
+  background: rgba(0,0,0,0.25); 
+}
+
+/* Smooth transitions */
+a { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; }
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.ripple:active::after { opacity: 1; }
+
+/* TikCash-style tap feedback */
+.tap-scale {
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tap-scale:active {
+  transform: scale(0.97);
+}
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+.card-lift:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* Momentum-based easing */
+.momentum {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth image container */
+.img-smooth {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Progressive content reveal */
+@keyframes contentReveal {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.content-reveal {
+  animation: contentReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* Button hover glow */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   3D BUTTON SYSTEM - Premium TikCash Style
+   ============================================ */
+
+/* Base 3D Button */
+.btn-3d {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateZ(0);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  /* Prevent flicker - GPU acceleration */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: perspective(1000px) translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3D Primary Button (Red/Pink) */
+.btn-3d-primary {
+  background: linear-gradient(145deg, #ff3366 0%, #fe2c55 50%, #e91e4a 100%);
+  color: #fff;
+  box-shadow: 
+    0 4px 0 0 #b8183a,
+    0 6px 12px rgba(254, 44, 85, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-3d-primary:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #b8183a,
+    0 10px 20px rgba(254, 44, 85, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.btn-3d-primary:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #b8183a,
+    0 3px 8px rgba(254, 44, 85, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D Red Button (alias for primary) */
+.btn-3d-red {
+  background: linear-gradient(145deg, #ff3366 0%, #fe2c55 50%, #e91e4a 100%);
+  color: #fff;
+  box-shadow: 
+    0 4px 0 0 #b8183a,
+    0 6px 12px rgba(254, 44, 85, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn-3d-red:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #b8183a,
+    0 10px 20px rgba(254, 44, 85, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.btn-3d-red:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #b8183a,
+    0 3px 8px rgba(254, 44, 85, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated Red Button */
+.btn-3d-red.btn-3d-animated {
+  --btn-shadow-color: #b8183a;
+  --btn-glow-color: rgba(254, 44, 85, 0.4);
+}
+
+/* 3D Cyan Button */
+.btn-3d-cyan {
+  background: linear-gradient(145deg, #2ffff5 0%, #25f4ee 50%, #1ad4ce 100%);
+  color: #000;
+  box-shadow: 
+    0 4px 0 0 #15a8a3,
+    0 6px 12px rgba(37, 244, 238, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn-3d-cyan:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #15a8a3,
+    0 10px 20px rgba(37, 244, 238, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.btn-3d-cyan:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #15a8a3,
+    0 3px 8px rgba(37, 244, 238, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D Gold Button */
+.btn-3d-gold {
+  background: linear-gradient(145deg, #ffe066 0%, #ffd700 50%, #e6c200 100%);
+  color: #000;
+  box-shadow: 
+    0 4px 0 0 #b39500,
+    0 6px 12px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn-3d-gold:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #b39500,
+    0 10px 20px rgba(255, 215, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.btn-3d-gold:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #b39500,
+    0 3px 8px rgba(255, 215, 0, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D Dark/Glass Button */
+.btn-3d-dark {
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  color: #fff;
+  box-shadow: 
+    0 4px 0 0 #000,
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -1px 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-3d-dark:hover {
+  transform: perspective(1000px) translateY(-2px) translateZ(4px);
+  box-shadow: 
+    0 6px 0 0 #000,
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.2);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.btn-3d-dark:active {
+  transform: perspective(1000px) translateY(2px) translateZ(0);
+  box-shadow: 
+    0 2px 0 0 #000,
+    0 3px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.25);
+  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3D Button Shine Effect */
+.btn-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.btn-3d:hover::before {
+  left: 100%;
+}
+
+/* 3D Button Ripple Effect */
+.btn-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), 
+    rgba(255,255,255,0.3) 0%, 
+    transparent 60%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-3d:active::after {
+  opacity: 1;
+  transform: scale(2);
+  transition: transform 0.1s ease, opacity 0s;
+}
+
+/* Small 3D Button */
+.btn-3d-sm {
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.btn-3d-sm.btn-3d-primary {
+  box-shadow: 
+    0 3px 0 0 #b8183a,
+    0 4px 10px rgba(254, 44, 85, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+/* Large 3D Button */
+.btn-3d-lg {
+  padding: 18px 36px;
+  font-size: 16px;
+  border-radius: 16px;
+}
+
+.btn-3d-lg.btn-3d-primary {
+  box-shadow: 
+    0 5px 0 0 #b8183a,
+    0 8px 16px rgba(254, 44, 85, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+/* Full Width 3D Button */
+.btn-3d-full {
+  width: 100%;
+}
+
+/* ============================================
+   3D BUTTON ANIMATIONS
+   ============================================ */
+
+/* Pulse Glow Animation */
+@keyframes btn-pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 0 0 var(--btn-shadow-color, #b8183a),
+      0 6px 12px var(--btn-glow-color, rgba(254, 44, 85, 0.4)),
+      inset 0 1px 0 rgba(255,255,255,0.2),
+      inset 0 -1px 0 rgba(0,0,0,0.1);
+  }
+  50% {
+    box-shadow: 
+      0 4px 0 0 var(--btn-shadow-color, #b8183a),
+      0 8px 25px var(--btn-glow-color, rgba(254, 44, 85, 0.6)),
+      0 0 40px var(--btn-glow-color, rgba(254, 44, 85, 0.3)),
+      inset 0 1px 0 rgba(255,255,255,0.25),
+      inset 0 -1px 0 rgba(0,0,0,0.1);
+  }
+}
+
+/* Floating Animation */
+@keyframes btn-float {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0) translateZ(0);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-4px) translateZ(8px);
+  }
+}
+
+/* Bounce Animation */
+@keyframes btn-bounce {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0) scale(1);
+  }
+  25% {
+    transform: perspective(1000px) translateY(-6px) scale(1.02);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-3px) scale(1.01);
+  }
+  75% {
+    transform: perspective(1000px) translateY(-5px) scale(1.015);
+  }
+}
+
+/* Shine Sweep Animation */
+@keyframes btn-shine-sweep {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+/* Animated Primary Button */
+.btn-3d-animated {
+  --btn-shadow-color: #b8183a;
+  --btn-glow-color: rgba(254, 44, 85, 0.4);
+  animation: btn-pulse-glow 2s ease-in-out infinite;
+}
+
+.btn-3d-animated:hover {
+  animation: none;
+  transform: perspective(1000px) translateY(-3px) translateZ(6px);
+}
+
+.btn-3d-animated::before {
+  animation: btn-shine-sweep 3s ease-in-out infinite;
+}
+
+/* Animated Cyan Button */
+.btn-3d-cyan.btn-3d-animated {
+  --btn-shadow-color: #15a8a3;
+  --btn-glow-color: rgba(37, 244, 238, 0.4);
+}
+
+/* Animated Gold Button */
+.btn-3d-gold.btn-3d-animated {
+  --btn-shadow-color: #b39500;
+  --btn-glow-color: rgba(255, 215, 0, 0.4);
+}
+
+/* Floating Button */
+.btn-3d-float {
+  animation: btn-float 3s ease-in-out infinite;
+}
+
+.btn-3d-float:hover {
+  animation: none;
+  transform: perspective(1000px) translateY(-4px) translateZ(10px);
+}
+
+/* Bouncing Button */
+.btn-3d-bounce {
+  animation: btn-bounce 2s ease-in-out infinite;
+}
+
+.btn-3d-bounce:hover {
+  animation: none;
+  transform: perspective(1000px) translateY(-4px) scale(1.02);
+}
+
+/* Attention Grabber - combines pulse and subtle bounce */
+.btn-3d-attention {
+  animation: btn-pulse-glow 2s ease-in-out infinite, btn-float 4s ease-in-out infinite;
+}
+
+.btn-3d-attention:hover {
+  animation: none;
+  transform: perspective(1000px) translateY(-4px) translateZ(8px) scale(1.02);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon spin on hover */
+.btn-3d-icon-spin:hover svg {
+  animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scale up icon on hover */
+.btn-3d-icon-grow:hover svg {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+/* Light theme 3D buttons */
+[data-theme="light"] .btn-3d-dark {
+  background: linear-gradient(145deg, #f5f5f5 0%, #e8e8e8 50%, #d5d5d5 100%);
+  color: #121212;
+  box-shadow: 
+    0 4px 0 0 #c0c0c0,
+    0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .btn-3d-dark:hover {
+  box-shadow: 
+    0 6px 0 0 #c0c0c0,
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(0,0,0,0.05);
+}
+
+[data-theme="light"] .btn-3d-dark:active {
+  box-shadow: 
+    0 2px 0 0 #c0c0c0,
+    0 3px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    inset 0 -1px 0 rgba(0,0,0,0.08);
+}
+
+/* 3D Play Button on Cards */
+.card-play-btn {
+  cursor: pointer;
+}
+
+.card-play-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 6px 0 0 #b8183a,
+    0 10px 24px rgba(254, 44, 85, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.3) !important;
+}
+
+.card-play-btn:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 
+    0 2px 0 0 #b8183a,
+    0 3px 10px rgba(254, 44, 85, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.15) !important;
+}
+
+/* Glow button */
+.glow-btn {
+  position: relative;
+  z-index: 1;
+}
+.glow-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.4s;
+}
+.glow-btn:hover::before { opacity: 0.6; }
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+[data-theme="light"] .skeleton {
+  background: linear-gradient(90deg, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.04) 75%);
+  background-size: 200% 100%;
+}
+
+/* Snap scroll for TikCash feed */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-item {
+  scroll-snap-align: start;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+[data-theme="light"] .glass {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 44, 85, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(254, 44, 85, 0); }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(254, 44, 85, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(254, 44, 85, 0.6); }
+}
+
+/* Mobile safe areas */
+html {
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Hide scrollbar on mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar { width: 0; height: 0; }
+  body { overscroll-behavior-y: contain; }
+}
+
+/* Responsive typography */
+@media (max-width: 375px) {
+  html { font-size: 14px; }
+}
+
+/* ============================================
+   MOBILE RESPONSIVENESS FIXES - ENHANCED
+   Mobile-first approach for all screen sizes
+   ============================================ */
+
+/* Base container styles - fluid and responsive */
+.video-card, [class*="video-card"] {
+  width: 100%;
+  max-width: calc(100vw - 2rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.video-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Responsive typography system */
+html {
+  font-size: clamp(14px, 3.5vw, 16px);
+}
+
+/* Mobile-first breakpoints */
+@media screen and (max-width: 320px) {
+  html { font-size: 13px; }
+  
+  .emoji-btn, .emoji-buttons-row button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+  
+  .btn-3d {
+    padding: 10px 14px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .emoji-btn, .emoji-buttons-row button {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+  }
+  
+  .btn-3d {
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width: 480px) {
+  .emoji-btn, .emoji-buttons-row button {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  html { font-size: 15px; }
+  
+  .btn-3d {
+    padding: 13px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 769px) {
+  html { font-size: 16px; }
+}
+
+/* Ensure long text wraps properly */
+.legal-notice, [class*="legal"], [class*="notice"],
+h1, h2, h3, h4, h5, h6, p, span, label {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Content padding for bottom navbar */
+.page-content, .main-content {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Touch action improvements for mobile */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Prevent text selection on interactive elements */
+nav, button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Responsive spacing utilities */
+.responsive-padding {
+  padding: clamp(12px, 4vw, 24px);
+}
+
+.responsive-gap {
+  gap: clamp(8px, 2vw, 16px);
+}
+
+/* Flex container that wraps properly on small screens */
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 2vw, 16px);
+}
+
+/* Grid that adapts to screen size */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(12px, 3vw, 24px);
+}
+
+/* Responsive card sizing */
+.card-responsive {
+  width: 100%;
+  max-width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+/* Safe area padding for notched devices */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-all {
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+
+/* Theme transition for all elements - exclude buttons to prevent flicker */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s, 0.3s, 0.15s;
+  transition-timing-function: ease;
+}
+
+/* Override for buttons - use their specific transitions */
+.btn-3d, .btn-3d::before, .btn-3d::after {
+  transition-property: transform, box-shadow, opacity, left;
+}
+
+/* Light theme specific overrides for common patterns */
+[data-theme="light"] [style*="background: rgba(255,255,255,"] {
+  background: rgba(0,0,0,0.04) !important;
+}
+
+[data-theme="light"] [style*="color: rgba(255,255,255,"] {
+  color: rgba(0,0,0,0.6) !important;
+}
+
+[data-theme="light"] [style*="color: #fff"] {
+  color: #121212 !important;
+}
+
+[data-theme="light"] [style*="border: 1px solid rgba(255,255,255,"] {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ============================================
+   PREMIUM $500K MOTION SYSTEM
+   Ultra-fluid, TikCash-style immersive animations
+   ============================================ */
+
+/* GPU-accelerated base properties */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Premium easing curves */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   3D CARD SYSTEM - Premium Tilt & Depth
+   ============================================ */
+
+.card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+
+.card-3d:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.card-3d:active {
+  transform: translateY(-2px) rotateX(0) rotateY(0) scale(0.98);
+  transition: transform 0.1s var(--ease-out-expo);
+}
+
+/* Card with floating shadow */
+.card-float {
+  position: relative;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.card-float::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  right: 10%;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+  filter: blur(8px);
+  transition: all 0.5s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.card-float:hover {
+  transform: translateY(-12px);
+}
+
+.card-float:hover::after {
+  bottom: -30px;
+  opacity: 0.8;
+  filter: blur(12px);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+
+@keyframes revealUp {
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.97); 
+    filter: blur(4px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+    filter: blur(0);
+  }
+}
+
+@keyframes revealScale {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.9); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes revealFlip {
+  0% { 
+    opacity: 0; 
+    transform: perspective(1000px) rotateX(-10deg) translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: perspective(1000px) rotateX(0) translateY(0); 
+  }
+}
+
+.reveal-up {
+  animation: revealUp 0.6s var(--ease-out-expo) forwards;
+}
+
+.reveal-scale {
+  animation: revealScale 0.5s var(--ease-out-expo) forwards;
+}
+
+.reveal-flip {
+  animation: revealFlip 0.6s var(--ease-out-expo) forwards;
+}
+
+/* ============================================
+   MICROINTERACTIONS - Input & Form Elements
+   ============================================ */
+
+.input-premium {
+  position: relative;
+  transition: all 0.3s var(--ease-out-expo);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.input-premium:focus {
+  border-color: var(--tikcash-cyan);
+  box-shadow: 
+    0 0 0 3px rgba(37, 244, 238, 0.15),
+    0 4px 20px rgba(37, 244, 238, 0.1);
+  transform: translateY(-1px);
+}
+
+.input-premium:focus-visible {
+  outline: none;
+}
+
+/* Animated label */
+.label-float {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  pointer-events: none;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.input-premium:focus ~ .label-float,
+.input-premium:not(:placeholder-shown) ~ .label-float {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 11px;
+  color: var(--tikcash-cyan);
+}
+
+/* ============================================
+   LOADING & SKELETON STATES
+   ============================================ */
+
+@keyframes shimmerPremium {
+  0% { 
+    background-position: -200% 0;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% { 
+    background-position: 200% 0;
+    opacity: 0.5;
+  }
+}
+
+.skeleton-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg, 
+    rgba(255,255,255,0.03) 25%, 
+    rgba(255,255,255,0.08) 37%, 
+    rgba(255,255,255,0.03) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmerPremium 2s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+[data-theme="light"] .skeleton-premium {
+  background: linear-gradient(
+    90deg, 
+    rgba(0,0,0,0.04) 25%, 
+    rgba(0,0,0,0.08) 37%, 
+    rgba(0,0,0,0.04) 63%
+  );
+  background-size: 400% 100%;
+}
+
+/* Pulse loading */
+@keyframes pulsePremium {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+.pulse-premium {
+  animation: pulsePremium 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================
+   PARTICLE BURST EFFECT (CSS-only)
+   ============================================ */
+
+@keyframes particleBurst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, 0)) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle-burst {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tikcash-red);
+  pointer-events: none;
+  animation: particleBurst 0.6s var(--ease-out-expo) forwards;
+}
+
+/* ============================================
+   DEPTH & LAYERING EFFECTS
+   ============================================ */
+
+.depth-layer-1 {
+  transform: translateZ(10px);
+  will-change: transform;
+}
+
+.depth-layer-2 {
+  transform: translateZ(20px);
+  will-change: transform;
+}
+
+.depth-layer-3 {
+  transform: translateZ(30px);
+  will-change: transform;
+}
+
+/* Background blur for depth */
+.bg-blur-subtle {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.bg-blur-medium {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bg-blur-heavy {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ============================================
+   MODAL & POPUP ANIMATIONS
+   ============================================ */
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes modalExit {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+@keyframes backdropEnter {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modal-enter {
+  animation: modalEnter 0.35s var(--ease-out-expo) forwards;
+}
+
+.modal-exit {
+  animation: modalExit 0.25s var(--ease-in-out-circ) forwards;
+}
+
+.backdrop-enter {
+  animation: backdropEnter 0.25s ease-out forwards;
+}
+
+/* ============================================
+   NAVIGATION TRANSITIONS
+   ============================================ */
+
+@keyframes navItemHover {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+.nav-item {
+  position: relative;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--tikcash-red), var(--tikcash-cyan));
+  transition: width 0.3s var(--ease-out-expo);
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+  width: 100%;
+}
+
+/* ============================================
+   ICON ANIMATIONS
+   ============================================ */
+
+@keyframes iconPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes iconShake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.icon-pop:active {
+  animation: iconPop 0.3s var(--ease-spring);
+}
+
+.icon-shake:hover {
+  animation: iconShake 0.4s var(--ease-spring);
+}
+
+.icon-bounce:hover {
+  animation: iconBounce 0.5s var(--ease-spring);
+}
+
+/* ============================================
+   PROGRESS BAR ANIMATIONS
+   ============================================ */
+
+@keyframes progressGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--tikcash-red), 0 0 10px var(--tikcash-red);
+  }
+  50% { 
+    box-shadow: 0 0 15px var(--tikcash-red), 0 0 25px var(--tikcash-red);
+  }
+}
+
+.progress-bar-premium {
+  position: relative;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress, 0%);
+  background: linear-gradient(90deg, var(--tikcash-red), var(--tikcash-cyan));
+  border-radius: 3px;
+  transition: width 0.5s var(--ease-out-expo);
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   INTERACTIVE BADGE & CHIP EFFECTS
+   ============================================ */
+
+.badge-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(254,44,85,0.15), rgba(37,244,238,0.15));
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.badge-premium:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(254,44,85,0.25);
+}
+
+/* ============================================
+   RIPPLE EFFECT - Enhanced
+   ============================================ */
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), 
+    rgba(255,255,255,0.25) 0%, 
+    transparent 50%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s var(--ease-out-expo), opacity 0.5s;
+}
+
+.ripple-effect:active::before {
+  opacity: 1;
+  transform: scale(2.5);
+  transition: transform 0s, opacity 0s;
+}
+
+/* ============================================
+   TEXT EFFECTS
+   ============================================ */
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.text-gradient-animated {
+  background: linear-gradient(90deg, var(--tikcash-red), var(--tikcash-cyan), var(--tikcash-red));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 3s ease infinite;
+}
+
+/* Typing effect cursor */
+.text-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   TOUCH FEEDBACK - Mobile Optimized
+   ============================================ */
+
+@media (hover: none) {
+  .touch-feedback {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .touch-feedback:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+    transition: transform 0.1s, opacity 0.1s;
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS - Small Screens
+   ============================================ */
+
+@media (max-width: 380px) {
+  /* Smaller buttons for very small screens */
+  .btn-3d {
+    padding: 10px 16px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  .btn-3d-lg {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  /* Reduce card 3D effects on mobile for performance */
+  .card-3d:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Simpler animations for mobile */
+  .card-float:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-height: 700px) {
+  /* Very short screens - reduce spacing */
+  .btn-3d {
+    padding: 10px 16px;
+  }
+}
+
+/* ============================================
+   PERFORMANCE - Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   DESKTOP/TABLET RESPONSIVE STYLES
+   ============================================ */
+
+@media (min-width: 768px) {
+  /* Larger elements for desktop */
+  .btn-3d {
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 14px;
+  }
+  
+  .btn-3d-lg {
+    padding: 18px 36px;
+    font-size: 18px;
+  }
+  
+  /* Better card sizing for desktop */
+  .card-3d,
+  .card-float {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Even larger for big screens */
+  .btn-3d {
+    padding: 16px 32px;
+    font-size: 17px;
+  }
+  
+  .btn-3d-lg {
+    padding: 20px 40px;
+    font-size: 19px;
+  }
+}
+
+/* ============================================
+   MOBILE TOUCH OPTIMIZATIONS
+   Fix flickering/neon glitch on mobile
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Disable ALL animations on touch devices to prevent flickering */
+  .btn-3d,
+  .btn-3d-animated,
+  .btn-3d-float,
+  .btn-3d-bounce,
+  .btn-3d-attention {
+    animation: none !important;
+    will-change: auto;
+    transform: perspective(1000px) translateZ(0);
+    -webkit-transform: perspective(1000px) translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Remove animated glow effects that cause flickering */
+  .btn-3d-animated::before,
+  .btn-3d-float::before,
+  .btn-3d::before {
+    animation: none !important;
+    display: none;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .card-3d:hover {
+    transform: none;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-float:hover {
+    transform: none;
+  }
+  
+  /* Active state instead of hover */
+  .card-3d:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+  
+  .btn-3d:hover {
+    transform: none;
+  }
+  
+  .btn-3d:active {
+    transform: translateY(2px) scale(0.98);
+    transition: transform 0.05s;
+  }
+}
+
+/* ============================================
+   FULL SCREEN PAGE (Refund/Support)
+   No header, no bottom nav - all content visible
+   ============================================ */
+
+.full-screen-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(16px, 4vw, 24px);
+  padding-top: calc(clamp(16px, 4vw, 24px) + env(safe-area-inset-top, 0px));
+  padding-bottom: clamp(32px, 8vw, 48px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* Ensure buttons are fully visible on full-screen pages */
+.full-screen-page .btn-3d {
+  width: 100%;
+  max-width: min(300px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE VIDEO PLAYER SECTION
+   Optimized for TikTok-style vertical videos
+   ============================================ */
+
+.video-slider-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(12px, 3vw, 20px);
+  width: min(calc(100vw - 48px), 320px);
+  height: clamp(280px, 50vh, 500px);
+  margin: 0 auto;
+  background: var(--bg-card);
+}
+
+@media screen and (max-width: 360px) {
+  .video-slider-container {
+    width: calc(100vw - 32px);
+    height: clamp(250px, 55vh, 420px);
+    border-radius: 12px;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 480px) {
+  .video-slider-container {
+    width: min(calc(100vw - 40px), 300px);
+    height: clamp(280px, 52vh, 480px);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .video-slider-container {
+    width: min(360px, calc(100vw - 48px));
+    height: clamp(320px, 55vh, 550px);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .video-slider-container {
+    width: min(380px, calc(100vw - 64px));
+    height: clamp(400px, 60vh, 600px);
+  }
+}
+
+/* Reaction buttons responsive sizing */
+.reaction-buttons {
+  display: flex;
+  justify-content: center;
+  gap: clamp(16px, 5vw, 28px);
+  padding: clamp(8px, 2vw, 16px) 0;
+  max-width: min(320px, calc(100vw - 32px));
+  margin: 0 auto;
+}
+
+.reaction-button {
+  width: clamp(44px, 12vw, 56px);
+  height: clamp(44px, 12vw, 56px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.reaction-button span {
+  font-size: clamp(20px, 5vw, 26px);
+}
+
+/* ============================================
+   RESPONSIVE MODALS & POPUPS
+   ============================================ */
+
+.modal-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 24px);
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: min(400px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border-radius: clamp(16px, 4vw, 24px);
+  padding: clamp(20px, 5vw, 32px);
+}
+
+@media screen and (max-width: 380px) {
+  .modal-content {
+    padding: 16px;
+    border-radius: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE NAVIGATION (TopBar & BottomNav)
+   ============================================ */
+
+.top-bar {
+  height: clamp(48px, 12vw, 60px);
+  padding: 0 clamp(8px, 2vw, 16px);
+}
+
+.bottom-nav {
+  height: calc(clamp(56px, 14vw, 72px) + env(safe-area-inset-bottom, 0px));
+  padding: 0 clamp(4px, 1vw, 8px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.nav-item-label {
+  font-size: clamp(9px, 2.5vw, 11px);
+  font-weight: 500;
+}
+
+.nav-icon {
+  width: clamp(20px, 5vw, 24px);
+  height: clamp(20px, 5vw, 24px);
+}
+
+/* ============================================
+   RESPONSIVE FORMS & INPUTS
+   ============================================ */
+
+.input-responsive {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px) clamp(14px, 4vw, 18px);
+  font-size: clamp(14px, 3.5vw, 16px);
+  border-radius: clamp(10px, 2.5vw, 14px);
+}
+
+.form-label {
+  font-size: clamp(12px, 3vw, 14px);
+  margin-bottom: clamp(6px, 1.5vw, 8px);
+}
+
+/* ============================================
+   RESPONSIVE CARDS & CONTAINERS
+   ============================================ */
+
+.content-card {
+  padding: clamp(16px, 4vw, 28px);
+  border-radius: clamp(14px, 3.5vw, 24px);
+  margin-bottom: clamp(12px, 3vw, 20px);
+}
+
+.section-title {
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 800;
+  margin-bottom: clamp(12px, 3vw, 20px);
+}
+
+.section-subtitle {
+  font-size: clamp(13px, 3.2vw, 16px);
+  line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE BALANCE DISPLAY (TopBar)
+   ============================================ */
+
+.balance-display {
+  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
+  border-radius: clamp(16px, 4vw, 24px);
+  font-size: clamp(11px, 2.8vw, 14px);
+}
+
+.balance-amount {
+  font-size: clamp(12px, 3vw, 15px);
+  font-weight: 800;
+}
+
+/* Show balance label on larger screens */
+@media screen and (min-width: 380px) {
+  .balance-label-desktop {
+    display: inline !important;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MODE ADJUSTMENTS
+   ============================================ */
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .video-slider-container {
+    height: clamp(200px, 70vh, 320px);
+    width: min(200px, 40vw);
+  }
+  
+  .reaction-buttons {
+    flex-direction: column;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 12px;
+  }
+  
+  .reaction-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .bottom-nav {
+    height: calc(48px + env(safe-area-inset-bottom, 0px));
+  }
+}

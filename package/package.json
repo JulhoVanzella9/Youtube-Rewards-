@@ -1,0 +1,32 @@
+{
+  "name": "tikmoney-cursos",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "^3.0.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@types/node": "22.7.4",
+    "@types/react": "18.3.10",
+    "@types/react-dom": "18.3.0",
+    "ai": "^6.0.0",
+    "eslint": "9.21.0",
+    "eslint-config-next": "15.2.0",
+    "framer-motion": "^12.38.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "next": "^15.3.9",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "5.7.3",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

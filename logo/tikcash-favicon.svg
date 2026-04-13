@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="#000000"/>
+  <!-- cyan shadow -->
+  <path d="M40 10V39C40 47 34 54 25 54C16 54 10 47 10 38C10 29 16 23 25 23C27 23 30 24 31 25V10H40Z"
+    fill="#25F4EE" transform="translate(-2,-1)"/>
+  <!-- red/pink shadow -->
+  <path d="M40 10V39C40 47 34 54 25 54C16 54 10 47 10 38C10 29 16 23 25 23C27 23 30 24 31 25V10H40Z"
+    fill="#FE2C55" transform="translate(2,1)"/>
+  <!-- white main note -->
+  <path d="M40 10V39C40 47 34 54 25 54C16 54 10 47 10 38C10 29 16 23 25 23C27 23 30 24 31 25V10H40Z"
+    fill="#FFFFFF"/>
+  <!-- dollar sign -->
+  <text x="25" y="44" text-anchor="middle" fill="#000000" font-size="18" font-weight="800" font-family="Arial Black, system-ui, sans-serif">$</text>
+  <!-- cyan coin -->
+  <circle cx="49" cy="15" r="9" fill="#25F4EE"/>
+  <text x="49" y="19" text-anchor="middle" fill="#000000" font-size="10" font-weight="800" font-family="Arial Black, system-ui, sans-serif">$</text>
+</svg>

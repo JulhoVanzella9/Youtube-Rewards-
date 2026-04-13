@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="110" fill="#000000"/>
+  <!-- cyan shadow -->
+  <path d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
+    fill="#25F4EE" transform="translate(-16,-10)"/>
+  <!-- red/pink shadow -->
+  <path d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
+    fill="#FE2C55" transform="translate(16,10)"/>
+  <!-- white main note -->
+  <path d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
+    fill="#FFFFFF"/>
+  <!-- dollar sign inside circle -->
+  <text x="200" y="345" text-anchor="middle" fill="#000000" font-size="130" font-weight="800" font-family="Arial Black, system-ui, sans-serif">$</text>
+  <!-- cyan coin top right -->
+  <circle cx="392" cy="118" r="68" fill="#25F4EE"/>
+  <text x="392" y="145" text-anchor="middle" fill="#000000" font-size="80" font-weight="800" font-family="Arial Black, system-ui, sans-serif">$</text>
+</svg>

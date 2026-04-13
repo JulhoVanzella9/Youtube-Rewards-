@@ -1,0 +1,36 @@
+{
+  "name": "TikCash",
+  "short_name": "TikCash",
+  "description": "Earn money by rating videos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#fe2c55",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["entertainment", "finance"],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
