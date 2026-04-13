@@ -13,18 +13,18 @@ export default function HomePage() {
   const features = [
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
           <path d="M22 12A10 10 0 0 0 12 2v10z"/>
         </svg>
       ),
       title: "Real-Time Analytics",
       description: "Track your performance with live data and insights to optimize your content strategy.",
-      color: "#25f4ee",
+      color: "#282828",
     },
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
           <line x1="8" y1="21" x2="16" y2="21"/>
           <line x1="12" y1="17" x2="12" y2="21"/>
@@ -32,7 +32,7 @@ export default function HomePage() {
       ),
       title: "Automated Tools",
       description: "Save time with automation that handles repetitive tasks and maximizes efficiency.",
-      color: "#fe2c55",
+      color: "#FF0000",
     },
     {
       icon: (
@@ -57,7 +57,7 @@ export default function HomePage() {
   ];
 
   const gettingStartedSteps = [
-    "Navigate to the TikCash App section using the sidebar",
+    "Navigate to the YouCash App section using the sidebar",
     "Start watching videos and earn rewards daily",
     "Track your earnings and withdraw your balance anytime",
     "Access Support if you need help or have questions",
@@ -100,11 +100,11 @@ export default function HomePage() {
           transition={{ duration: 0.5 }}
           style={{
             background: isDarkMode
-              ? "linear-gradient(135deg, rgba(254,44,85,0.1) 0%, rgba(37,244,238,0.05) 100%)"
-              : "linear-gradient(135deg, rgba(254,44,85,0.08) 0%, rgba(37,244,238,0.04) 100%)",
+              ? "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(40,40,40,0.05) 100%)"
+              : "linear-gradient(135deg, rgba(255,0,0,0.08) 0%, rgba(40,40,40,0.04) 100%)",
             borderRadius: "16px",
             padding: "16px 16px 20px 16px",
-            border: `1px solid ${isDarkMode ? "rgba(254,44,85,0.2)" : "rgba(254,44,85,0.15)"}`,
+            border: `1px solid ${isDarkMode ? "rgba(255,0,0,0.2)" : "rgba(255,0,0,0.15)"}`,
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
@@ -112,20 +112,20 @@ export default function HomePage() {
               width: "44px",
               height: "44px",
               borderRadius: "50%",
-              background: "rgba(254,44,85,0.15)",
+              background: "rgba(255,0,0,0.15)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               flexShrink: 0,
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fe2c55">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF0000">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
             </div>
             <h2 style={{
               fontSize: "22px",
               fontWeight: 800,
-              color: "#fe2c55",
+              color: "#FF0000",
             }}>
               Video Tutorial
             </h2>
@@ -137,7 +137,7 @@ export default function HomePage() {
             marginBottom: "20px",
             lineHeight: 1.5,
           }}>
-            Watch this quick tutorial to learn how to use the TikCash app and maximize your earnings.
+            Watch this quick tutorial to learn how to use the YouCash app and maximize your earnings.
           </p>
 
           {/* Video Player */}
@@ -201,8 +201,8 @@ export default function HomePage() {
         textAlign: "center",
         position: "relative",
         background: isDarkMode
-          ? "linear-gradient(180deg, rgba(254,44,85,0.08) 0%, rgba(37,244,238,0.05) 50%, transparent 100%)"
-          : "linear-gradient(180deg, rgba(254,44,85,0.06) 0%, rgba(37,244,238,0.04) 50%, transparent 100%)",
+          ? "linear-gradient(180deg, rgba(255,0,0,0.08) 0%, rgba(40,40,40,0.05) 50%, transparent 100%)"
+          : "linear-gradient(180deg, rgba(255,0,0,0.06) 0%, rgba(40,40,40,0.04) 50%, transparent 100%)",
       }}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -217,12 +217,12 @@ export default function HomePage() {
         >
           <span style={{ color: "var(--text-primary)" }}>Welcome to </span>
           <span style={{
-            background: "linear-gradient(135deg, #fe2c55 0%, #25f4ee 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
           }}>
-            TikCash
+            YouCash
           </span>
         </motion.h1>
 
@@ -238,7 +238,7 @@ export default function HomePage() {
             lineHeight: 1.5,
           }}
         >
-          Your gateway to monetizing your TikTok content and maximizing your earnings
+            Your gateway to monetizing your YouTube content and maximizing your earnings
         </motion.p>
 
         <motion.div
