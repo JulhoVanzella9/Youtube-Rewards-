@@ -737,8 +737,8 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #FF0000",
-              background: ratings[currentIndex] === "happy" ? "rgba(255,0,0,0.2)" : "transparent",
+              border: "2px solid #22c55e",
+              background: ratings[currentIndex] === "happy" ? "rgba(34,197,94,0.2)" : "transparent",
               transition: "all 200ms",
             }}
           >
@@ -769,8 +769,8 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #282828",
-              background: ratings[currentIndex] === "neutral" ? "rgba(255,255,255,0.1)" : "transparent",
+              border: "2px solid #eab308",
+              background: ratings[currentIndex] === "neutral" ? "rgba(234,179,8,0.2)" : "transparent",
               transition: "all 200ms",
             }}
           >
