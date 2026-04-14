@@ -367,7 +367,7 @@ export default function CreatePage() {
           transition={{ type: "spring", stiffness: 200 }}
           style={{
             width: "100px", height: "100px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #FF0000, #282828)",
+            background: "linear-gradient(135deg, #FF0000, #CC0000)",
             display: "flex", alignItems: "center", justifyContent: "center",
             marginBottom: "24px",
           }}
@@ -401,8 +401,8 @@ export default function CreatePage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           style={{
-            background: "rgba(37,244,238,0.1)",
-            border: "1px solid rgba(37,244,238,0.3)",
+            background: "rgba(255,0,0,0.1)",
+            border: "1px solid rgba(255,0,0,0.3)",
             borderRadius: "16px",
             padding: "20px 32px",
             marginBottom: "24px",
@@ -432,9 +432,9 @@ export default function CreatePage() {
             width: "100%",
             maxWidth: "320px",
             padding: "20px",
-            background: "linear-gradient(135deg, rgba(254,44,85,0.1) 0%, rgba(254,44,85,0.05) 100%)",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.05) 100%)",
             borderRadius: "16px",
-            border: "1px solid rgba(254,44,85,0.2)",
+            border: "1px solid rgba(255,0,0,0.2)",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
@@ -579,7 +579,7 @@ export default function CreatePage() {
               transition={{ type: "spring", stiffness: 200 }}
               style={{
                 width: "80px", height: "80px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #22c55e, #282828)",
+                background: "linear-gradient(135deg, #22c55e, #16a34a)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 marginBottom: "20px",
               }}
@@ -677,7 +677,7 @@ export default function CreatePage() {
           <motion.div
             animate={{ width: `${(ratings.filter(r => r !== null).length / (videoData.length || 1)) * 100}%` }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            style={{ height: "100%", background: "linear-gradient(90deg, #282828, #FF0000)", borderRadius: "0 2px 2px 0" }}
+            style={{ height: "100%", background: "linear-gradient(90deg, #FF0000, #CC0000)", borderRadius: "0 2px 2px 0" }}
           />
         </div>
 
@@ -738,7 +738,7 @@ export default function CreatePage() {
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
               border: "2px solid #282828",
-              background: ratings[currentIndex] === "happy" ? "rgba(37,244,238,0.2)" : "transparent",
+              background: ratings[currentIndex] === "happy" ? "rgba(255,0,0,0.2)" : "transparent",
               transition: "all 200ms",
             }}
           >
@@ -802,7 +802,7 @@ export default function CreatePage() {
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
               border: "2px solid #FF0000",
-              background: ratings[currentIndex] === "sad" ? "rgba(254,44,85,0.2)" : "transparent",
+              background: ratings[currentIndex] === "sad" ? "rgba(255,0,0,0.2)" : "transparent",
               transition: "all 200ms",
             }}
           >

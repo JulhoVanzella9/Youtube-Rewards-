@@ -53,8 +53,8 @@ export default function PrivacyPage() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
         style={{
-          background: "rgba(37,244,238,0.05)", borderRadius: "16px",
-          border: "1px solid rgba(37,244,238,0.1)", padding: "16px 20px",
+          background: "rgba(255,0,0,0.05)", borderRadius: "16px",
+          border: "1px solid rgba(255,0,0,0.1)", padding: "16px 20px",
           marginBottom: "24px", fontSize: "13px", color: "#282828",
           lineHeight: 1.6, fontWeight: 500,
         }}

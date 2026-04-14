@@ -152,8 +152,8 @@ export default function SettingsPage() {
                     padding: "12px 16px", borderRadius: "12px",
                     marginBottom: "4px", cursor: "pointer",
                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                    background: language === lang.code ? "rgba(254,44,85,0.1)" : "rgba(255,255,255,0.02)",
-                    border: language === lang.code ? "1px solid rgba(254,44,85,0.2)" : "1px solid transparent",
+                    background: language === lang.code ? "rgba(255,0,0,0.1)" : "rgba(255,255,255,0.02)",
+                    border: language === lang.code ? "1px solid rgba(255,0,0,0.2)" : "1px solid transparent",
                   }}
                 >
                   <span style={{
@@ -226,11 +226,11 @@ export default function SettingsPage() {
         transition={{ duration: 0.4, delay: 0.3 }}
       >
         <div style={{
-          background: "rgba(254,44,85,0.04)", borderRadius: "18px",
-          border: "1px solid rgba(254,44,85,0.08)", overflow: "hidden",
+          background: "rgba(255,0,0,0.04)", borderRadius: "18px",
+          border: "1px solid rgba(255,0,0,0.08)", overflow: "hidden",
         }}>
           <motion.div
-            whileHover={{ background: "rgba(254,44,85,0.08)" }}
+            whileHover={{ background: "rgba(255,0,0,0.08)" }}
             whileTap={{ scale: 0.99 }}
             onClick={handleLogout}
             style={{

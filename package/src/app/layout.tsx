@@ -45,17 +45,19 @@ export default function RootLayout({
         <meta name="description" content="YouCash Rewards - Earn money by rating videos. Join now and start earning!" />
         <meta name="version" content="1.0.7" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-        <meta name="theme-color" content="#FF0000" />
+        <meta name="theme-color" content="#FFFFFF" />
         <meta name="mobile-web-app-capable" content="yes" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem('theme') || 'dark';
+                  var theme = localStorage.getItem('theme') || 'light';
                   document.documentElement.setAttribute('data-theme', theme);
                   if (theme === 'light') {
-                    document.documentElement.style.backgroundColor = '#f5f5f5';
+                    document.documentElement.style.backgroundColor = '#FFFFFF';
+                  } else {
+                    document.documentElement.style.backgroundColor = '#0F0F0F';
                   }
                 } catch (e) {}
               })();

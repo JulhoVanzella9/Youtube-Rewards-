@@ -289,7 +289,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                   <div style={{ textAlign: "center", padding: "20px 0" }}>
                     <div style={{
                       width: "64px", height: "64px", borderRadius: "50%",
-                      background: "linear-gradient(135deg, #282828, #00d4aa)",
+                      background: "linear-gradient(135deg, #FF0000, #CC0000)",
                       display: "flex", alignItems: "center", justifyContent: "center",
                       margin: "0 auto 16px",
                     }}>

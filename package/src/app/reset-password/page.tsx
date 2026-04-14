@@ -79,7 +79,7 @@ export default function ResetPasswordPage() {
           style={{
             position: "absolute", top: "-10%", right: "-10%",
             width: "400px", height: "400px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(254,44,85,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.12) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -106,10 +106,10 @@ export default function ResetPasswordPage() {
           <div
             style={{
               width: "60px", height: "60px", borderRadius: "16px",
-              background: "linear-gradient(135deg, #FF0000, #282828)",
+              background: "linear-gradient(135deg, #FF0000, #CC0000)",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontWeight: 900, fontSize: "28px", color: "#fff",
-              margin: "0 auto 16px", boxShadow: "0 0 30px rgba(254,44,85,0.3)",
+              margin: "0 auto 16px", boxShadow: "0 0 30px rgba(255,0,0,0.3)",
             }}
           >
             <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
@@ -130,7 +130,7 @@ export default function ResetPasswordPage() {
             animate={{ opacity: 1, y: 0 }}
             style={{
               padding: "12px 16px", borderRadius: "12px",
-              background: "rgba(254,44,85,0.1)", border: "1px solid rgba(254,44,85,0.2)",
+              background: "rgba(255,0,0,0.1)", border: "1px solid rgba(255,0,0,0.2)",
               color: "#FF0000", fontSize: "13px", fontWeight: 600,
               marginBottom: "16px", textAlign: "center",
             }}
@@ -145,7 +145,7 @@ export default function ResetPasswordPage() {
             animate={{ opacity: 1, y: 0 }}
             style={{
               padding: "12px 16px", borderRadius: "12px",
-              background: "rgba(37,244,238,0.1)", border: "1px solid rgba(37,244,238,0.2)",
+              background: "rgba(255,0,0,0.1)", border: "1px solid rgba(255,0,0,0.2)",
               color: "#282828", fontSize: "13px", fontWeight: 600,
               marginBottom: "16px", textAlign: "center",
             }}
@@ -166,7 +166,7 @@ export default function ResetPasswordPage() {
                 position: "relative", borderRadius: "12px",
                 border: focusedField === "password" ? "2px solid var(--tikcash-red)" : "2px solid rgba(255,255,255,0.1)",
                 transition: "border-color 0.3s, box-shadow 0.3s",
-                boxShadow: focusedField === "password" ? "0 0 0 4px rgba(254,44,85,0.1)" : "none",
+                boxShadow: focusedField === "password" ? "0 0 0 4px rgba(255,0,0,0.1)" : "none",
                 overflow: "hidden",
               }}
             >
@@ -199,7 +199,7 @@ export default function ResetPasswordPage() {
                 position: "relative", borderRadius: "12px",
                 border: focusedField === "confirm" ? "2px solid var(--tikcash-red)" : "2px solid rgba(255,255,255,0.1)",
                 transition: "border-color 0.3s, box-shadow 0.3s",
-                boxShadow: focusedField === "confirm" ? "0 0 0 4px rgba(254,44,85,0.1)" : "none",
+                boxShadow: focusedField === "confirm" ? "0 0 0 4px rgba(255,0,0,0.1)" : "none",
                 overflow: "hidden",
               }}
             >
@@ -229,7 +229,7 @@ export default function ResetPasswordPage() {
             <motion.button
               type="submit"
               disabled={loading}
-              whileHover={{ scale: 1.02, boxShadow: "0 8px 30px rgba(254,44,85,0.4)", translateY: -2 }}
+              whileHover={{ scale: 1.02, boxShadow: "0 8px 30px rgba(255,0,0,0.4)", translateY: -2 }}
               whileTap={{ scale: 0.98, translateY: 1 }}
               style={{
                 width: "100%", padding: "16px", fontSize: "16px", fontWeight: 700,
@@ -237,7 +237,7 @@ export default function ResetPasswordPage() {
                 color: "#fff", border: "none", borderRadius: "16px",
                 cursor: loading ? "not-allowed" : "pointer", fontFamily: "inherit",
                 letterSpacing: "0.3px", opacity: loading ? 0.7 : 1,
-                boxShadow: "0 4px 15px rgba(254,44,85,0.3), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 0 #c41e40",
+                boxShadow: "0 4px 15px rgba(255,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 0 #c41e40",
                 transform: "perspective(500px) rotateX(2deg)",
                 textShadow: "0 1px 2px rgba(0,0,0,0.3)",
               }}

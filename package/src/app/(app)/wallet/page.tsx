@@ -264,7 +264,7 @@ export default function WalletPage() {
               style={{
                 padding: "14px 8px",
                 background: selectedAmount === amount.value
-                  ? "linear-gradient(145deg, rgba(254,44,85,0.15), rgba(254,44,85,0.05))"
+                  ? "linear-gradient(145deg, rgba(255,0,0,0.15), rgba(255,0,0,0.05))"
                   : isDarkMode ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)",
                 border: selectedAmount === amount.value
                   ? "2px solid #FF0000"
@@ -285,7 +285,7 @@ export default function WalletPage() {
                   fontSize: "9px", fontWeight: 700,
                   padding: "3px 8px", borderRadius: "6px",
                   whiteSpace: "nowrap",
-                  boxShadow: "0 2px 8px rgba(254,44,85,0.3)",
+                  boxShadow: "0 2px 8px rgba(255,0,0,0.3)",
                 }}>
                   {t("onlyOnce")}
                 </div>
@@ -331,10 +331,10 @@ export default function WalletPage() {
         transition={{ delay: 0.25 }}
         style={{
           background: isDarkMode 
-            ? "linear-gradient(135deg, rgba(37,244,238,0.08) 0%, rgba(37,244,238,0.03) 100%)"
-            : "linear-gradient(135deg, rgba(37,244,238,0.12) 0%, rgba(37,244,238,0.06) 100%)",
+            ? "linear-gradient(135deg, rgba(255,0,0,0.08) 0%, rgba(255,0,0,0.03) 100%)"
+            : "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.06) 100%)",
           borderRadius: "20px", padding: "20px",
-          border: `1px solid ${isDarkMode ? "rgba(37,244,238,0.2)" : "rgba(37,244,238,0.3)"}`,
+          border: `1px solid ${isDarkMode ? "rgba(255,0,0,0.2)" : "rgba(255,0,0,0.3)"}`,
           position: "relative",
           overflow: "hidden",
         }}
@@ -344,19 +344,19 @@ export default function WalletPage() {
           position: "absolute",
           top: "12px",
           right: "12px",
-          background: "linear-gradient(135deg, #282828, #00d4aa)",
+          background: "linear-gradient(135deg, #FF0000, #CC0000)",
           padding: "6px 12px",
           borderRadius: "20px",
           display: "flex",
           alignItems: "center",
           gap: "6px",
-          boxShadow: "0 4px 12px rgba(37,244,238,0.3)",
+          boxShadow: "0 4px 12px rgba(255,0,0,0.3)",
         }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             <polyline points="9 12 11 14 15 10"/>
           </svg>
-          <span style={{ fontSize: "10px", fontWeight: 700, color: "#000" }}>
+          <span style={{ fontSize: "10px", fontWeight: 700, color: "#fff" }}>
             {t("refundGuarantee") || "Money-Back Guarantee"}
           </span>
         </div>
@@ -365,17 +365,17 @@ export default function WalletPage() {
         <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginTop: "32px" }}>
           <div style={{
             width: "48px", height: "48px", borderRadius: "50%",
-            background: "linear-gradient(135deg, rgba(37,244,238,0.2), rgba(37,244,238,0.1))",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,0,0,0.1))",
             display: "flex", alignItems: "center", justifyContent: "center",
             flexShrink: 0,
-            border: "2px solid rgba(37,244,238,0.3)",
+            border: "2px solid rgba(255,0,0,0.3)",
           }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#282828", marginBottom: "6px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 800, color: "var(--text-primary)", marginBottom: "6px" }}>
               {t("refundTitle") || "30-Day Refund Policy"}
             </h3>
             <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.5, marginBottom: "16px" }}>
@@ -387,7 +387,7 @@ export default function WalletPage() {
         {/* Centered 3D Button */}
         <button
           onClick={() => setShowRefundModal(true)}
-          className="btn-3d btn-3d-cyan btn-3d-full btn-3d-animated"
+          className="btn-3d btn-3d-primary btn-3d-full btn-3d-animated"
           style={{
             width: "100%",
             marginTop: "16px",
@@ -395,15 +395,15 @@ export default function WalletPage() {
             fontSize: "15px",
             fontWeight: 700,
             padding: "14px 24px",
-            background: "linear-gradient(135deg, #282828 0%, #00d4aa 100%)",
-            color: "#000",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
+            color: "#fff",
             border: "none",
             borderRadius: "14px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             gap: "10px",
-            boxShadow: "0 4px 0 0 #15a8a3, 0 8px 20px rgba(40, 40, 40, 0.35)",
+            boxShadow: "0 4px 0 0 #990000, 0 8px 20px rgba(255, 0, 0, 0.25)",
             cursor: "pointer",
             transition: "all 0.15s ease",
           }}

@@ -95,7 +95,7 @@ export default function ProfilePage() {
           transition={{ duration: 0.3 }}
           style={{
             width: "90px", height: "90px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #FF0000, #282828)",
+            background: "linear-gradient(135deg, #FF0000, #CC0000)",
             margin: "0 auto 14px", display: "flex", alignItems: "center",
             justifyContent: "center", fontSize: "36px", fontWeight: 800,
             color: "#fff", position: "relative",
@@ -203,9 +203,9 @@ export default function ProfilePage() {
           whileHover={{ scale: 1.01, x: 4 }}
           whileTap={{ scale: 0.98 }}
           style={{
-            background: "linear-gradient(135deg, rgba(254,44,85,0.12), rgba(168,85,247,0.08))",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.12), rgba(168,85,247,0.08))",
             borderRadius: "16px",
-            border: "1px solid rgba(254,44,85,0.15)",
+            border: "1px solid rgba(255,0,0,0.15)",
             padding: "18px 16px", marginBottom: "24px",
             display: "flex", alignItems: "center", justifyContent: "space-between",
             cursor: "pointer",
@@ -280,7 +280,7 @@ export default function ProfilePage() {
       >
         <Link href="/course/youcash-program" prefetch={true}>
           <motion.button
-            whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(254,44,85,0.4)" }}
+            whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(255,0,0,0.4)" }}
             whileTap={{ scale: 0.98 }}
             style={{
               width: "100%", padding: "14px", fontSize: "15px", fontWeight: 700,
@@ -288,7 +288,7 @@ export default function ProfilePage() {
               color: "#fff",
               border: "none", borderRadius: "50px", cursor: "pointer",
               fontFamily: "inherit",
-              boxShadow: "0 4px 15px rgba(254,44,85,0.3), 0 2px 0 #c41e40",
+              boxShadow: "0 4px 15px rgba(255,0,0,0.3), 0 2px 0 #c41e40",
             }}
           >
             {t("goToClass")}

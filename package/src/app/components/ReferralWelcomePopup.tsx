@@ -130,11 +130,11 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
               animate={{ scale: 1 }}
               transition={{ delay: 0.4, type: "spring" }}
               style={{
-                background: "linear-gradient(135deg, rgba(37,244,238,0.15) 0%, rgba(254,44,85,0.15) 100%)",
+                background: "linear-gradient(135deg, rgba(255,0,0,0.15) 0%, rgba(255,0,0,0.15) 100%)",
                 borderRadius: "16px",
                 padding: "20px",
                 marginBottom: "20px",
-                border: "1px solid rgba(37,244,238,0.2)",
+                border: "1px solid rgba(255,0,0,0.2)",
               }}
             >
               <div style={{
@@ -151,7 +151,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
                 fontSize: "40px",
                 fontWeight: 800,
                 color: "#fff",
-                textShadow: "0 0 30px rgba(37,244,238,0.5)",
+                textShadow: "0 0 30px rgba(255,0,0,0.5)",
               }}>
                 $20.00
               </div>
@@ -214,7 +214,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
                 fontSize: "16px",
                 fontWeight: 700,
                 cursor: "pointer",
-                boxShadow: "0 8px 24px rgba(254,44,85,0.4)",
+                boxShadow: "0 8px 24px rgba(255,0,0,0.4)",
               }}
             >
               Let&apos;s Start Earning!

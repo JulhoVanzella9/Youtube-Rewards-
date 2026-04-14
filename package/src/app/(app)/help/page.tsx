@@ -173,7 +173,7 @@ export default function HelpPage() {
         style={{ marginBottom: "28px" }}
       >
         <div style={{
-          background: "linear-gradient(135deg, rgba(254,44,85,0.06), rgba(37,244,238,0.04))",
+          background: "linear-gradient(135deg, rgba(255,0,0,0.06), rgba(255,0,0,0.04))",
           borderRadius: "20px", border: "1px solid rgba(255,255,255,0.06)",
           padding: "24px", textAlign: "center",
         }}>
@@ -209,7 +209,7 @@ export default function HelpPage() {
                 <motion.button
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(254,44,85,0.3)" }}
+                  whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(255,0,0,0.3)" }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setFeedbackSent(true)}
                   className="glow-btn"

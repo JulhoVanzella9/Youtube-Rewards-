@@ -138,9 +138,10 @@ export default function TopBar() {
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
       </svg>
     )},
-    { label: "YouCash", href: "/create", icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    { label: "Shorts", href: "/create", icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M10 14.65v-5.3L15 12l-5 2.65z" fill="currentColor"/>
+        <path d="M17.77 10.32c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25z" fill="currentColor"/>
       </svg>
     )},
     { label: t("support") || "Support", href: "/support", icon: (
@@ -159,7 +160,7 @@ export default function TopBar() {
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
     )},
-{ label: t("inviteFriends") || "Invite Friends", href: "#referral", isReferral: true, badge: "+$20", badgeColor: "#00d47e", icon: (
+{ label: t("inviteFriends") || "Invite Friends", href: "#referral", isReferral: true, badge: "+$20", badgeColor: "#065FD4", icon: (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
   <circle cx="9" cy="7" r="4"/>
@@ -434,10 +435,10 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                           display: "flex", alignItems: "center", gap: "14px",
                           padding: "16px 18px", borderRadius: "14px",
                           background: pathname === item.href 
-                            ? (isDarkMode ? "rgba(254,44,85,0.15)" : "rgba(254,44,85,0.1)")
+                            ? (isDarkMode ? "rgba(255,0,0,0.15)" : "rgba(255,0,0,0.1)")
                             : (isDarkMode ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)"),
                           border: pathname === item.href 
-                            ? "1px solid rgba(254,44,85,0.3)" 
+                            ? "1px solid rgba(255,0,0,0.3)" 
                             : `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`,
                           cursor: "pointer",
                           transition: "all 0.2s",
@@ -460,7 +461,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                               width: "8px", height: "8px",
                               borderRadius: "50%",
                               background: "#FF0000",
-                              boxShadow: "0 0 10px rgba(254,44,85,0.5)",
+                              boxShadow: "0 0 10px rgba(255,0,0,0.5)",
                             }}
                           />
                         )}
@@ -519,25 +520,25 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                     }
                     if (actionItem.isInstall) {
                       return {
-                        background: "linear-gradient(135deg, rgba(254,44,85,0.12) 0%, rgba(254,44,85,0.06) 100%)",
-                        border: "1px solid rgba(254,44,85,0.25)",
+                        background: "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.06) 100%)",
+                        border: "1px solid rgba(255,0,0,0.25)",
                       };
                     }
                     if (actionItem.isRefund) {
                       return {
-                        background: "linear-gradient(135deg, rgba(254,44,85,0.12) 0%, rgba(254,44,85,0.06) 100%)",
-                        border: "1px solid rgba(254,44,85,0.25)",
+                        background: "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.06) 100%)",
+                        border: "1px solid rgba(255,0,0,0.25)",
                       };
                     }
                     return {
-                      background: "linear-gradient(135deg, rgba(37,244,238,0.12) 0%, rgba(37,244,238,0.06) 100%)",
-                      border: "1px solid rgba(37,244,238,0.25)",
+                      background: "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.06) 100%)",
+                      border: "1px solid rgba(255,0,0,0.25)",
                     };
                   };
 
                   const getIconColor = () => {
                     if (actionItem.isLogout) return "#ef4444";
-                    if (actionItem.isReferral) return "#00d47e";
+                    if (actionItem.isReferral) return "#065FD4";
                     if (actionItem.isInstall) return "#FF0000";
                     if (actionItem.isRefund) return "#FF0000";
                     return "#282828";
@@ -669,7 +670,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                       : "rgba(0,0,0,0.15)",
                     border: "none", cursor: "pointer", position: "relative",
                     transition: "background 0.3s",
-                    boxShadow: isDarkMode ? "0 2px 10px rgba(254,44,85,0.3)" : "none",
+                    boxShadow: isDarkMode ? "0 2px 10px rgba(255,0,0,0.3)" : "none",
                   }}
                 >
                   <motion.div

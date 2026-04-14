@@ -133,7 +133,7 @@ export default function CertificatePage() {
           style={{
             background: "linear-gradient(145deg, #0d0d1a 0%, #1a1a1a 50%, #0d0d1a 100%)",
             borderRadius: "20px",
-            border: "2px solid rgba(254,44,85,0.3)",
+            border: "2px solid rgba(255,0,0,0.3)",
             padding: "40px 30px",
             position: "relative",
             overflow: "hidden",
@@ -143,12 +143,12 @@ export default function CertificatePage() {
           <div style={{
             position: "absolute", top: "-50px", right: "-50px",
             width: "150px", height: "150px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(254,44,85,0.15) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%)",
           }} />
           <div style={{
             position: "absolute", bottom: "-30px", left: "-30px",
             width: "100px", height: "100px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(37,244,238,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%)",
           }} />
 
           {/* YouCash Logo */}
@@ -185,7 +185,7 @@ export default function CertificatePage() {
             </p>
             <p style={{
               fontSize: "28px", fontWeight: 800,
-              background: "linear-gradient(135deg, #FF0000, #282828)",
+              background: "linear-gradient(135deg, #FF0000, #CC0000)",
               backgroundClip: "text", WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               marginBottom: "8px",
@@ -225,9 +225,9 @@ export default function CertificatePage() {
           <div style={{
             position: "absolute", bottom: "30px", right: "30px",
             width: "60px", height: "60px", borderRadius: "50%",
-            border: "2px solid rgba(254,44,85,0.5)",
+            border: "2px solid rgba(255,0,0,0.5)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            background: "rgba(254,44,85,0.1)",
+            background: "rgba(255,0,0,0.1)",
           }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#FF0000" strokeWidth="2" fill="none"/>
@@ -240,7 +240,7 @@ export default function CertificatePage() {
       {courseCompleted ? (
         <motion.button
           onClick={handleDownload}
-          whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(254,44,85,0.4)" }}
+          whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(255,0,0,0.4)" }}
           whileTap={{ scale: 0.98 }}
           style={{
             width: "100%", padding: "16px", fontSize: "15px", fontWeight: 700,
@@ -248,7 +248,7 @@ export default function CertificatePage() {
             color: "#fff",
             border: "none", borderRadius: "50px", cursor: "pointer",
             fontFamily: "inherit",
-            boxShadow: "0 4px 15px rgba(254,44,85,0.3)",
+            boxShadow: "0 4px 15px rgba(255,0,0,0.3)",
             display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
           }}
         >
@@ -283,9 +283,9 @@ export default function CertificatePage() {
             whileTap={{ scale: 0.98 }}
             style={{
               padding: "12px 24px", fontSize: "14px", fontWeight: 700,
-              background: "rgba(254,44,85,0.15)",
+              background: "rgba(255,0,0,0.15)",
               color: "#FF0000",
-              border: "1px solid rgba(254,44,85,0.3)",
+              border: "1px solid rgba(255,0,0,0.3)",
               borderRadius: "50px", cursor: "pointer",
               fontFamily: "inherit",
             }}

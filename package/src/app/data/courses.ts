@@ -174,7 +174,7 @@ export const courses: Course[] = [
                 contentType: "text",
                 textContent: `<p style="margin-bottom: 16px; font-weight: 600; font-size: 18px;">Welcome to module 1.1!</p>
 <p style="margin-bottom: 16px;">We invite you to fill out this short form. We recommend you fill out this form when you finish consuming the program, so you can give us your opinion of its content.</p>
-<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(37,244,238,0.1) 0%, rgba(254,44,85,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(37,244,238,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
+<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,0,0,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
 <p style="margin-bottom: 24px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfkx5C-MJOG1ONNzw8PrxKjmrH5Z5UzL5qG0VFt8N-Zkkky7A/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #282828 0%, #00c4b8 100%); color: #000; font-weight: 700; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px;">FILL UP THE FORM HERE</a></p>`,
               },
             ],
@@ -284,7 +284,7 @@ export const courses: Course[] = [
                 contentType: "text",
                 textContent: `<p style="margin-bottom: 16px; font-weight: 600; font-size: 18px;">Welcome to module 1.1!</p>
 <p style="margin-bottom: 16px;">We invite you to fill out this short form. We recommend you fill out this form when you finish consuming the program, so you can give us your opinion of its content.</p>
-<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(37,244,238,0.1) 0%, rgba(254,44,85,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(37,244,238,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
+<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,0,0,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
 <p style="margin-bottom: 24px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfkx5C-MJOG1ONNzw8PrxKjmrH5Z5UzL5qG0VFt8N-Zkkky7A/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #282828 0%, #00c4b8 100%); color: #000; font-weight: 700; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px;">FILL UP THE FORM HERE</a></p>`,
               },
             ],
@@ -302,7 +302,7 @@ export const courses: Course[] = [
                 contentType: "text",
                 textContent: `<p style="margin-bottom: 16px; font-weight: 600; font-size: 18px;">Welcome to module 1.1!</p>
 <p style="margin-bottom: 16px;">We invite you to fill out this short form. We recommend you fill out this form when you finish consuming the program, so you can give us your opinion of its content.</p>
-<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(37,244,238,0.1) 0%, rgba(254,44,85,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(37,244,238,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
+<p style="margin-bottom: 16px; background: linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.1) 100%); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,0,0,0.2);">After filling out the form we will personally send you <strong style="color: #282828; font-size: 20px;">$20 dollars</strong> to your PayPal account...<br/><br/><span style="color: rgba(255,255,255,0.7);">but be patient, as the money will arrive in the next 4-6 days.</span></p>
 <p style="margin-bottom: 24px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfkx5C-MJOG1ONNzw8PrxKjmrH5Z5UzL5qG0VFt8N-Zkkky7A/viewform?usp=header" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #282828 0%, #00c4b8 100%); color: #000; font-weight: 700; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px;">FILL UP THE FORM HERE</a></p>`,
               },
             ],
@@ -321,7 +321,7 @@ export const courses: Course[] = [
                 textContent: `<p style="margin-bottom: 16px; font-weight: 600; font-size: 18px; color: #FF0000;">IMPORTANT</p>
 <p style="margin-bottom: 16px;">These two classes were introductory to some ways you too can profit. In the next module you will have access and be able to download the ''secret tool'' application, but it will be released after 7 days due to the updates and configurations that we will make to register all your data in the tool.</p>
 <p style="margin-bottom: 16px;">After releasing the tool, just download it to your cell phone, put it into practice and conquer the dreamed financial freedom.</p>
-<p style="margin-top: 20px; padding: 16px; background: rgba(254,44,85,0.1); border-radius: 12px; border: 1px solid rgba(254,44,85,0.2);"><strong style="color: #282828;">Note:</strong> After releasing the tool, be sure to send us a testimonial about your experience with our application and your earnings.</p>`,
+<p style="margin-top: 20px; padding: 16px; background: rgba(255,0,0,0.1); border-radius: 12px; border: 1px solid rgba(255,0,0,0.2);"><strong style="color: #282828;">Note:</strong> After releasing the tool, be sure to send us a testimonial about your experience with our application and your earnings.</p>`,
               },
               { id: "m2-3-les-2", title: "Profitok App", duration: "8:00", videoUrl: "https://www.youtube.com/embed/65XtsHL9KCM", description: "Download the Profitok app.", contentType: "video" },
             ],

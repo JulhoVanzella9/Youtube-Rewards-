@@ -36,13 +36,13 @@ export default function HomePage() {
     },
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d47e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#065FD4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
       ),
       title: "Secure & Private",
       description: "Your data is protected with enterprise-grade security and privacy standards.",
-      color: "#00d47e",
+      color: "#065FD4",
     },
     {
       icon: (
@@ -100,11 +100,11 @@ export default function HomePage() {
           transition={{ duration: 0.5 }}
           style={{
             background: isDarkMode
-              ? "linear-gradient(135deg, rgba(254,44,85,0.1) 0%, rgba(37,244,238,0.05) 100%)"
-              : "linear-gradient(135deg, rgba(254,44,85,0.08) 0%, rgba(37,244,238,0.04) 100%)",
+              ? "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.05) 100%)"
+              : "linear-gradient(135deg, rgba(255,0,0,0.08) 0%, rgba(255,0,0,0.04) 100%)",
             borderRadius: "16px",
             padding: "16px 16px 20px 16px",
-            border: `1px solid ${isDarkMode ? "rgba(254,44,85,0.2)" : "rgba(254,44,85,0.15)"}`,
+            border: `1px solid ${isDarkMode ? "rgba(255,0,0,0.2)" : "rgba(255,0,0,0.15)"}`,
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
@@ -112,7 +112,7 @@ export default function HomePage() {
               width: "44px",
               height: "44px",
               borderRadius: "50%",
-              background: "rgba(254,44,85,0.15)",
+              background: "rgba(255,0,0,0.15)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -201,8 +201,8 @@ export default function HomePage() {
         textAlign: "center",
         position: "relative",
         background: isDarkMode
-          ? "linear-gradient(180deg, rgba(254,44,85,0.08) 0%, rgba(37,244,238,0.05) 50%, transparent 100%)"
-          : "linear-gradient(180deg, rgba(254,44,85,0.06) 0%, rgba(37,244,238,0.04) 50%, transparent 100%)",
+          ? "linear-gradient(180deg, rgba(255,0,0,0.08) 0%, rgba(255,0,0,0.05) 50%, transparent 100%)"
+          : "linear-gradient(180deg, rgba(255,0,0,0.06) 0%, rgba(255,0,0,0.04) 50%, transparent 100%)",
       }}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -217,7 +217,7 @@ export default function HomePage() {
         >
           <span style={{ color: "var(--text-primary)" }}>Welcome to </span>
           <span style={{
-            background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -420,7 +420,7 @@ export default function HomePage() {
                   width: "28px",
                   height: "28px",
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
+                  background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

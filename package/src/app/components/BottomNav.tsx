@@ -39,7 +39,7 @@ export default function BottomNav() {
       href: "/courses",
       label: t("class"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#282828" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#FF0000" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
         </svg>
@@ -47,31 +47,18 @@ export default function BottomNav() {
     },
     {
       href: "/create",
-      label: "",
+      label: "Shorts",
       isCenter: true,
       icon: () => (
         <div style={{
-          width: "44px", height: "32px", position: "relative",
+          width: "40px", height: "40px", position: "relative",
           display: "flex", alignItems: "center", justifyContent: "center",
         }}>
-          <div style={{
-            position: "absolute", left: 0, width: "32px", height: "32px",
-            borderRadius: "8px", background: "#282828",
-          }} />
-          <div style={{
-            position: "absolute", right: 0, width: "32px", height: "32px",
-            borderRadius: "8px", background: "#FF0000",
-          }} />
-          <div style={{
-            position: "relative", width: "32px", height: "32px",
-            borderRadius: "8px", background: "#fff", zIndex: 1,
-            display: "flex", alignItems: "center", justifyContent: "center",
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="3" strokeLinecap="round">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </div>
+          {/* YouTube Shorts icon */}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M10 14.65v-5.3L15 12l-5 2.65z" fill="#FF0000"/>
+            <path d="M17.77 10.32c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25z" fill="#FF0000"/>
+          </svg>
         </div>
       ),
     },
@@ -79,7 +66,7 @@ export default function BottomNav() {
       href: "/support",
       label: t("support"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#282828" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#FF0000" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
       ),
@@ -88,7 +75,7 @@ export default function BottomNav() {
       href: "/wallet",
       label: t("wallet"),
       icon: (active: boolean) => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#ffd700" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={active ? "#FF0000" : inactiveColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
           <line x1="1" y1="10" x2="23" y2="10"/>
         </svg>
@@ -157,8 +144,8 @@ export default function BottomNav() {
                     width: "24px",
                     height: "3px",
                     borderRadius: "2px",
-                    background: tab.href === "/" ? "#FF0000" : tab.href === "/wallet" ? "#ffd700" : "#282828",
-                    boxShadow: `0 0 8px ${tab.href === "/" ? "rgba(254,44,85,0.5)" : tab.href === "/wallet" ? "rgba(255,215,0,0.5)" : "rgba(37,244,238,0.5)"}`,
+                    background: "#FF0000",
+                    boxShadow: "0 0 8px rgba(255,0,0,0.4)",
                   }}
                 />
               )}

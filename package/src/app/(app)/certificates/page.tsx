@@ -90,8 +90,8 @@ export default function CertificatesPage() {
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.01, x: 4 }}
               style={{
-                background: "linear-gradient(135deg, rgba(37,244,238,0.06), rgba(254,44,85,0.04))",
-                borderRadius: "20px", border: "1px solid rgba(37,244,238,0.12)",
+                background: "linear-gradient(135deg, rgba(255,0,0,0.06), rgba(255,0,0,0.04))",
+                borderRadius: "20px", border: "1px solid rgba(255,0,0,0.12)",
                 padding: "20px", marginBottom: "12px",
                 position: "relative", overflow: "hidden",
               }}
@@ -99,7 +99,7 @@ export default function CertificatesPage() {
               <div style={{
                 position: "absolute", top: "-20px", right: "-20px",
                 width: "80px", height: "80px", borderRadius: "50%",
-                background: "rgba(37,244,238,0.06)", filter: "blur(20px)",
+                background: "rgba(255,0,0,0.06)", filter: "blur(20px)",
               }} />
               <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", position: "relative" }}>
                 <motion.div
@@ -107,10 +107,10 @@ export default function CertificatesPage() {
                   transition={{ duration: 4, repeat: Infinity }}
                   style={{
                     width: "56px", height: "56px", borderRadius: "16px",
-                    background: "linear-gradient(135deg, #282828, #00d4aa)",
+                    background: "linear-gradient(135deg, #FF0000, #CC0000)",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontSize: "28px", flexShrink: 0,
-                    boxShadow: "0 0 20px rgba(37,244,238,0.2)",
+                    boxShadow: "0 0 20px rgba(255,0,0,0.2)",
                   }}
                 >
                   🎓
@@ -125,7 +125,7 @@ export default function CertificatesPage() {
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span style={{
                       padding: "4px 10px", borderRadius: "20px", fontSize: "10px",
-                      fontWeight: 700, background: "rgba(37,244,238,0.12)", color: "#282828",
+                      fontWeight: 700, background: "rgba(255,0,0,0.12)", color: "#282828",
                     }}>
                       Concluido
                     </span>
@@ -165,8 +165,8 @@ export default function CertificatesPage() {
                   whileTap={{ scale: 0.95 }}
                   style={{
                     marginTop: "12px", padding: "8px 20px", fontSize: "12px", fontWeight: 700,
-                    background: "rgba(37,244,238,0.12)", color: "#282828",
-                    border: "1px solid rgba(37,244,238,0.2)", borderRadius: "10px",
+                    background: "rgba(255,0,0,0.12)", color: "#282828",
+                    border: "1px solid rgba(255,0,0,0.2)", borderRadius: "10px",
                     cursor: "pointer", fontFamily: "inherit",
                   }}
                 >
@@ -192,7 +192,7 @@ export default function CertificatesPage() {
           </p>
           <Link href="/explore">
             <motion.button
-              whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(254,44,85,0.4)", translateY: -2 }}
+              whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(255,0,0,0.4)", translateY: -2 }}
               whileTap={{ scale: 0.97, translateY: 1 }}
               className="glow-btn"
               style={{
@@ -200,7 +200,7 @@ export default function CertificatesPage() {
                 background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                 color: "#fff",
                 border: "none", borderRadius: "50px", cursor: "pointer", fontFamily: "inherit",
-                boxShadow: "0 4px 15px rgba(254,44,85,0.3), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 0 #c41e40",
+                boxShadow: "0 4px 15px rgba(255,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 0 #c41e40",
                 transform: "perspective(500px) rotateX(2deg)",
                 textShadow: "0 1px 2px rgba(0,0,0,0.3)",
               }}

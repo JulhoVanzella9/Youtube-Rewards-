@@ -50,7 +50,7 @@ export default function WelcomePage() {
             width: "250px",
             height: "250px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(254,44,85,0.25) 0%, transparent 60%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.25) 0%, transparent 60%)",
             filter: "blur(40px)",
           }}
         />
@@ -68,7 +68,7 @@ export default function WelcomePage() {
             width: "300px",
             height: "300px",
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(37,244,238,0.2) 0%, transparent 60%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.2) 0%, transparent 60%)",
             filter: "blur(50px)",
           }}
         />
@@ -95,12 +95,12 @@ export default function WelcomePage() {
             width: "72px",
             height: "72px",
             borderRadius: "20px",
-            background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 20px",
-            boxShadow: "0 12px 40px rgba(254,44,85,0.3), 0 8px 20px rgba(37,244,238,0.2)",
+            boxShadow: "0 12px 40px rgba(255,0,0,0.3), 0 8px 20px rgba(255,0,0,0.2)",
           }}
         >
           <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
@@ -118,7 +118,7 @@ export default function WelcomePage() {
             display: "inline-flex",
             alignItems: "center",
             gap: "6px",
-            background: "linear-gradient(90deg, rgba(254,44,85,0.2), rgba(37,244,238,0.2))",
+            background: "linear-gradient(90deg, rgba(255,0,0,0.2), rgba(255,0,0,0.2))",
             padding: "6px 14px",
             borderRadius: "20px",
             marginBottom: "16px",
@@ -167,11 +167,11 @@ export default function WelcomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
           style={{
-            background: "linear-gradient(135deg, rgba(254,44,85,0.15) 0%, rgba(254,44,85,0.05) 100%)",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.15) 0%, rgba(255,0,0,0.05) 100%)",
             borderRadius: "16px",
             padding: "16px",
             marginBottom: "20px",
-            border: "1px solid rgba(254,44,85,0.3)",
+            border: "1px solid rgba(255,0,0,0.3)",
           }}
         >
           <div style={{
@@ -212,7 +212,7 @@ export default function WelcomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.45, type: "spring", stiffness: 200 }}
           style={{
-            background: "linear-gradient(135deg, rgba(37,244,238,0.12) 0%, rgba(254,44,85,0.12) 100%)",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.12) 100%)",
             borderRadius: "20px",
             padding: "20px",
             marginBottom: "20px",
@@ -236,7 +236,7 @@ export default function WelcomePage() {
                 fontSize: "36px",
                 fontWeight: 800,
                 color: "#282828",
-                textShadow: "0 0 30px rgba(37,244,238,0.5)",
+                textShadow: "0 0 30px rgba(255,0,0,0.5)",
               }}>
                 $50 - $500
               </div>
@@ -245,7 +245,7 @@ export default function WelcomePage() {
               width: "60px",
               height: "60px",
               borderRadius: "50%",
-              background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -167,7 +167,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <div style={{
                 width: "26px", height: "26px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #FF0000, #282828)",
+                background: "linear-gradient(135deg, #FF0000, #CC0000)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: "11px", fontWeight: 700, color: "#fff",
               }}>

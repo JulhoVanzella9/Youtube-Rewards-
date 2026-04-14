@@ -105,15 +105,15 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
               padding: "16px 20px",
               borderBottom: `1px solid ${isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
               background: isDarkMode 
-                ? "linear-gradient(135deg, rgba(37,244,238,0.1) 0%, rgba(254,44,85,0.1) 100%)"
-                : "linear-gradient(135deg, rgba(37,244,238,0.05) 0%, rgba(254,44,85,0.05) 100%)",
+                ? "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.1) 100%)"
+                : "linear-gradient(135deg, rgba(255,0,0,0.05) 0%, rgba(255,0,0,0.05) 100%)",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <div style={{
                   width: "40px",
                   height: "40px",
                   borderRadius: "12px",
-                  background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
+                  background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -204,7 +204,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                         width: "28px",
                         height: "28px",
                         borderRadius: "8px",
-                        background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
+                        background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -220,7 +220,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                       padding: "12px 16px",
                       borderRadius: isUser ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                       background: isUser 
-                        ? "linear-gradient(135deg, #282828 0%, #00d4aa 100%)"
+                        ? "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)"
                         : (isDarkMode ? "rgba(255,255,255,0.08)" : "#f3f4f6"),
                       color: isUser ? "#000" : (isDarkMode ? "#fff" : "#1a1a1a"),
                       fontSize: "14px",
@@ -264,7 +264,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                     width: "28px",
                     height: "28px",
                     borderRadius: "8px",
-                    background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
+                    background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -344,7 +344,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                   borderRadius: "12px",
                   background: isLoading || !input.trim() 
                     ? (isDarkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)")
-                    : "linear-gradient(135deg, #282828 0%, #00d4aa 100%)",
+                    : "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                   border: "none",
                   cursor: isLoading || !input.trim() ? "not-allowed" : "pointer",
                   display: "flex",

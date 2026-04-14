@@ -139,7 +139,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               alignItems: "center",
               justifyContent: "center",
               margin: "0 auto 16px",
-              boxShadow: "0 8px 32px rgba(254,44,85,0.3)",
+              boxShadow: "0 8px 32px rgba(255,0,0,0.3)",
             }}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -164,11 +164,11 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
             marginBottom: "24px",
           }}>
             <div style={{
-              background: "rgba(37,244,238,0.1)",
+              background: "rgba(255,0,0,0.1)",
               borderRadius: "16px",
               padding: "16px",
               textAlign: "center",
-              border: "1px solid rgba(37,244,238,0.2)",
+              border: "1px solid rgba(255,0,0,0.2)",
             }}>
               <div style={{ fontSize: "24px", fontWeight: 800, color: "#282828" }}>
                 {loading ? "..." : referralCount}
@@ -178,11 +178,11 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               </div>
             </div>
             <div style={{
-              background: "rgba(254,44,85,0.1)",
+              background: "rgba(255,0,0,0.1)",
               borderRadius: "16px",
               padding: "16px",
               textAlign: "center",
-              border: "1px solid rgba(254,44,85,0.2)",
+              border: "1px solid rgba(255,0,0,0.2)",
             }}>
               <div style={{ fontSize: "24px", fontWeight: 800, color: "#FF0000" }}>
                 ${loading ? "..." : referralEarnings.toFixed(2)}
@@ -228,7 +228,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
                     width: "24px",
                     height: "24px",
                     borderRadius: "50%",
-                    background: "rgba(254,44,85,0.2)",
+                    background: "rgba(255,0,0,0.2)",
                     color: "#FF0000",
                     fontSize: "12px",
                     fontWeight: 700,

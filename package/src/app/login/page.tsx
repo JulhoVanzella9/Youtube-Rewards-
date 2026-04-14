@@ -128,7 +128,7 @@ export default function LoginPage() {
           style={{
             position: "absolute", top: "-10%", right: "-10%",
             width: "400px", height: "400px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(254,44,85,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.12) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -136,7 +136,7 @@ export default function LoginPage() {
           style={{
             position: "absolute", bottom: "-10%", left: "-10%",
             width: "350px", height: "350px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(37,244,238,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.08) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -190,8 +190,8 @@ export default function LoginPage() {
               exit={{ opacity: 0, height: 0 }}
               style={{
                 padding: "12px 16px", borderRadius: "12px",
-                background: "rgba(254,44,85,0.1)",
-                border: "1px solid rgba(254,44,85,0.2)",
+                background: "rgba(255,0,0,0.1)",
+                border: "1px solid rgba(255,0,0,0.2)",
                 color: "#FF0000", fontSize: "13px", fontWeight: 500,
                 marginBottom: "16px", textAlign: "center",
               }}
@@ -206,8 +206,8 @@ export default function LoginPage() {
               exit={{ opacity: 0, height: 0 }}
               style={{
                 padding: "12px 16px", borderRadius: "12px",
-                background: "rgba(37,244,238,0.1)",
-                border: "1px solid rgba(37,244,238,0.2)",
+                background: "rgba(255,0,0,0.1)",
+                border: "1px solid rgba(255,0,0,0.2)",
                 color: "#282828", fontSize: "13px", fontWeight: 500,
                 marginBottom: "16px", textAlign: "center",
               }}

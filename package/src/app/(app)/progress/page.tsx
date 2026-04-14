@@ -180,7 +180,7 @@ export default function ProgressPage() {
                         style={{
                           height: "100%",
                           background: course.progress === 100
-                            ? "linear-gradient(90deg, #282828, #5ff7f2)"
+                            ? "linear-gradient(90deg, #282828, #FF4444)"
                             : "linear-gradient(90deg, #FF0000, #CC0000)",
                           borderRadius: "3px",
                         }}

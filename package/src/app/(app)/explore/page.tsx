@@ -62,8 +62,8 @@ export default function ExplorePage() {
             transition: "border-color 0.2s, box-shadow 0.2s",
           }}
           onFocus={(e) => {
-            e.target.style.borderColor = "rgba(254,44,85,0.3)";
-            e.target.style.boxShadow = "0 0 0 4px rgba(254,44,85,0.08)";
+            e.target.style.borderColor = "rgba(255,0,0,0.3)";
+            e.target.style.boxShadow = "0 0 0 4px rgba(255,0,0,0.08)";
           }}
           onBlur={(e) => {
             e.target.style.borderColor = "rgba(255,255,255,0.08)";

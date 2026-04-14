@@ -13,7 +13,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   // Initialize theme from localStorage on mount
@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(savedTheme);
       applyTheme(savedTheme);
     } else {
-      applyTheme("dark");
+      applyTheme("light");
     }
   }, []);
 
@@ -36,16 +36,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Update meta theme color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute("content", newTheme === "dark" ? "#000000" : "#f5f5f5");
+      metaThemeColor.setAttribute("content", newTheme === "dark" ? "#0F0F0F" : "#FFFFFF");
     }
 
     // Force style updates on body
     if (newTheme === "light") {
-      document.body.style.backgroundColor = "#f5f5f5";
-      document.body.style.color = "#121212";
+      document.body.style.backgroundColor = "#FFFFFF";
+      document.body.style.color = "#0F0F0F";
     } else {
-      document.body.style.backgroundColor = "#000000";
-      document.body.style.color = "#ffffff";
+      document.body.style.backgroundColor = "#0F0F0F";
+      document.body.style.color = "#FFFFFF";
     }
   };
 

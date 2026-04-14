@@ -52,7 +52,7 @@ export default function AccessGrantedPage() {
           border: "none",
           cursor: "pointer",
           marginBottom: "32px",
-          boxShadow: "0 4px 20px rgba(37,244,238,0.3)",
+          boxShadow: "0 4px 20px rgba(255,0,0,0.3)",
           transition: "all 0.2s",
         }}
       >
@@ -88,7 +88,7 @@ export default function AccessGrantedPage() {
           right: "-100px",
           width: "300px",
           height: "300px",
-          background: "radial-gradient(circle, rgba(254,44,85,0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
         <div style={{
@@ -97,7 +97,7 @@ export default function AccessGrantedPage() {
           left: "-100px",
           width: "300px",
           height: "300px",
-          background: "radial-gradient(circle, rgba(37,244,238,0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%)",
           borderRadius: "50%",
         }} />
 
@@ -110,7 +110,7 @@ export default function AccessGrantedPage() {
           padding: "28px 40px",
           textAlign: "center",
           marginBottom: "40px",
-          boxShadow: "0 8px 40px rgba(254,44,85,0.4)",
+          boxShadow: "0 8px 40px rgba(255,0,0,0.4)",
           border: "2px solid rgba(255,255,255,0.15)",
           position: "relative",
         }}>
@@ -134,8 +134,8 @@ export default function AccessGrantedPage() {
         <div style={{
           width: "100%",
           maxWidth: "600px",
-          background: "linear-gradient(180deg, rgba(37,244,238,0.08) 0%, rgba(37,244,238,0.02) 100%)",
-          border: "1px solid rgba(37,244,238,0.2)",
+          background: "linear-gradient(180deg, rgba(255,0,0,0.08) 0%, rgba(255,0,0,0.02) 100%)",
+          border: "1px solid rgba(255,0,0,0.2)",
           borderRadius: "24px",
           padding: "32px 36px",
           textAlign: "center",
@@ -151,7 +151,7 @@ export default function AccessGrantedPage() {
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 20px",
-            boxShadow: "0 10px 40px rgba(37,244,238,0.4)",
+            boxShadow: "0 10px 40px rgba(255,0,0,0.4)",
           }}>
             <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20 6L9 17l-5-5"/>
@@ -208,7 +208,7 @@ export default function AccessGrantedPage() {
               Your Password
             </p>
             <div style={{
-              background: "linear-gradient(135deg, rgba(37,244,238,0.12) 0%, rgba(37,244,238,0.04) 100%)",
+              background: "linear-gradient(135deg, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.04) 100%)",
               border: "2px solid #282828",
               borderRadius: "12px",
               padding: "14px 28px",
@@ -228,8 +228,8 @@ export default function AccessGrantedPage() {
 
           {/* Email Notice */}
           <div style={{
-            background: "linear-gradient(135deg, rgba(254,44,85,0.1) 0%, rgba(254,44,85,0.05) 100%)",
-            border: "1px solid rgba(254,44,85,0.25)",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.05) 100%)",
+            border: "1px solid rgba(255,0,0,0.25)",
             borderRadius: "12px",
             padding: "14px 18px",
             display: "flex",
@@ -241,7 +241,7 @@ export default function AccessGrantedPage() {
               width: "40px",
               height: "40px",
               borderRadius: "10px",
-              background: "rgba(254,44,85,0.2)",
+              background: "rgba(255,0,0,0.2)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -264,8 +264,8 @@ export default function AccessGrantedPage() {
 
           {/* Support Notice - Same Style */}
           <div style={{
-            background: "linear-gradient(135deg, rgba(37,244,238,0.1) 0%, rgba(37,244,238,0.05) 100%)",
-            border: "1px solid rgba(37,244,238,0.25)",
+            background: "linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,0,0,0.05) 100%)",
+            border: "1px solid rgba(255,0,0,0.25)",
             borderRadius: "12px",
             padding: "14px 18px",
             display: "flex",
@@ -276,7 +276,7 @@ export default function AccessGrantedPage() {
               width: "40px",
               height: "40px",
               borderRadius: "10px",
-              background: "rgba(37,244,238,0.2)",
+              background: "rgba(255,0,0,0.2)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -318,7 +318,7 @@ export default function AccessGrantedPage() {
             textDecoration: "none",
             textTransform: "uppercase",
             letterSpacing: "2px",
-            boxShadow: "0 6px 0 0 #0f8a87, 0 14px 40px rgba(37,244,238,0.35)",
+            boxShadow: "0 6px 0 0 #990000, 0 14px 40px rgba(255,0,0,0.35)",
           }}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M15 3h6v6M14 10l6.1-6.1M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>

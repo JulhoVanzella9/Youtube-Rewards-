@@ -31,7 +31,7 @@ const achievementDefinitions = [
 
 const rarityColors: Record<string, { bg: string; border: string; text: string }> = {
   common: { bg: "rgba(255,255,255,0.04)", border: "rgba(255,255,255,0.08)", text: "#aaa" },
-  rare: { bg: "rgba(37,244,238,0.06)", border: "rgba(37,244,238,0.15)", text: "#282828" },
+  rare: { bg: "rgba(255,0,0,0.06)", border: "rgba(255,0,0,0.15)", text: "#282828" },
   epic: { bg: "rgba(168,85,247,0.06)", border: "rgba(168,85,247,0.15)", text: "#a855f7" },
   legendary: { bg: "rgba(255,215,0,0.06)", border: "rgba(255,215,0,0.2)", text: "#ffd700" },
 };
@@ -141,8 +141,8 @@ export default function AchievementsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.05 }}
         style={{
-          background: "linear-gradient(135deg, rgba(254,44,85,0.1), rgba(168,85,247,0.08))",
-          borderRadius: "20px", border: "1px solid rgba(254,44,85,0.12)",
+          background: "linear-gradient(135deg, rgba(255,0,0,0.1), rgba(168,85,247,0.08))",
+          borderRadius: "20px", border: "1px solid rgba(255,0,0,0.12)",
           padding: "24px", marginBottom: "24px", textAlign: "center",
         }}
       >
@@ -260,13 +260,13 @@ export default function AchievementsPage() {
       >
         <Link href="/profile" prefetch={true}>
           <motion.button
-            whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(254,44,85,0.4)" }}
+            whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(255,0,0,0.4)" }}
             whileTap={{ scale: 0.98 }}
             style={{
               width: "100%", padding: "14px", fontSize: "15px", fontWeight: 700,
               background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               color: "#fff", border: "none", borderRadius: "50px", cursor: "pointer",
-              fontFamily: "inherit", boxShadow: "0 4px 15px rgba(254,44,85,0.3), 0 2px 0 #c41e40",
+              fontFamily: "inherit", boxShadow: "0 4px 15px rgba(255,0,0,0.3), 0 2px 0 #c41e40",
             }}
           >
             {t("back")}

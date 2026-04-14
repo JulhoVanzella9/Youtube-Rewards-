@@ -189,7 +189,7 @@ export default function CourseDetailPage() {
                           justifyContent: "center",
                         }}>
                           <span style={{
-                            background: "rgba(254,44,85,0.9)",
+                            background: "rgba(255,0,0,0.9)",
                             padding: "8px 16px",
                             borderRadius: "8px",
                             fontSize: "12px",

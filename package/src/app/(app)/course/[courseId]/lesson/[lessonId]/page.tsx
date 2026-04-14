@@ -58,8 +58,8 @@ export default function LessonPage() {
           whileTap={{ scale: 0.95 }}
           onClick={() => setShowList(!showList)}
           style={{
-            background: showList ? "rgba(254,44,85,0.15)" : "rgba(255,255,255,0.06)",
-            border: showList ? "1px solid rgba(254,44,85,0.3)" : "1px solid rgba(255,255,255,0.08)",
+            background: showList ? "rgba(255,0,0,0.15)" : "rgba(255,255,255,0.06)",
+            border: showList ? "1px solid rgba(255,0,0,0.3)" : "1px solid rgba(255,255,255,0.08)",
             borderRadius: "20px", padding: "8px 16px", cursor: "pointer",
             color: showList ? "#FF0000" : "#fff", fontSize: "13px", fontWeight: 600, fontFamily: "inherit",
             display: "flex", alignItems: "center", gap: "8px",
@@ -139,7 +139,7 @@ export default function LessonPage() {
                           <div style={{
                             display: "flex", alignItems: "center", gap: "12px",
                             padding: "12px 20px", cursor: "pointer",
-                            background: isActive ? "rgba(254,44,85,0.1)" : "transparent",
+                            background: isActive ? "rgba(255,0,0,0.1)" : "transparent",
                             borderLeft: isActive ? "3px solid #FF0000" : "3px solid transparent",
                             transition: "all 0.2s",
                           }}>
@@ -212,7 +212,7 @@ export default function LessonPage() {
           animate={{ opacity: 1 }}
           style={{
             padding: "32px 20px",
-            background: "linear-gradient(145deg, rgba(254,44,85,0.05) 0%, transparent 100%)",
+            background: "linear-gradient(145deg, rgba(255,0,0,0.05) 0%, transparent 100%)",
             minHeight: "200px",
           }}
         >
@@ -258,7 +258,7 @@ export default function LessonPage() {
           <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
             <span style={{
               padding: "5px 12px", borderRadius: "20px", fontSize: "12px",
-              fontWeight: 600, background: "rgba(254,44,85,0.12)", color: "#FF0000",
+              fontWeight: 600, background: "rgba(255,0,0,0.12)", color: "#FF0000",
             }}>
               Lesson {currentIndex + 1} of {allLessons.length}
             </span>
@@ -335,7 +335,7 @@ export default function LessonPage() {
                   await markLessonComplete(courseId, lessonId, allLessons.length);
                   router.push(`/course/${courseId}`);
                 }}
-                className="btn-3d btn-3d-cyan"
+                className="btn-3d btn-3d-primary"
                 style={{
                   flex: 1,
                   fontFamily: "inherit",

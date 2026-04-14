@@ -33,7 +33,7 @@ export default function CoursesPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
             width: "40px", height: "40px", borderRadius: "12px",
-            background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
@@ -130,7 +130,7 @@ export default function CoursesPage() {
                       position: "absolute",
                       top: "12px",
                       left: "12px",
-                      background: "rgba(254,44,85,0.9)",
+                      background: "rgba(255,0,0,0.9)",
                       padding: "6px 12px",
                       borderRadius: "8px",
                       fontSize: "11px",
