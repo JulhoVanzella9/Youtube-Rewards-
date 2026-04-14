@@ -535,7 +535,7 @@ export default function WalletPage() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   style={{
                     height: "100%",
-                    background: "linear-gradient(90deg, #FF0000, #ff6b8a)",
+                    background: "linear-gradient(90deg, #FF0000, #CC0000)",
                     borderRadius: "8px",
                   }}
                 />

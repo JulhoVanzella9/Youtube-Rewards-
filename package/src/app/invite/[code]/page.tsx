@@ -26,7 +26,7 @@ export default function InviteRedirectPage() {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a1a 50%, #0a0a0f 100%)",
+      background: "#0F0F0F",
       padding: "20px",
     }}>
       {/* Loading Animation */}

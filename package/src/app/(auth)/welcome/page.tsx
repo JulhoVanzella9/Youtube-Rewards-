@@ -24,7 +24,7 @@ export default function WelcomePage() {
       alignItems: "center",
       padding: "20px",
       paddingBottom: "40px",
-      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a1a 50%, #0a0a0f 100%)",
+      background: "#0F0F0F",
       overflowX: "hidden",
     }}>
       {/* Particle Background */}

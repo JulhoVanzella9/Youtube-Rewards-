@@ -15,7 +15,7 @@ type ActivityItem = {
 
 const activityData: ActivityItem[] = [
   { id: "1", type: "lesson", title: "Lesson Watched", description: "Monetization Strategies - Digital Monetization", icon: "▶️", time: "Today, 14:32", color: "#FF0000" },
-  { id: "2", type: "streak", title: "Streak Kept!", description: "7 consecutive days of studying", icon: "🔥", time: "Today, 10:00", color: "#ff6b35" },
+  { id: "2", type: "streak", title: "Streak Kept!", description: "7 consecutive days of studying", icon: "🔥", time: "Today, 10:00", color: "#FF0000" },
   { id: "3", type: "lesson", title: "Lesson Watched", description: "Growth Algorithm - Growth Mastery", icon: "▶️", time: "Yesterday, 21:15", color: "#FF0000" },
   { id: "4", type: "achievement", title: "Achievement Unlocked", description: "Dedicated - 20 hours of content watched", icon: "🎯", time: "Yesterday, 20:45", color: "#a855f7" },
   { id: "5", type: "lesson", title: "Lesson Watched", description: "Lighting & Setup - Content Creator Pro", icon: "▶️", time: "Yesterday, 19:30", color: "#FF0000" },
@@ -23,7 +23,7 @@ const activityData: ActivityItem[] = [
   { id: "7", type: "lesson", title: "Lesson Watched", description: "Metrics Analysis - Growth Mastery", icon: "▶️", time: "3 days ago", color: "#FF0000" },
   { id: "8", type: "achievement", title: "Achievement Unlocked", description: "First Course - Complete an entire course", icon: "🎓", time: "3 days ago", color: "#a855f7" },
   { id: "9", type: "lesson", title: "Lesson Watched", description: "Creating Viral Scripts - Content Creator Pro", icon: "▶️", time: "4 days ago", color: "#FF0000" },
-  { id: "10", type: "streak", title: "Streak Started", description: "First day of consistent studying!", icon: "⚡", time: "1 week ago", color: "#ff6b35" },
+  { id: "10", type: "streak", title: "Streak Started", description: "First day of consistent studying!", icon: "⚡", time: "1 week ago", color: "#FF0000" },
 ];
 
 export default function ActivityPage() {
@@ -70,7 +70,7 @@ export default function ActivityPage() {
         {[
           { value: String(totalLessons), label: "Aulas Vistas", color: "#FF0000" },
           { value: "21h", label: "Tempo Total", color: "#282828" },
-          { value: "7 dias", label: "Streak", color: "#ff6b35" },
+          { value: "7 dias", label: "Streak", color: "#FF0000" },
         ].map((stat, i) => (
           <motion.div
             key={stat.label}

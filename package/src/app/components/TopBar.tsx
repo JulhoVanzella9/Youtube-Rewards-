@@ -160,7 +160,7 @@ export default function TopBar() {
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
     )},
-{ label: t("inviteFriends") || "Invite Friends", href: "#referral", isReferral: true, badge: "+$20", badgeColor: "#065FD4", icon: (
+{ label: t("inviteFriends") || "Invite Friends", href: "#referral", isReferral: true, badge: "+$20", badgeColor: "#FF0000", icon: (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
   <circle cx="9" cy="7" r="4"/>
@@ -311,7 +311,7 @@ export default function TopBar() {
           >
             <motion.span
               key={balance}
-              initial={balanceAnimation ? { scale: 1.3, color: "#22c55e" } : false}
+              initial={balanceAnimation ? { scale: 1.3, color: "#FF0000" } : false}
               animate={{ scale: 1, color: "#282828" }}
               transition={{ duration: 0.5 }}
               style={{
@@ -336,11 +336,11 @@ export default function TopBar() {
                     position: "absolute",
                     top: "-12px",
                     right: "10px",
-                    color: "#22c55e",
+                    color: "#FF0000",
                     fontSize: "14px",
                     fontWeight: 800,
                     whiteSpace: "nowrap",
-                    textShadow: "0 2px 8px rgba(34,197,94,0.5)",
+                    textShadow: "0 2px 8px rgba(255,0,0,0.5)",
                   }}
                 >
                   +${lastEarnedAmount.toFixed(2)}
@@ -538,7 +538,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
 
                   const getIconColor = () => {
                     if (actionItem.isLogout) return "#ef4444";
-                    if (actionItem.isReferral) return "#065FD4";
+                    if (actionItem.isReferral) return "#FF0000";
                     if (actionItem.isInstall) return "#FF0000";
                     if (actionItem.isRefund) return "#FF0000";
                     return "#282828";

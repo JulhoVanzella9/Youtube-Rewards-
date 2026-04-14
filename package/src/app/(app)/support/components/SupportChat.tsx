@@ -136,8 +136,8 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: "#22c55e",
-                      boxShadow: "0 0 8px rgba(34,197,94,0.5)",
+                      background: "#FF0000",
+                      boxShadow: "0 0 8px rgba(255,0,0,0.5)",
                     }} />
                     <span style={{ 
                       fontSize: "12px", 

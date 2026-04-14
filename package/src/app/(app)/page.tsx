@@ -36,23 +36,23 @@ export default function HomePage() {
     },
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#065FD4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
       ),
       title: "Secure & Private",
       description: "Your data is protected with enterprise-grade security and privacy standards.",
-      color: "#065FD4",
+      color: "#FF0000",
     },
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
       ),
       title: "Premium Support",
       description: "Get help anytime with our dedicated support team ready to assist you.",
-      color: "#f59e0b",
+      color: "#282828",
     },
   ];
 
@@ -73,9 +73,9 @@ export default function HomePage() {
       transition: "color 0.3s ease",
       paddingBottom: "calc(clamp(100px, 25vw, 140px) + env(safe-area-inset-bottom, 0px))",
       position: "relative",
-      background: isDarkMode 
-        ? "linear-gradient(180deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%)"
-        : "linear-gradient(180deg, #f8f9fc 0%, #ffffff 50%, #f8f9fc 100%)",
+      background: isDarkMode
+        ? "#0F0F0F"
+        : "#FFFFFF",
       minHeight: "100dvh",
       overflowX: "hidden",
       boxSizing: "border-box",

@@ -7,7 +7,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
   const gradients = [
     "linear-gradient(135deg, #FF0000 0%, #8b31ff 100%)",
     "linear-gradient(135deg, #282828 0%, #0052ff 100%)",
-    "linear-gradient(135deg, #ff6b35 0%, #FF0000 100%)",
+    "linear-gradient(135deg, #FF0000 0%, #FF0000 100%)",
     "linear-gradient(135deg, #8b31ff 0%, #282828 100%)",
     "linear-gradient(135deg, #ff4081 0%, #ffab40 100%)",
     "linear-gradient(135deg, #00e676 0%, #282828 100%)",

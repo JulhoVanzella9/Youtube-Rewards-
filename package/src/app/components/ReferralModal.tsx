@@ -134,7 +134,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               width: "64px",
               height: "64px",
               borderRadius: "20px",
-              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

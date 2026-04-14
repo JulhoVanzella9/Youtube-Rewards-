@@ -240,7 +240,7 @@ export default function InstallPrompt() {
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <div style={{
               width: "48px", height: "48px", borderRadius: "14px",
-              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}>

@@ -442,7 +442,7 @@ export default function CreatePage() {
               width: "40px",
               height: "40px",
               borderRadius: "12px",
-              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -542,7 +542,7 @@ export default function CreatePage() {
                 gap: "8px",
                 padding: "12px 24px",
                 background: "rgba(20,20,24,0.95)",
-                border: `1px solid ${toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#FF0000"}`,
+                border: `1px solid #FF0000`,
                 borderRadius: "12px", 
                 backdropFilter: "blur(20px)",
                 fontSize: "14px", 
@@ -552,7 +552,7 @@ export default function CreatePage() {
               }}
             >
               <span style={{ fontSize: "18px" }}>{toastData.emoji}</span>
-              <span style={{ color: toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#FF0000" }}>
+              <span style={{ color: "#FF0000" }}>
                 {toastData.text}
               </span>
             </motion.div>
@@ -579,7 +579,7 @@ export default function CreatePage() {
               transition={{ type: "spring", stiffness: 200 }}
               style={{
                 width: "80px", height: "80px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #22c55e, #16a34a)",
+                background: "linear-gradient(135deg, #FF0000, #CC0000)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 marginBottom: "20px",
               }}
@@ -737,7 +737,7 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #282828",
+              border: "2px solid #FF0000",
               background: ratings[currentIndex] === "happy" ? "rgba(255,0,0,0.2)" : "transparent",
               transition: "all 200ms",
             }}
@@ -769,8 +769,8 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #eab308",
-              background: ratings[currentIndex] === "neutral" ? "rgba(234,179,8,0.2)" : "transparent",
+              border: "2px solid #282828",
+              background: ratings[currentIndex] === "neutral" ? "rgba(255,255,255,0.1)" : "transparent",
               transition: "all 200ms",
             }}
           >

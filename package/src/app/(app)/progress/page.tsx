@@ -70,7 +70,7 @@ export default function ProgressPage() {
         {[
           { value: totalCoursesCompleted, label: t("courses"), color: "#282828" },
           { value: totalLessonsCompleted, label: t("lessons"), color: "#FF0000" },
-          { value: totalCoursesStarted, label: t("yourCourses"), color: "#ff6b35" },
+          { value: totalCoursesStarted, label: t("yourCourses"), color: "#FF0000" },
         ].map((stat) => (
           <motion.div
             key={stat.label}

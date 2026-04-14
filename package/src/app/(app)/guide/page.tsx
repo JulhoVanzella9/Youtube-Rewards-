@@ -16,7 +16,7 @@ const steps = [
   {
     title: "3. Comece a assistir",
     desc: "Clique em um curso para ver os modulos e aulas. Acompanhe seu progresso automaticamente conforme avanca.",
-    color: "#ff6b35",
+    color: "#FF0000",
   },
   {
     title: "4. Conquiste certificados",
