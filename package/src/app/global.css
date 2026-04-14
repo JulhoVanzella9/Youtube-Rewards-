@@ -4,9 +4,32 @@
   box-sizing: border-box;
 }
 
+/* Light Theme as default (YouTube White) */
 :root {
   --tikcash-red: #FF0000;
   --tikcash-cyan: #282828;
+  --tikcash-dark: #FFFFFF;
+  --tikcash-darker: #FFFFFF;
+  --tikcash-card: #FFFFFF;
+  --tikcash-card-hover: #F2F2F2;
+  --glass: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --text-primary: #0F0F0F;
+  --text-secondary: #606060;
+  --text-muted: #909090;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F2;
+  --bg-card: #FFFFFF;
+  --border-color: #E5E5E5;
+  --gradient-primary: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+  --gradient-button: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+  --gradient-card: linear-gradient(145deg, #FFFFFF 0%, #F9F9F9 100%);
+  --shadow-card: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --shadow-glow: none;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
   --tikcash-dark: #0F0F0F;
   --tikcash-darker: #0a0a0a;
   --tikcash-card: #1a1a1a;
@@ -20,14 +43,12 @@
   --bg-secondary: #0a0a0a;
   --bg-card: #1a1a1a;
   --border-color: rgba(255, 255, 255, 0.08);
-  --gradient-primary: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
-  --gradient-button: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
   --gradient-card: linear-gradient(145deg, #1a1a1a 0%, #272727 100%);
   --shadow-glow: 0 0 20px rgba(255, 0, 0, 0.15);
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Light Theme Variables (YouTube White) */
+/* Keep [data-theme="light"] for explicit override */
 [data-theme="light"] {
   --tikcash-dark: #FFFFFF;
   --tikcash-darker: #FFFFFF;
