@@ -113,7 +113,7 @@ export default function LoginPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(180deg, #0a0a1a 0%, #000000 50%, #0a0512 100%)",
+        background: "#FFFFFF",
         padding: "clamp(16px, 4vw, 24px)",
         paddingTop: "calc(clamp(16px, 4vw, 24px) + env(safe-area-inset-top, 0px))",
         paddingBottom: "calc(clamp(16px, 4vw, 24px) + env(safe-area-inset-bottom, 0px))",
@@ -128,7 +128,7 @@ export default function LoginPage() {
           style={{
             position: "absolute", top: "-10%", right: "-10%",
             width: "400px", height: "400px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(255,0,0,0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.06) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -136,7 +136,7 @@ export default function LoginPage() {
           style={{
             position: "absolute", bottom: "-10%", left: "-10%",
             width: "350px", height: "350px", borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(255,0,0,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,0,0,0.04) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -149,12 +149,12 @@ export default function LoginPage() {
         style={{
           width: "100%", 
           maxWidth: "min(400px, calc(100vw - 32px))",
-          background: "linear-gradient(145deg, rgba(26,26,46,0.98) 0%, rgba(18,18,30,0.99) 100%)",
+          background: "rgba(255,255,255,0.95)",
           borderRadius: "clamp(18px, 5vw, 24px)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          border: "1px solid rgba(0,0,0,0.1)",
           padding: "clamp(24px, 6vw, 36px) clamp(20px, 5vw, 32px)",
           position: "relative",
-          boxShadow: "0 25px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+          boxShadow: "0 25px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5)",
           boxSizing: "border-box",
         }}
       >
@@ -166,7 +166,7 @@ export default function LoginPage() {
               style={{
                 position: "absolute", left: 0,
                 background: "none", border: "none", cursor: "pointer",
-                color: "rgba(255,255,255,0.6)", padding: "4px",
+                color: "rgba(0,0,0,0.5)", padding: "4px",
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -175,7 +175,7 @@ export default function LoginPage() {
             </button>
           )}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <h1 style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>
+            <h1 style={{ fontSize: "20px", fontWeight: 700, color: "#0F0F0F" }}>
               Welcome to YouCash
             </h1>
           </div>
@@ -223,10 +223,10 @@ export default function LoginPage() {
             <div
               style={{
                 borderRadius: "12px",
-                border: focusedField === "email" ? "2px solid #FF0000" : "2px solid rgba(255,255,255,0.12)",
+                border: focusedField === "email" ? "2px solid #FF0000" : "2px solid rgba(0,0,0,0.15)",
                 transition: "all 0.2s",
                 overflow: "hidden",
-                background: "rgba(0,0,0,0.4)",
+                background: "rgba(0,0,0,0.03)",
               }}
             >
               <input
@@ -241,7 +241,7 @@ export default function LoginPage() {
                 style={{
                   width: "100%", padding: "16px 18px", fontSize: "15px",
                   background: "transparent",
-                  border: "none", color: "#fff", outline: "none", fontFamily: "inherit",
+                  border: "none", color: "#0F0F0F", outline: "none", fontFamily: "inherit",
                   opacity: step === "password" ? 0.6 : 1,
                 }}
               />
@@ -257,16 +257,16 @@ export default function LoginPage() {
                 exit={{ opacity: 0, height: 0 }}
                 style={{ marginBottom: "16px" }}
               >
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", marginBottom: "8px", textAlign: "center" }}>
+                <p style={{ fontSize: "12px", color: "rgba(0,0,0,0.5)", marginBottom: "8px", textAlign: "center" }}>
                   Default password (do not change):
                 </p>
                 <div
                   style={{
                     borderRadius: "12px",
-                    border: focusedField === "password" ? "2px solid #FF0000" : "2px solid rgba(255,255,255,0.12)",
+                    border: focusedField === "password" ? "2px solid #FF0000" : "2px solid rgba(0,0,0,0.15)",
                     transition: "all 0.2s",
                     overflow: "hidden",
-                    background: "rgba(0,0,0,0.4)",
+                    background: "rgba(0,0,0,0.03)",
                   }}
                 >
                   <input
@@ -311,14 +311,14 @@ export default function LoginPage() {
         {/* Terms */}
         <p
           style={{
-            textAlign: "center", fontSize: "11px", color: "rgba(255,255,255,0.35)",
+            textAlign: "center", fontSize: "11px", color: "rgba(0,0,0,0.45)",
             lineHeight: 1.6,
           }}
         >
           {"By continuing, you agree to our "}
           <span style={{ color: "#FF0000", fontWeight: 600 }}>Terms of Service</span>
           {" and acknowledge that you have read our "}
-          <span style={{ fontWeight: 600, color: "#fff" }}>Privacy Policy</span>.
+          <span style={{ fontWeight: 600, color: "#0F0F0F" }}>Privacy Policy</span>.
         </p>
       </motion.div>
 
