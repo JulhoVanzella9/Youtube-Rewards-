@@ -11,53 +11,21 @@ import TopBar from "@/app/components/TopBar";
 import ReferralModal from "@/app/components/ReferralModal";
 import InstallPrompt from "@/app/components/InstallPrompt";
 import { createClient } from "@/lib/supabase/client";
+import { useTheme } from "@/lib/theme/context";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [referralModalOpen, setReferralModalOpen] = useState(false);
   const router = useRouter();
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
-  // Listen for theme changes
+  // Listen for referral modal event
   useEffect(() => {
-    const checkTheme = () => {
-      const savedTheme = localStorage.getItem("theme");
-      setIsDarkMode(savedTheme !== "light");
-    };
-
-    checkTheme();
-
-    // Listen for storage changes (theme toggle)
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === "theme") {
-        setIsDarkMode(e.newValue !== "light");
-      }
-    };
-
-    // Custom event for same-tab theme changes
-    const handleThemeChange = () => {
-      checkTheme();
-    };
-
-    // Listen for referral modal event
-    const handleOpenReferral = () => {
-      setReferralModalOpen(true);
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    window.addEventListener("themeChange", handleThemeChange);
+    const handleOpenReferral = () => setReferralModalOpen(true);
     window.addEventListener("openReferralModal", handleOpenReferral);
-
-    // Check theme periodically for same-tab changes
-    const interval = setInterval(checkTheme, 100);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener("themeChange", handleThemeChange);
-      window.removeEventListener("openReferralModal", handleOpenReferral);
-      clearInterval(interval);
-    };
+    return () => window.removeEventListener("openReferralModal", handleOpenReferral);
   }, []);
 
   const checkAuth = useCallback(async () => {
@@ -139,6 +107,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         overflowY: "auto",
         overflowX: "hidden",
         WebkitOverflowScrolling: "touch",
+        overscrollBehavior: "contain",
         width: "100%",
         maxWidth: "100vw",
         boxSizing: "border-box",

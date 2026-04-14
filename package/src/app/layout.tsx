@@ -52,13 +52,27 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var theme = localStorage.getItem('theme') || 'light';
-                  document.documentElement.setAttribute('data-theme', theme);
-                  if (theme === 'light') {
-                    document.documentElement.style.backgroundColor = '#FFFFFF';
+                  var theme = localStorage.getItem('theme');
+                  if (theme !== 'dark' && theme !== 'light') theme = 'light';
+
+                  var root = document.documentElement;
+                  root.setAttribute('data-theme', theme);
+                  root.style.colorScheme = theme;
+
+                  // Apply to body ASAP (may not exist yet)
+                  if (document.body) {
+                    document.body.setAttribute('data-theme', theme);
                   } else {
-                    document.documentElement.style.backgroundColor = '#0F0F0F';
+                    root.setAttribute('data-theme-pending-body', theme);
                   }
+
+                  // Keep browser UI (address bar, etc) consistent
+                  var meta = document.querySelector('meta[name="theme-color"]');
+                  if (meta) meta.setAttribute('content', theme === 'dark' ? '#0F0F0F' : '#FFFFFF');
+
+                  // Avoid white flash on dark + avoid dark flash on light
+                  root.style.backgroundColor = theme === 'dark' ? '#0F0F0F' : '#FFFFFF';
+                  root.setAttribute('data-theme-init', '1');
                 } catch (e) {}
               })();
             `,

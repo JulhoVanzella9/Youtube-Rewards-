@@ -69,6 +69,14 @@ body {
   min-height: -webkit-fill-available;
 }
 
+/* Prevent background scroll when overlays are open (mobile-safe) */
+html[data-scroll-locked="true"],
+body[data-scroll-locked="true"] {
+  overflow: hidden !important;
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
 /* Light theme body override */
 [data-theme="light"] body {
   background-color: #FFFFFF !important;

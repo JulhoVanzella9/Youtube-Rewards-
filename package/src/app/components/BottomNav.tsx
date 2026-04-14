@@ -3,23 +3,13 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n/context";
-import { useState, useEffect } from "react";
+import { useTheme } from "@/lib/theme/context";
 
 export default function BottomNav() {
   const pathname = usePathname();
   const { t } = useI18n();
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    const checkTheme = () => {
-      const savedTheme = localStorage.getItem("theme");
-      setIsDarkMode(savedTheme !== "light");
-    };
-
-    checkTheme();
-    const interval = setInterval(checkTheme, 100);
-    return () => clearInterval(interval);
-  }, []);
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
   const inactiveColor = isDarkMode ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)";
   const textColor = isDarkMode ? "#fff" : "#000";

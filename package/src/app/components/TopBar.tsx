@@ -97,25 +97,15 @@ export default function TopBar() {
   // Block body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-      document.body.style.top = `-${window.scrollY}px`;
+      document.documentElement.setAttribute("data-scroll-locked", "true");
+      document.body.setAttribute("data-scroll-locked", "true");
     } else {
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
+      document.documentElement.removeAttribute("data-scroll-locked");
+      document.body.removeAttribute("data-scroll-locked");
     }
     return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
+      document.documentElement.removeAttribute("data-scroll-locked");
+      document.body.removeAttribute("data-scroll-locked");
     };
   }, [menuOpen]);
 
@@ -367,6 +357,7 @@ export default function TopBar() {
                 background: "rgba(0,0,0,0.6)",
                 backdropFilter: "blur(8px)",
                 WebkitBackdropFilter: "blur(8px)",
+                touchAction: "none",
               }}
             />
             
