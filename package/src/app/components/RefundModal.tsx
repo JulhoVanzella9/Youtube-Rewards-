@@ -16,18 +16,13 @@ interface ExistingRequest {
   created_at: string;
 }
 
-interface NotificationStatus {
-  type: 'email' | 'sms';
-  status: 'pending' | 'sent' | 'failed';
-  timestamp: string;
-}
-
 export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
   const { t } = useI18n();
-  const [step, setStep] = useState<"legal" | "form">("legal");
+  const [step, setStep] = useState<"legal" | "acknowledge" | "form">("legal");
   const [email, setEmail] = useState("");
   const [purchaseCode, setPurchaseCode] = useState("");
   const [reason, setReason] = useState("");
+  const [fullName, setFullName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [existingRequests, setExistingRequests] = useState<ExistingRequest[]>([]);
@@ -38,7 +33,15 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
     { emailSent: false, smsSent: false }
   );
 
-  // Get current user and fetch existing refund requests when modal opens
+  // Acknowledgment checkboxes
+  const [ack1, setAck1] = useState(false);
+  const [ack2, setAck2] = useState(false);
+  const [ack3, setAck3] = useState(false);
+  const [ack4, setAck4] = useState(false);
+  const [ack5, setAck5] = useState(false);
+
+  const allAcknowledged = ack1 && ack2 && ack3 && ack4 && ack5;
+
   useEffect(() => {
     if (isOpen) {
       const supabase = createClient();
@@ -60,22 +63,21 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !purchaseCode || !reason) return;
-    
+    if (!email || !purchaseCode || !reason || !fullName) return;
+
     setIsSubmitting(true);
     setDuplicateError(null);
-    
+
     try {
       const response = await fetch('/api/refund', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, purchaseCode, reason, userId }),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.status === 409 && data.error === 'duplicate_request') {
-        // Duplicate request detected - show message with days remaining
         setDuplicateError(data.message || 'You already have a refund request from this account.');
         setIsSubmitting(false);
         return;
@@ -86,18 +88,17 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
         setIsSubmitting(false);
         return;
       }
-      
+
       if (!response.ok) {
         setDuplicateError(data.message || data.error || 'Failed to submit refund request');
         setIsSubmitting(false);
         return;
       }
-      
+
       setIsSubmitting(false);
       setSubmitted(true);
       setLastRequestId(data.requestId);
-      
-      // Poll for notification status
+
       let attempts = 0;
       const pollInterval = setInterval(async () => {
         attempts++;
@@ -106,14 +107,13 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
             `/api/refund-status?refundRequestId=${data.requestId}`
           );
           const statusData = await statusResponse.json();
-          
+
           if (statusData.success && statusData.summary) {
             setNotificationStatus({
               emailSent: statusData.summary.emailSent,
               smsSent: statusData.summary.smsSent,
             });
-            
-            // Stop polling if both sent successfully or after 30 attempts (30 seconds)
+
             if ((statusData.summary.emailSent && statusData.summary.smsSent) || attempts >= 30) {
               clearInterval(pollInterval);
             }
@@ -122,7 +122,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
           console.error('[v0] Error polling notification status:', error);
         }
       }, 1000);
-      
+
       setTimeout(() => {
         clearInterval(pollInterval);
         handleClose();
@@ -139,10 +139,24 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
     setEmail("");
     setPurchaseCode("");
     setReason("");
+    setFullName("");
     setSubmitted(false);
     setDuplicateError(null);
+    setAck1(false);
+    setAck2(false);
+    setAck3(false);
+    setAck4(false);
+    setAck5(false);
     onClose();
   };
+
+  const WarningIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+      <line x1="12" y1="9" x2="12" y2="13"/>
+      <line x1="12" y1="17" x2="12.01" y2="17"/>
+    </svg>
+  );
 
   return (
     <AnimatePresence>
@@ -168,16 +182,15 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              width: "100%", maxWidth: step === "legal" ? "600px" : "420px",
+              width: "100%", maxWidth: step === "form" ? "420px" : "600px",
               display: "flex", flexDirection: "column", alignItems: "center",
               margin: "auto",
               padding: "10px 0",
             }}
           >
             {step === "legal" ? (
-              /* Legal Notice Step */
               <>
-                {/* YouCash Logo - same as TopBar, centered */}
+                {/* YouCash Logo */}
                 <div style={{
                   display: "flex",
                   alignItems: "center",
@@ -197,9 +210,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                     </svg>
                   </div>
                   <span style={{
-                    fontSize: "20px",
-                    fontWeight: 800,
-                    color: "#fff",
+                    fontSize: "20px", fontWeight: 800, color: "#fff",
                     letterSpacing: "-0.5px",
                     fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif",
                     lineHeight: 1,
@@ -208,10 +219,9 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                   </span>
                 </div>
 
-                <h2 style={{ 
-                  fontSize: "16px", fontWeight: 600, color: "rgba(255,255,255,0.7)", 
-                  marginBottom: "20px", textAlign: "center",
-                  width: "100%",
+                <h2 style={{
+                  fontSize: "16px", fontWeight: 600, color: "rgba(255,255,255,0.7)",
+                  marginBottom: "20px", textAlign: "center", width: "100%",
                 }}>
                   Community
                 </h2>
@@ -220,61 +230,237 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                   background: "#000",
                   padding: "24px 16px",
                   width: "100%",
-                  textAlign: "center",
                   borderRadius: "12px",
                 }}>
-                  <h3 style={{ 
-                    fontSize: "16px", fontWeight: 800, color: "#fff", 
-                    marginBottom: "16px", letterSpacing: "0.5px",
+                  {/* Warning Header */}
+                  <div style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    marginBottom: "16px",
+                    padding: "10px",
+                    background: "rgba(255,68,68,0.1)",
+                    borderRadius: "10px",
+                    border: "1px solid rgba(255,68,68,0.3)",
                   }}>
-                    LEGAL CONSEQUENCES NOTICE
-                  </h3>
+                    <WarningIcon />
+                    <h3 style={{
+                      fontSize: "14px", fontWeight: 800, color: "#FF4444",
+                      letterSpacing: "0.5px", margin: 0,
+                    }}>
+                      LEGAL CONSEQUENCES NOTICE
+                    </h3>
+                    <WarningIcon />
+                  </div>
 
-                  <p style={{ 
-                    fontSize: "13px", color: "rgba(255,255,255,0.7)", 
-                    lineHeight: 1.7, marginBottom: "24px",
+                  <p style={{
+                    fontSize: "13px", color: "rgba(255,255,255,0.7)",
+                    lineHeight: 1.7, marginBottom: "20px",
                     textAlign: "left",
                   }}>
                     Please note that initiating a chargeback (a formal request to the credit provider to reverse an unrecognized transaction) without proper justification constitutes illegal conduct under the Fair Credit Billing Act (FCBA). These actions not only harm reputable and ethical businesses but also involve the refusal to acknowledge a legitimate transaction despite having received the product or service. Engaging in such practices may result in legal consequences. It is essential to maintain honesty in all online transactions to ensure a safe and trustworthy shopping environment for all parties involved.
                   </p>
 
+                  {/* Refund & Dispute Policy */}
+                  <div style={{
+                    background: "rgba(255,255,255,0.05)",
+                    borderRadius: "10px",
+                    padding: "16px",
+                    marginBottom: "20px",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}>
+                    <h4 style={{
+                      fontSize: "13px", fontWeight: 800, color: "#fff",
+                      marginBottom: "14px", textTransform: "uppercase",
+                      letterSpacing: "0.5px", textAlign: "center",
+                    }}>
+                      Refund & Dispute Policy
+                    </h4>
+
+                    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "12px", textAlign: "left" }}>
+                      Before initiating any chargeback or dispute with your bank or card provider, you agree to contact our support team first to resolve the issue.
+                    </p>
+
+                    <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "14px", textAlign: "left" }}>
+                      Failure to contact us prior to opening a dispute may result in your case being formally contested with detailed evidence, including proof of access, usage logs, and acceptance of our terms.
+                    </p>
+
+                    <p style={{ fontSize: "12px", color: "#FF4444", lineHeight: 1.7, marginBottom: "10px", textAlign: "left", fontWeight: 600 }}>
+                      Unresolved or abusive chargebacks may lead to:
+                    </p>
+
+                    <div style={{ paddingLeft: "4px", marginBottom: "14px" }}>
+                      {[
+                        "Permanent account suspension and loss of all earned balance",
+                        "Complete and irreversible loss of access to all platform services",
+                        "Internal fraud prevention flagging across affiliated platforms",
+                        "Reporting the dispute with supporting documentation to financial institutions, which may affect your standing with payment providers",
+                        "Formal legal action to recover costs associated with fraudulent disputes",
+                        "Collection of all evidence (IP logs, device fingerprints, usage data, timestamps) for dispute contestation",
+                      ].map((item, i) => (
+                        <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "8px" }}>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF4444" strokeWidth="2" style={{ marginTop: "3px", flexShrink: 0 }}>
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                          </svg>
+                          <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{
+                      background: "rgba(255,68,68,0.08)",
+                      border: "1px solid rgba(255,68,68,0.2)",
+                      borderRadius: "8px",
+                      padding: "10px",
+                    }}>
+                      <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7, margin: 0, textAlign: "left" }}>
+                        We are committed to resolving any issue quickly and fairly. Please contact our support team before taking external action. All refund requests are reviewed individually and processed within 5-10 business days.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Evidence Warning */}
+                  <div style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "8px",
+                    padding: "12px",
+                    background: "rgba(255,68,68,0.08)",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(255,68,68,0.2)",
+                    marginBottom: "20px",
+                  }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4444" strokeWidth="2" style={{ flexShrink: 0, marginTop: "1px" }}>
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.55)", lineHeight: 1.6, margin: 0 }}>
+                      <strong style={{ color: "#FF4444" }}>Important:</strong> By proceeding, you acknowledge that your account activity, access logs, IP addresses, and device information have been recorded and may be used as evidence in the event of a dispute or chargeback.
+                    </p>
+                  </div>
+
                   <button
-                    onClick={() => setStep("form")}
+                    onClick={() => setStep("acknowledge")}
                     className="btn-3d btn-3d-primary"
-                    style={{
-                      fontFamily: "inherit",
-                      width: "100%",
-                      maxWidth: "280px",
-                    }}
+                    style={{ fontFamily: "inherit", width: "100%", maxWidth: "280px", display: "block", margin: "0 auto" }}
                   >
-                    Continue Request
+                    I Understand - Continue
                   </button>
                 </div>
 
-                {/* Footer Links */}
-                <div style={{ 
+                <div style={{
                   display: "flex", gap: "20px", marginTop: "24px",
                   justifyContent: "center", flexWrap: "wrap",
                 }}>
-                  <span style={{ fontSize: "12px", color: "#fff", fontWeight: 600, cursor: "pointer" }}>
-                    Terms of Use
-                  </span>
-                  <span style={{ fontSize: "12px", color: "#fff", fontWeight: 600, cursor: "pointer" }}>
-                    Privacy Policy
-                  </span>
+                  <span style={{ fontSize: "12px", color: "#fff", fontWeight: 600, cursor: "pointer" }}>Terms of Use</span>
+                  <span style={{ fontSize: "12px", color: "#fff", fontWeight: 600, cursor: "pointer" }}>Privacy Policy</span>
                 </div>
 
                 <button
                   onClick={handleClose}
                   className="btn-3d btn-3d-dark btn-3d-sm"
-                  style={{
-                    marginTop: "16px",
-                    fontFamily: "inherit",
-                  }}
+                  style={{ marginTop: "16px", fontFamily: "inherit" }}
                 >
                   Back to Start
                 </button>
               </>
+            ) : step === "acknowledge" ? (
+              /* Acknowledgment Step */
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                style={{
+                  background: "#000",
+                  padding: "24px 16px",
+                  width: "100%",
+                  borderRadius: "12px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
+                  <button
+                    type="button"
+                    onClick={() => setStep("legal")}
+                    style={{
+                      background: "none", border: "none", cursor: "pointer",
+                      color: "rgba(255,255,255,0.6)", padding: "4px", marginRight: "12px",
+                    }}
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                  </button>
+                  <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#fff" }}>
+                    Required Acknowledgments
+                  </h3>
+                </div>
+
+                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", marginBottom: "18px", lineHeight: 1.6 }}>
+                  Before proceeding with your refund request, you must acknowledge and agree to all of the following statements. This is a mandatory step required by our compliance department.
+                </p>
+
+                {[
+                  { checked: ack1, setter: setAck1, text: "I confirm that I have contacted or attempted to contact the support team before initiating this refund request." },
+                  { checked: ack2, setter: setAck2, text: "I understand that filing a chargeback or dispute without first attempting resolution through the platform's support channels may be treated as a fraudulent claim and will be formally contested with all available evidence." },
+                  { checked: ack3, setter: setAck3, text: "I acknowledge that my account activity, IP address, device information, and usage logs have been recorded and may be submitted to financial institutions, payment processors, and relevant authorities." },
+                  { checked: ack4, setter: setAck4, text: "I understand that abusive or fraudulent chargebacks may result in permanent account suspension, loss of all earned balance, fraud prevention flagging, and potential legal action." },
+                  { checked: ack5, setter: setAck5, text: "I confirm that all information I provide in this refund request is truthful and accurate. I understand that providing false information may constitute fraud." },
+                ].map((item, i) => (
+                  <label
+                    key={i}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "10px",
+                      padding: "12px",
+                      marginBottom: "8px",
+                      background: item.checked ? "rgba(255,68,68,0.08)" : "rgba(255,255,255,0.03)",
+                      borderRadius: "10px",
+                      border: item.checked ? "1px solid rgba(255,68,68,0.25)" : "1px solid rgba(255,255,255,0.08)",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={item.checked}
+                      onChange={(e) => item.setter(e.target.checked)}
+                      style={{
+                        width: "16px", height: "16px",
+                        marginTop: "2px", accentColor: "#FF0000",
+                        flexShrink: 0, cursor: "pointer",
+                      }}
+                    />
+                    <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6 }}>
+                      {item.text}
+                    </span>
+                  </label>
+                ))}
+
+                <div style={{ display: "flex", gap: "12px", marginTop: "18px" }}>
+                  <button
+                    onClick={handleClose}
+                    className="btn-3d btn-3d-dark"
+                    style={{ flex: 1, fontFamily: "inherit" }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={() => allAcknowledged && setStep("form")}
+                    disabled={!allAcknowledged}
+                    className="btn-3d btn-3d-primary"
+                    style={{
+                      flex: 1, fontFamily: "inherit",
+                      opacity: allAcknowledged ? 1 : 0.4,
+                      cursor: allAcknowledged ? "pointer" : "not-allowed",
+                    }}
+                  >
+                    Proceed to Form
+                  </button>
+                </div>
+              </motion.div>
             ) : (
               /* Form Step */
               <div style={{
@@ -298,25 +484,19 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                       </svg>
                     </div>
                     <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>
-                      Request Submitted!
+                      Request Submitted
                     </h3>
-                    
-                    {/* Notification Status */}
+
                     <div style={{ marginBottom: "16px", fontSize: "13px" }}>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "6px", color: "rgba(255,255,255,0.8)" }}>
                         {notificationStatus.emailSent ? (
                           <>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="3">
-                              <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                             <span>Email sent</span>
                           </>
                         ) : (
                           <>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="12" cy="12" r="10"/>
-                              <circle cx="12" cy="12" r="3"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
                             <span>Email sending...</span>
                           </>
                         )}
@@ -324,78 +504,38 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", color: "rgba(255,255,255,0.8)" }}>
                         {notificationStatus.smsSent ? (
                           <>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="3">
-                              <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                             <span>SMS sent</span>
                           </>
                         ) : (
                           <>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="12" cy="12" r="10"/>
-                              <circle cx="12" cy="12" r="3"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
                             <span>SMS sending...</span>
                           </>
                         )}
                       </div>
                     </div>
-                    
-                    <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginBottom: "16px" }}>
-                      We will contact you soon.
-                    </p>
-                    
-                    {/* WHATSAPP_DISABLED_START - Remove this comment block to re-enable WhatsApp */}
-                    {/* WhatsApp Support Button - TEMPORARILY DISABLED
-                    <a
-                      href={`https://wa.me/5546999192885?text=${encodeURIComponent(
-                        `Hello YouCash Support!\n\nI just submitted a refund request.\n\nEmail: ${email}\nPurchase Code: ${purchaseCode}\n\nReason:\n${reason}`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "8px",
-                        padding: "12px 20px",
-                        background: "#25D366",
-                        borderRadius: "12px",
-                        color: "#fff",
-                        fontWeight: 600,
-                        fontSize: "14px",
-                        textDecoration: "none",
-                        marginTop: "8px",
-                        transition: "transform 0.2s, box-shadow 0.2s",
-                        boxShadow: "0 4px 12px rgba(37, 211, 102, 0.3)",
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.transform = "scale(1.02)";
-                        e.currentTarget.style.boxShadow = "0 6px 16px rgba(37, 211, 102, 0.4)";
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.transform = "scale(1)";
-                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(37, 211, 102, 0.3)";
-                      }}
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                      </svg>
-                      Contact via WhatsApp
-                    </a>
-                    WHATSAPP_DISABLED_END */}
+
+                    <div style={{
+                      background: "rgba(255,255,255,0.05)",
+                      borderRadius: "10px",
+                      padding: "14px",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}>
+                      <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: 0 }}>
+                        Processing time: 5-10 business days. You will receive an email notification with the outcome. Please do not initiate a chargeback during this period, as it may result in your request being denied and your account being flagged.
+                      </p>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit}>
-                    {/* Back button */}
                     <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
                       <button
                         type="button"
-                        onClick={() => setStep("legal")}
+                        onClick={() => setStep("acknowledge")}
                         style={{
                           background: "none", border: "none", cursor: "pointer",
-                          color: "rgba(255,255,255,0.6)", padding: "4px",
-                          marginRight: "12px",
+                          color: "rgba(255,255,255,0.6)", padding: "4px", marginRight: "12px",
                         }}
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -407,7 +547,19 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                       </h3>
                     </div>
 
-                    {/* Show existing pending/processing requests */}
+                    {/* Step indicator */}
+                    <div style={{
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      gap: "8px", marginBottom: "20px",
+                      fontSize: "11px", color: "rgba(255,255,255,0.4)",
+                    }}>
+                      <span style={{ color: "rgba(255,255,255,0.3)" }}>Policy</span>
+                      <span>-</span>
+                      <span style={{ color: "rgba(255,255,255,0.3)" }}>Acknowledgments</span>
+                      <span>-</span>
+                      <span style={{ color: "#FF0000", fontWeight: 600 }}>Request Form</span>
+                    </div>
+
                     {existingRequests.filter(r => r.status === 'pending' || r.status === 'processing').length > 0 && (
                       <div style={{
                         background: "rgba(255, 0, 0, 0.15)",
@@ -422,9 +574,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                             <line x1="12" y1="8" x2="12" y2="12"/>
                             <line x1="12" y1="16" x2="12.01" y2="16"/>
                           </svg>
-                          <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>
-                            Refund in progress
-                          </span>
+                          <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>Refund already in progress</span>
                         </div>
                         <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)", margin: 0 }}>
                           You already have an active refund request. Please wait for it to be processed before submitting a new one.
@@ -432,7 +582,6 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                       </div>
                     )}
 
-                    {/* Show duplicate error message */}
                     {duplicateError && (
                       <div style={{
                         background: "rgba(255, 0, 0, 0.15)",
@@ -447,13 +596,32 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                             <line x1="15" y1="9" x2="9" y2="15"/>
                             <line x1="9" y1="9" x2="15" y2="15"/>
                           </svg>
-                          <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>
-                            {duplicateError}
-                          </span>
+                          <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>{duplicateError}</span>
                         </div>
                       </div>
                     )}
-                    
+
+                    <div style={{ marginBottom: "16px" }}>
+                      <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
+                        Full Legal Name
+                      </label>
+                      <input
+                        type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        required
+                        placeholder="Enter your full legal name..."
+                        style={{
+                          width: "100%", padding: "14px 16px",
+                          background: "rgba(0,0,0,0.4)",
+                          border: "2px solid rgba(255,255,255,0.12)",
+                          borderRadius: "12px",
+                          color: "#fff", fontSize: "14px",
+                          outline: "none", fontFamily: "inherit",
+                        }}
+                      />
+                    </div>
+
                     <div style={{ marginBottom: "16px" }}>
                       <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
                         {t("yourEmail")}
@@ -496,7 +664,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                       />
                     </div>
 
-                    <div style={{ marginBottom: "20px" }}>
+                    <div style={{ marginBottom: "16px" }}>
                       <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--text-muted)", marginBottom: "8px", display: "block" }}>
                         {t("refundReason")}
                       </label>
@@ -504,8 +672,8 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                         value={reason}
                         onChange={(e) => setReason(e.target.value)}
                         required
-                        placeholder={t("describeReason")}
-                        rows={4}
+                        placeholder="Please provide a detailed explanation for your refund request. Include specific reasons and any relevant information..."
+                        rows={5}
                         style={{
                           width: "100%", padding: "14px 16px",
                           background: "rgba(0,0,0,0.4)",
@@ -513,9 +681,24 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                           borderRadius: "12px",
                           color: "#fff", fontSize: "14px",
                           outline: "none", fontFamily: "inherit",
-                          resize: "vertical", minHeight: "100px",
+                          resize: "vertical", minHeight: "120px",
                         }}
                       />
+                    </div>
+
+                    {/* Final Warning */}
+                    <div style={{
+                      display: "flex", alignItems: "flex-start", gap: "10px",
+                      padding: "12px", background: "rgba(255,68,68,0.08)",
+                      borderRadius: "10px", border: "1px solid rgba(255,68,68,0.2)",
+                      marginBottom: "20px",
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4444" strokeWidth="2" style={{ flexShrink: 0, marginTop: "1px" }}>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                      <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, margin: 0 }}>
+                        By submitting this request, you confirm that you have read and agreed to the Refund & Dispute Policy. Your request will be reviewed by our compliance team. Processing time: 5-10 business days.
+                      </p>
                     </div>
 
                     <div style={{ display: "flex", gap: "12px" }}>
@@ -524,21 +707,17 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
                         onClick={handleClose}
                         disabled={isSubmitting}
                         className="btn-3d btn-3d-dark"
-                        style={{
-                          flex: 1,
-                          fontFamily: "inherit",
-                        }}
+                        style={{ flex: 1, fontFamily: "inherit" }}
                       >
                         {t("cancel")}
                       </button>
                       <button
                         type="submit"
-                        disabled={isSubmitting || !email || !purchaseCode || !reason}
+                        disabled={isSubmitting || !email || !purchaseCode || !reason || !fullName}
                         className="btn-3d btn-3d-primary"
                         style={{
-                          flex: 1,
-                          fontFamily: "inherit",
-                          opacity: isSubmitting || !email || !purchaseCode || !reason ? 0.6 : 1,
+                          flex: 1, fontFamily: "inherit",
+                          opacity: isSubmitting || !email || !purchaseCode || !reason || !fullName ? 0.6 : 1,
                           cursor: isSubmitting ? "not-allowed" : "pointer",
                         }}
                       >
