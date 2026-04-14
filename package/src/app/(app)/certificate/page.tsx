@@ -63,7 +63,7 @@ export default function CertificatePage() {
       });
       
       const link = document.createElement("a");
-      link.download = `TikCash_Certificate_${userName.replace(/\s+/g, "_")}.png`;
+      link.download = `YouCash_Certificate_${userName.replace(/\s+/g, "_")}.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     } catch (error) {
@@ -131,7 +131,7 @@ export default function CertificatePage() {
         <div
           ref={certificateRef}
           style={{
-            background: "linear-gradient(145deg, #0d0d1a 0%, #1a1a2e 50%, #0d0d1a 100%)",
+            background: "linear-gradient(145deg, #0d0d1a 0%, #1a1a1a 50%, #0d0d1a 100%)",
             borderRadius: "20px",
             border: "2px solid rgba(254,44,85,0.3)",
             padding: "40px 30px",
@@ -151,22 +151,18 @@ export default function CertificatePage() {
             background: "radial-gradient(circle, rgba(37,244,238,0.1) 0%, transparent 70%)",
           }} />
 
-          {/* TikCash Logo */}
+          {/* YouCash Logo */}
           <div style={{ textAlign: "center", marginBottom: "20px" }}>
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-              <text x="20" y="32" textAnchor="middle" fill="#000" fontSize="14" fontWeight="800" fontFamily="system-ui">$</text>
-              <circle cx="36" cy="12" r="7" fill="#25f4ee" stroke="#fff" strokeWidth="2"/>
-              <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800" fontFamily="system-ui">$</text>
+            <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+              <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+              <path d="M27 34V14L45 24L27 34Z" fill="white"/>
             </svg>
           </div>
 
           {/* Certificate Title */}
           <div style={{ textAlign: "center", marginBottom: "24px" }}>
             <h2 style={{
-              fontSize: "12px", fontWeight: 700, color: "#fe2c55",
+              fontSize: "12px", fontWeight: 700, color: "#FF0000",
               textTransform: "uppercase", letterSpacing: "3px", marginBottom: "8px",
             }}>
               Certificate of Completion
@@ -175,7 +171,7 @@ export default function CertificatePage() {
               fontSize: "24px", fontWeight: 900, color: "#fff",
               marginBottom: "4px",
             }}>
-              TikCash
+              YouCash
             </h3>
             <p style={{ fontSize: "12px", color: "var(--text-muted)" }}>
               Official Training Program
@@ -189,7 +185,7 @@ export default function CertificatePage() {
             </p>
             <p style={{
               fontSize: "28px", fontWeight: 800,
-              background: "linear-gradient(135deg, #fe2c55, #25f4ee)",
+              background: "linear-gradient(135deg, #FF0000, #282828)",
               backgroundClip: "text", WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               marginBottom: "8px",
@@ -219,7 +215,7 @@ export default function CertificatePage() {
               <p style={{ fontSize: "10px", color: "var(--text-muted)", marginBottom: "4px" }}>
                 Certificate ID
               </p>
-              <p style={{ fontSize: "11px", fontWeight: 600, color: "#25f4ee" }}>
+              <p style={{ fontSize: "11px", fontWeight: 600, color: "#282828" }}>
                 TR-{Date.now().toString(36).toUpperCase()}
               </p>
             </div>
@@ -233,8 +229,8 @@ export default function CertificatePage() {
             display: "flex", alignItems: "center", justifyContent: "center",
             background: "rgba(254,44,85,0.1)",
           }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fe2c55">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#fe2c55" strokeWidth="2" fill="none"/>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#FF0000" strokeWidth="2" fill="none"/>
             </svg>
           </div>
         </div>
@@ -248,7 +244,7 @@ export default function CertificatePage() {
           whileTap={{ scale: 0.98 }}
           style={{
             width: "100%", padding: "16px", fontSize: "15px", fontWeight: 700,
-            background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
             color: "#fff",
             border: "none", borderRadius: "50px", cursor: "pointer",
             fontFamily: "inherit",
@@ -282,13 +278,13 @@ export default function CertificatePage() {
             {t("completeCourseDesc")}
           </p>
           <motion.button
-            onClick={() => router.push("/course/tikcash-program")}
+            onClick={() => router.push("/course/youcash-program")}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             style={{
               padding: "12px 24px", fontSize: "14px", fontWeight: 700,
               background: "rgba(254,44,85,0.15)",
-              color: "#fe2c55",
+              color: "#FF0000",
               border: "1px solid rgba(254,44,85,0.3)",
               borderRadius: "50px", cursor: "pointer",
               fontFamily: "inherit",

@@ -106,7 +106,7 @@ export default function ResetPasswordPage() {
           <div
             style={{
               width: "60px", height: "60px", borderRadius: "16px",
-              background: "linear-gradient(135deg, #fe2c55, #25f4ee)",
+              background: "linear-gradient(135deg, #FF0000, #282828)",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontWeight: 900, fontSize: "28px", color: "#fff",
               margin: "0 auto 16px", boxShadow: "0 0 30px rgba(254,44,85,0.3)",
@@ -131,7 +131,7 @@ export default function ResetPasswordPage() {
             style={{
               padding: "12px 16px", borderRadius: "12px",
               background: "rgba(254,44,85,0.1)", border: "1px solid rgba(254,44,85,0.2)",
-              color: "#fe2c55", fontSize: "13px", fontWeight: 600,
+              color: "#FF0000", fontSize: "13px", fontWeight: 600,
               marginBottom: "16px", textAlign: "center",
             }}
           >
@@ -146,7 +146,7 @@ export default function ResetPasswordPage() {
             style={{
               padding: "12px 16px", borderRadius: "12px",
               background: "rgba(37,244,238,0.1)", border: "1px solid rgba(37,244,238,0.2)",
-              color: "#25f4ee", fontSize: "13px", fontWeight: 600,
+              color: "#282828", fontSize: "13px", fontWeight: 600,
               marginBottom: "16px", textAlign: "center",
             }}
           >
@@ -233,7 +233,7 @@ export default function ResetPasswordPage() {
               whileTap={{ scale: 0.98, translateY: 1 }}
               style={{
                 width: "100%", padding: "16px", fontSize: "16px", fontWeight: 700,
-                background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+                background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                 color: "#fff", border: "none", borderRadius: "16px",
                 cursor: loading ? "not-allowed" : "pointer", fontFamily: "inherit",
                 letterSpacing: "0.3px", opacity: loading ? 0.7 : 1,

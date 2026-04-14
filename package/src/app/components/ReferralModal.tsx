@@ -51,8 +51,8 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
   const shareLink = async () => {
     const shareUrl = `${window.location.origin}/invite/${referralCode}`;
     const shareData = {
-      title: "TikCash - Exclusive Invitation",
-      text: "You've been invited to join TikCash! Start earning money by rating videos:",
+      title: "YouCash - Exclusive Invitation",
+      text: "You've been invited to join YouCash! Start earning money by rating videos:",
       url: shareUrl,
     };
 
@@ -95,7 +95,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
           style={{
-            background: "linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%)",
+            background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f1a 100%)",
             borderRadius: "24px",
             padding: "28px",
             width: "100%",
@@ -134,7 +134,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               width: "64px",
               height: "64px",
               borderRadius: "20px",
-              background: "linear-gradient(135deg, #fe2c55 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -152,7 +152,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               Invite Friends & Earn
             </h2>
             <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>
-              Share your referral link and earn <span style={{ color: "#25f4ee", fontWeight: 700 }}>$20.00</span> for each friend who joins!
+              Share your referral link and earn <span style={{ color: "#282828", fontWeight: 700 }}>$20.00</span> for each friend who joins!
             </p>
           </div>
 
@@ -170,7 +170,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               textAlign: "center",
               border: "1px solid rgba(37,244,238,0.2)",
             }}>
-              <div style={{ fontSize: "24px", fontWeight: 800, color: "#25f4ee" }}>
+              <div style={{ fontSize: "24px", fontWeight: 800, color: "#282828" }}>
                 {loading ? "..." : referralCount}
               </div>
               <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", marginTop: "4px" }}>
@@ -184,7 +184,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
               textAlign: "center",
               border: "1px solid rgba(254,44,85,0.2)",
             }}>
-              <div style={{ fontSize: "24px", fontWeight: 800, color: "#fe2c55" }}>
+              <div style={{ fontSize: "24px", fontWeight: 800, color: "#FF0000" }}>
                 ${loading ? "..." : referralEarnings.toFixed(2)}
               </div>
               <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", marginTop: "4px" }}>
@@ -229,7 +229,7 @@ export default function ReferralModal({ isOpen, onClose }: ReferralModalProps) {
                     height: "24px",
                     borderRadius: "50%",
                     background: "rgba(254,44,85,0.2)",
-                    color: "#fe2c55",
+                    color: "#FF0000",
                     fontSize: "12px",
                     fontWeight: 700,
                     display: "flex",

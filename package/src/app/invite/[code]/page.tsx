@@ -26,7 +26,7 @@ export default function InviteRedirectPage() {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%)",
+      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a1a 50%, #0a0a0f 100%)",
       padding: "20px",
     }}>
       {/* Loading Animation */}
@@ -36,7 +36,7 @@ export default function InviteRedirectPage() {
         transition={{ duration: 0.5 }}
         style={{ textAlign: "center" }}
       >
-        {/* TikCash Logo */}
+        {/* YouCash Logo */}
         <motion.div
           animate={{ 
             scale: [1, 1.05, 1],
@@ -57,13 +57,9 @@ export default function InviteRedirectPage() {
             border: "1px solid rgba(255,255,255,0.1)",
           }}
         >
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-            <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-            <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-            <text x="20" y="32" textAnchor="middle" fill="#000" fontSize="14" fontWeight="800" fontFamily="system-ui">$</text>
-            <circle cx="36" cy="12" r="7" fill="#25F4EE" stroke="#000" strokeWidth="2"/>
-            <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800" fontFamily="system-ui">$</text>
+          <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+            <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+            <path d="M27 34V14L45 24L27 34Z" fill="white"/>
           </svg>
         </motion.div>
 
@@ -116,7 +112,7 @@ export default function InviteRedirectPage() {
                 width: "10px",
                 height: "10px",
                 borderRadius: "50%",
-                background: i === 1 ? "#fe2c55" : "#25f4ee",
+                background: i === 1 ? "#FF0000" : "#282828",
               }}
             />
           ))}

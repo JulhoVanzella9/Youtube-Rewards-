@@ -44,7 +44,7 @@ export default function CertificatesPage() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          style={{ width: "40px", height: "40px", margin: "0 auto", border: "3px solid rgba(255,255,255,0.1)", borderTopColor: "#fe2c55", borderRadius: "50%" }}
+          style={{ width: "40px", height: "40px", margin: "0 auto", border: "3px solid rgba(255,255,255,0.1)", borderTopColor: "#FF0000", borderRadius: "50%" }}
         />
         <p style={{ marginTop: "16px", color: "var(--text-muted)" }}>Carregando certificados...</p>
       </div>
@@ -79,7 +79,7 @@ export default function CertificatesPage() {
       {/* Earned Certificates */}
       {certificates.length > 0 ? (
         <section style={{ marginBottom: "32px" }}>
-          <h3 style={{ fontSize: "13px", fontWeight: 700, color: "#25f4ee", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "1px" }}>
+          <h3 style={{ fontSize: "13px", fontWeight: 700, color: "#282828", marginBottom: "14px", textTransform: "uppercase", letterSpacing: "1px" }}>
             Conquistados
           </h3>
           {certificates.map((cert, i) => (
@@ -107,7 +107,7 @@ export default function CertificatesPage() {
                   transition={{ duration: 4, repeat: Infinity }}
                   style={{
                     width: "56px", height: "56px", borderRadius: "16px",
-                    background: "linear-gradient(135deg, #25f4ee, #00d4aa)",
+                    background: "linear-gradient(135deg, #282828, #00d4aa)",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontSize: "28px", flexShrink: 0,
                     boxShadow: "0 0 20px rgba(37,244,238,0.2)",
@@ -125,7 +125,7 @@ export default function CertificatesPage() {
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span style={{
                       padding: "4px 10px", borderRadius: "20px", fontSize: "10px",
-                      fontWeight: 700, background: "rgba(37,244,238,0.12)", color: "#25f4ee",
+                      fontWeight: 700, background: "rgba(37,244,238,0.12)", color: "#282828",
                     }}>
                       Concluido
                     </span>
@@ -157,15 +157,15 @@ export default function CertificatesPage() {
                 <div style={{ fontSize: "14px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
                   {cert.course_title}
                 </div>
-                <div style={{ fontSize: "11px", color: "#25f4ee" }}>
-                  TikCash Academy - 2025
+                <div style={{ fontSize: "11px", color: "#282828" }}>
+                  YouCash Academy - 2025
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   style={{
                     marginTop: "12px", padding: "8px 20px", fontSize: "12px", fontWeight: 700,
-                    background: "rgba(37,244,238,0.12)", color: "#25f4ee",
+                    background: "rgba(37,244,238,0.12)", color: "#282828",
                     border: "1px solid rgba(37,244,238,0.2)", borderRadius: "10px",
                     cursor: "pointer", fontFamily: "inherit",
                   }}
@@ -197,7 +197,7 @@ export default function CertificatesPage() {
               className="glow-btn"
               style={{
                 padding: "14px 32px", fontSize: "15px", fontWeight: 700,
-                background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+                background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                 color: "#fff",
                 border: "none", borderRadius: "50px", cursor: "pointer", fontFamily: "inherit",
                 boxShadow: "0 4px 15px rgba(254,44,85,0.3), inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 0 #c41e40",

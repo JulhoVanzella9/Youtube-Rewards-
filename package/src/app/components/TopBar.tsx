@@ -132,13 +132,13 @@ export default function TopBar() {
         <line x1="1" y1="10" x2="23" y2="10"/>
       </svg>
     )},
-    { label: t("class"), href: "/course/tikcash-program", icon: (
+    { label: t("class"), href: "/course/youcash-program", icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
       </svg>
     )},
-    { label: "TikCash", href: "/create", icon: (
+    { label: "YouCash", href: "/create", icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
       </svg>
@@ -152,7 +152,7 @@ export default function TopBar() {
 
   // Bottom section menu items (actions)
   const bottomMenuItems = [
-    { label: t("installApp") || "Install App", href: "#install", isInstall: true, badge: "App", badgeColor: "#fe2c55", icon: (
+    { label: t("installApp") || "Install App", href: "#install", isInstall: true, badge: "App", badgeColor: "#FF0000", icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
@@ -167,7 +167,7 @@ export default function TopBar() {
   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
   </svg>
   )},
-  { label: t("requestRefundBtn") || "Request Refund", href: "/refund", isRefund: true, badge: "30 days", badgeColor: "#fe2c55", icon: (
+  { label: t("requestRefundBtn") || "Request Refund", href: "/refund", isRefund: true, badge: "30 days", badgeColor: "#FF0000", icon: (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
   </svg>
@@ -261,7 +261,7 @@ export default function TopBar() {
             </svg>
           </motion.button>
 
-          {/* TikCash Logo */}
+          {/* YouCash Logo */}
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
             <motion.div 
               whileHover={{ scale: 1.05 }} 
@@ -269,24 +269,20 @@ export default function TopBar() {
               style={{ display: "flex", alignItems: "center", gap: "6px" }}
             >
               <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-                  <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill={isDarkMode ? "#fff" : "#000"}/>
-                  <text x="20" y="32" textAnchor="middle" fill={isDarkMode ? "#000" : "#fff"} fontSize="14" fontWeight="800" fontFamily="system-ui">$</text>
-                  <circle cx="36" cy="12" r="7" fill="#25F4EE" stroke={isDarkMode ? "#000" : "#fff"} strokeWidth="2"/>
-                  <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800" fontFamily="system-ui">$</text>
+                <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+                  <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+                  <path d="M27 34V14L45 24L27 34Z" fill="white"/>
                 </svg>
               </div>
               <span style={{
                 fontSize: "clamp(18px, 5vw, 24px)",
-                fontWeight: 800,
-                color: isDarkMode ? "#fff" : "#000",
-                letterSpacing: "-0.5px",
-                fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif",
+                fontWeight: 700,
+                color: isDarkMode ? "#fff" : "#0F0F0F",
+                letterSpacing: "-0.3px",
+                fontFamily: "'Roboto', system-ui, -apple-system, sans-serif",
                 whiteSpace: "nowrap",
               }}>
-                Tik<span style={{ color: "#fe2c55" }}>Cash</span>
+                You<span style={{ color: "#FF0000" }}>Cash</span>
               </span>
             </motion.div>
           </Link>
@@ -315,12 +311,12 @@ export default function TopBar() {
             <motion.span
               key={balance}
               initial={balanceAnimation ? { scale: 1.3, color: "#22c55e" } : false}
-              animate={{ scale: 1, color: "#25f4ee" }}
+              animate={{ scale: 1, color: "#282828" }}
               transition={{ duration: 0.5 }}
               style={{
                 fontSize: "clamp(16px, 4vw, 22px)",
                 fontWeight: 800,
-                color: "#25f4ee",
+                color: "#282828",
                 whiteSpace: "nowrap",
               }}
             >
@@ -447,7 +443,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                           transition: "all 0.2s",
                         }}
                       >
-                        <span style={{ color: pathname === item.href ? "#fe2c55" : (isDarkMode ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)") }}>
+                        <span style={{ color: pathname === item.href ? "#FF0000" : (isDarkMode ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.7)") }}>
                           {item.icon}
                         </span>
                         <span style={{ 
@@ -463,7 +459,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                               marginLeft: "auto",
                               width: "8px", height: "8px",
                               borderRadius: "50%",
-                              background: "#fe2c55",
+                              background: "#FF0000",
                               boxShadow: "0 0 10px rgba(254,44,85,0.5)",
                             }}
                           />
@@ -542,9 +538,9 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                   const getIconColor = () => {
                     if (actionItem.isLogout) return "#ef4444";
                     if (actionItem.isReferral) return "#00d47e";
-                    if (actionItem.isInstall) return "#fe2c55";
-                    if (actionItem.isRefund) return "#fe2c55";
-                    return "#25f4ee";
+                    if (actionItem.isInstall) return "#FF0000";
+                    if (actionItem.isRefund) return "#FF0000";
+                    return "#282828";
                   };
 
                   return (
@@ -599,7 +595,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                             borderRadius: "8px",
                             fontSize: "11px",
                             fontWeight: 700,
-                            color: actionItem.badgeColor === "#25f4ee" ? "#000" : "#fff",
+                            color: actionItem.badgeColor === "#282828" ? "#000" : "#fff",
                           }}>
                             {actionItem.badge}
                           </span>
@@ -669,7 +665,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                   style={{
                     width: "52px", height: "30px", borderRadius: "15px",
                     background: isDarkMode 
-                      ? "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)"
+                      ? "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)"
                       : "rgba(0,0,0,0.15)",
                     border: "none", cursor: "pointer", position: "relative",
                     transition: "background 0.3s",
@@ -687,7 +683,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                     }}
                   >
                     {isDarkMode ? (
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2.5">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                       </svg>
                     ) : (
@@ -715,7 +711,7 @@ position: "fixed", top: 0, left: 0, bottom: 0,
                   color: isDarkMode ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)",
                   fontWeight: 500,
                 }}>
-                  TikCash v1.0
+                  YouCash v1.0
                 </p>
               </motion.div>
             </motion.div>

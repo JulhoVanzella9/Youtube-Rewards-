@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 // ── Storage keys for persisting video state ────────────────────────────────
-const STORAGE_KEY = "tikcash_feed_current_index";
-const STORAGE_TIME_KEY = "tikcash_feed_current_time";
-const STORAGE_DATE_KEY = "tikcash_feed_date";
+const STORAGE_KEY = "youcash_feed_current_index";
+const STORAGE_TIME_KEY = "youcash_feed_current_time";
+const STORAGE_DATE_KEY = "youcash_feed_date";
 
 // ── seeded shuffle (mesma ordem o dia todo, muda todo dia) ─────────────────
 function seededRng(seed: number) {
@@ -352,7 +352,7 @@ function ActionBtn({ icon, label, onClick, active }: { icon: string; label: stri
       display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
       color: "#fff", padding: 0,
     }}>
-      <span style={{ fontSize: 28, filter: active ? "drop-shadow(0 0 6px #fe2c55)" : "none", transition: "filter .2s" }}>{icon}</span>
+      <span style={{ fontSize: 28, filter: active ? "drop-shadow(0 0 6px #FF0000)" : "none", transition: "filter .2s" }}>{icon}</span>
       <span style={{ fontSize: 11, fontWeight: 700, textShadow: "0 1px 4px rgba(0,0,0,.8)" }}>{label}</span>
     </button>
   );

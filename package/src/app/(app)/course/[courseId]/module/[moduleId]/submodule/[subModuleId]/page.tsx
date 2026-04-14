@@ -22,7 +22,7 @@ export default function SubModulePage() {
     return (
       <div style={{ textAlign: "center", padding: "80px 20px" }}>
         <h2 style={{ color: "var(--text-primary)", marginBottom: "12px" }}>Content not found</h2>
-        <Link href={`/course/${params.courseId}`} style={{ color: "#fe2c55", fontWeight: 600, fontSize: "14px" }}>
+        <Link href={`/course/${params.courseId}`} style={{ color: "#FF0000", fontWeight: 600, fontSize: "14px" }}>
           Back to course
         </Link>
       </div>
@@ -86,7 +86,7 @@ export default function SubModulePage() {
                 <div style={{
                   width: "40px", height: "40px", borderRadius: "50%",
                   background: lesson.contentType === "video" 
-                    ? "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)" 
+                    ? "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)" 
                     : isDarkMode ? "#1a1a1a" : "#f0f0f0",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontWeight: 700, fontSize: "14px",

@@ -14,15 +14,15 @@ type ActivityItem = {
 };
 
 const activityData: ActivityItem[] = [
-  { id: "1", type: "lesson", title: "Lesson Watched", description: "Monetization Strategies - Digital Monetization", icon: "▶️", time: "Today, 14:32", color: "#fe2c55" },
+  { id: "1", type: "lesson", title: "Lesson Watched", description: "Monetization Strategies - Digital Monetization", icon: "▶️", time: "Today, 14:32", color: "#FF0000" },
   { id: "2", type: "streak", title: "Streak Kept!", description: "7 consecutive days of studying", icon: "🔥", time: "Today, 10:00", color: "#ff6b35" },
-  { id: "3", type: "lesson", title: "Lesson Watched", description: "Growth Algorithm - Growth Mastery", icon: "▶️", time: "Yesterday, 21:15", color: "#fe2c55" },
+  { id: "3", type: "lesson", title: "Lesson Watched", description: "Growth Algorithm - Growth Mastery", icon: "▶️", time: "Yesterday, 21:15", color: "#FF0000" },
   { id: "4", type: "achievement", title: "Achievement Unlocked", description: "Dedicated - 20 hours of content watched", icon: "🎯", time: "Yesterday, 20:45", color: "#a855f7" },
-  { id: "5", type: "lesson", title: "Lesson Watched", description: "Lighting & Setup - Content Creator Pro", icon: "▶️", time: "Yesterday, 19:30", color: "#fe2c55" },
-  { id: "6", type: "course", title: "Course Completed!", description: "Growth Mastery - All lessons complete", icon: "🎓", time: "3 days ago", color: "#25f4ee" },
-  { id: "7", type: "lesson", title: "Lesson Watched", description: "Metrics Analysis - Growth Mastery", icon: "▶️", time: "3 days ago", color: "#fe2c55" },
+  { id: "5", type: "lesson", title: "Lesson Watched", description: "Lighting & Setup - Content Creator Pro", icon: "▶️", time: "Yesterday, 19:30", color: "#FF0000" },
+  { id: "6", type: "course", title: "Course Completed!", description: "Growth Mastery - All lessons complete", icon: "🎓", time: "3 days ago", color: "#282828" },
+  { id: "7", type: "lesson", title: "Lesson Watched", description: "Metrics Analysis - Growth Mastery", icon: "▶️", time: "3 days ago", color: "#FF0000" },
   { id: "8", type: "achievement", title: "Achievement Unlocked", description: "First Course - Complete an entire course", icon: "🎓", time: "3 days ago", color: "#a855f7" },
-  { id: "9", type: "lesson", title: "Lesson Watched", description: "Creating Viral Scripts - Content Creator Pro", icon: "▶️", time: "4 days ago", color: "#fe2c55" },
+  { id: "9", type: "lesson", title: "Lesson Watched", description: "Creating Viral Scripts - Content Creator Pro", icon: "▶️", time: "4 days ago", color: "#FF0000" },
   { id: "10", type: "streak", title: "Streak Started", description: "First day of consistent studying!", icon: "⚡", time: "1 week ago", color: "#ff6b35" },
 ];
 
@@ -68,8 +68,8 @@ export default function ActivityPage() {
         }}
       >
         {[
-          { value: String(totalLessons), label: "Aulas Vistas", color: "#fe2c55" },
-          { value: "21h", label: "Tempo Total", color: "#25f4ee" },
+          { value: String(totalLessons), label: "Aulas Vistas", color: "#FF0000" },
+          { value: "21h", label: "Tempo Total", color: "#282828" },
           { value: "7 dias", label: "Streak", color: "#ff6b35" },
         ].map((stat, i) => (
           <motion.div
@@ -116,14 +116,14 @@ export default function ActivityPage() {
                   style={{
                     width: "100%", borderRadius: "6px",
                     background: isToday
-                      ? "linear-gradient(180deg, #fe2c55, #fe2c5580)"
+                      ? "linear-gradient(180deg, #FF0000, #FF000080)"
                       : "linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05))",
                     minHeight: "4px",
                   }}
                 />
                 <span style={{
                   fontSize: "9px", fontWeight: isToday ? 700 : 500,
-                  color: isToday ? "#fe2c55" : "var(--text-muted)",
+                  color: isToday ? "#FF0000" : "var(--text-muted)",
                 }}>
                   {day}
                 </span>

@@ -1,12 +1,12 @@
 "use client";
 
-interface TikCashLogoProps {
+interface YouCashLogoProps {
   size?: "sm" | "md" | "lg";
   showText?: boolean;
   isDarkMode?: boolean;
 }
 
-export default function TikCashLogo({ size = "md", showText = true, isDarkMode = true }: TikCashLogoProps) {
+export default function YouCashLogo({ size = "md", showText = true, isDarkMode = true }: YouCashLogoProps) {
   const sizes = {
     sm: { icon: 28, text: 14, gap: 8 },
     md: { icon: 36, text: 18, gap: 10 },
@@ -14,65 +14,24 @@ export default function TikCashLogo({ size = "md", showText = true, isDarkMode =
   };
 
   const s = sizes[size];
-  const noteColor = isDarkMode ? "#FFFFFF" : "#000000";
-  const dollarColor = isDarkMode ? "#000000" : "#FFFFFF";
+  const textColor = isDarkMode ? "#FFFFFF" : "#000000";
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: `${s.gap}px` }}>
-      <svg width={s.icon} height={s.icon} viewBox="0 0 512 512" fill="none">
-        {/* cyan shadow */}
-        <path
-          d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
-          fill="#25F4EE"
-          transform="translate(-16,-10)"
-        />
-        {/* red/pink shadow */}
-        <path
-          d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
-          fill="#FE2C55"
-          transform="translate(16,10)"
-        />
-        {/* main note */}
-        <path
-          d="M320 80V310C320 378 268 428 200 428C132 428 78 374 78 306C78 238 132 184 200 184C219 184 237 188 250 196V80H320Z"
-          fill={noteColor}
-        />
-        {/* dollar sign inside circle */}
-        <text
-          x="200"
-          y="345"
-          textAnchor="middle"
-          fill={dollarColor}
-          fontSize="130"
-          fontWeight="800"
-          fontFamily="Arial Black, system-ui, sans-serif"
-        >
-          $
-        </text>
-        {/* cyan coin top right */}
-        <circle cx="392" cy="118" r="68" fill="#25F4EE" />
-        <text
-          x="392"
-          y="145"
-          textAnchor="middle"
-          fill="#000000"
-          fontSize="80"
-          fontWeight="800"
-          fontFamily="Arial Black, system-ui, sans-serif"
-        >
-          $
-        </text>
+      <svg width={s.icon} height={Math.round(s.icon * 48 / 68)} viewBox="0 0 68 48" fill="none">
+        <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+        <path d="M27 34V14L45 24L27 34Z" fill="white"/>
       </svg>
 
       {showText && (
         <span style={{
           fontSize: `${s.text}px`,
           fontWeight: 800,
-          color: isDarkMode ? "#FFFFFF" : "#000000",
+          color: textColor,
           letterSpacing: "-0.5px",
           fontFamily: "Arial Black, system-ui, sans-serif",
         }}>
-          TikCash
+          YouCash
         </span>
       )}
     </div>

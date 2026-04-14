@@ -35,8 +35,8 @@ export default function ParticleField({
   const isDarkMode = theme === "dark";
 
   const defaultColors = isDarkMode
-    ? ["#fe2c55", "#25f4ee", "#ff6b81", "#ffffff"]
-    : ["#fe2c55", "#25f4ee", "#ff6b81", "#000000"];
+    ? ["#FF0000", "#282828", "#CC0000", "#ffffff"]
+    : ["#FF0000", "#282828", "#CC0000", "#000000"];
 
   const particleColors = colors || defaultColors;
 

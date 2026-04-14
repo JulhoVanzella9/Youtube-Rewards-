@@ -14,12 +14,12 @@ export async function GET() {
       }, { status: 400 });
     }
 
-    // Using verified domain tikcash.money
+    // Using verified domain youcash.app
     const testEmail = {
-      from: 'TikCash Support <support@tikcash.money>',
+      from: 'YouCash Support <support@youcash.app>',
       to: SUPPORT_EMAIL,
-      subject: 'TikCash Email Test - System Check',
-      text: `Email system test from TikCash\n\nIf you received this, the email system is working correctly!\n\nSupport Email: ${SUPPORT_EMAIL}\nSupport Phone: ${SUPPORT_PHONE}`,
+      subject: 'YouCash Email Test - System Check',
+      text: `Email system test from YouCash\n\nIf you received this, the email system is working correctly!\n\nSupport Email: ${SUPPORT_EMAIL}\nSupport Phone: ${SUPPORT_PHONE}`,
       html: `
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@ export async function GET() {
 <body>
     <div class="container">
         <div class="header">
-            <h1>TikCash Email System Test</h1>
+            <h1>YouCash Email System Test</h1>
         </div>
         <div class="content">
             <p class="success">Email system is working correctly!</p>
@@ -75,7 +75,7 @@ export async function GET() {
       message: 'Test email sent successfully',
       emailId: data.id,
       sentTo: SUPPORT_EMAIL,
-      from: 'support@tikcash.money',
+      from: 'support@youcash.app',
       timestamp: new Date().toISOString()
     });
 

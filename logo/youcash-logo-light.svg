@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48" fill="none">
+  <rect x="2" y="10" width="44" height="28" rx="8" fill="#FF0000"/>
+  <path d="M19 32V18L33 25L19 32Z" fill="white"/>
+  <text x="56" y="32" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="24" fill="#0F0F0F">YouCash</text>
+</svg>

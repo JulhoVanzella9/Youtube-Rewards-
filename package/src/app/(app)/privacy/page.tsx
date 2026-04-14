@@ -55,7 +55,7 @@ export default function PrivacyPage() {
         style={{
           background: "rgba(37,244,238,0.05)", borderRadius: "16px",
           border: "1px solid rgba(37,244,238,0.1)", padding: "16px 20px",
-          marginBottom: "24px", fontSize: "13px", color: "#25f4ee",
+          marginBottom: "24px", fontSize: "13px", color: "#282828",
           lineHeight: 1.6, fontWeight: 500,
         }}
       >

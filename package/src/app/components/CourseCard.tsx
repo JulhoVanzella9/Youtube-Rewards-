@@ -5,12 +5,12 @@ import { Course } from "@/app/data/courses";
 
 export default function CourseCard({ course, index }: { course: Course; index: number }) {
   const gradients = [
-    "linear-gradient(135deg, #fe2c55 0%, #8b31ff 100%)",
-    "linear-gradient(135deg, #25f4ee 0%, #0052ff 100%)",
-    "linear-gradient(135deg, #ff6b35 0%, #fe2c55 100%)",
-    "linear-gradient(135deg, #8b31ff 0%, #25f4ee 100%)",
+    "linear-gradient(135deg, #FF0000 0%, #8b31ff 100%)",
+    "linear-gradient(135deg, #282828 0%, #0052ff 100%)",
+    "linear-gradient(135deg, #ff6b35 0%, #FF0000 100%)",
+    "linear-gradient(135deg, #8b31ff 0%, #282828 100%)",
     "linear-gradient(135deg, #ff4081 0%, #ffab40 100%)",
-    "linear-gradient(135deg, #00e676 0%, #25f4ee 100%)",
+    "linear-gradient(135deg, #00e676 0%, #282828 100%)",
   ];
 
   return (
@@ -65,10 +65,10 @@ export default function CourseCard({ course, index }: { course: Course; index: n
           <div
             style={{
               width: "54px", height: "54px", borderRadius: "50%",
-              background: "linear-gradient(145deg, #ff3366 0%, #fe2c55 50%, #e91e4a 100%)",
+              background: "linear-gradient(145deg, #FF1A1A 0%, #FF0000 50%, #CC0000 100%)",
               boxShadow: `
-                0 4px 0 0 #b8183a,
-                0 6px 16px rgba(254, 44, 85, 0.5),
+                0 4px 0 0 #990000,
+                0 6px 16px rgba(255, 0, 0, 0.5),
                 inset 0 1px 0 rgba(255,255,255,0.25)
               `,
               display: "flex", alignItems: "center", justifyContent: "center",
@@ -106,7 +106,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
           {course.progress === 100 && (
             <div style={{
               position: "absolute", top: "12px", right: "12px",
-              background: "#25f4ee", padding: "4px 10px",
+              background: "#282828", padding: "4px 10px",
               borderRadius: "20px", fontSize: "11px", fontWeight: 700,
               color: "#000",
             }}>
@@ -142,7 +142,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
                 marginBottom: "6px",
               }}>
                 <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>Progress</span>
-                <span style={{ fontSize: "11px", color: "#25f4ee", fontWeight: 700 }}>{course.progress}%</span>
+                <span style={{ fontSize: "11px", color: "#282828", fontWeight: 700 }}>{course.progress}%</span>
               </div>
               <div style={{
                 height: "3px", borderRadius: "2px",
@@ -151,7 +151,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
                 <div
                   style={{
                     height: "100%", borderRadius: "2px",
-                    background: "linear-gradient(90deg, #fe2c55, #25f4ee)",
+                    background: "linear-gradient(90deg, #FF0000, #282828)",
                     width: `${course.progress}%`,
                     transition: "width 0.4s ease-out",
                   }}
@@ -167,7 +167,7 @@ export default function CourseCard({ course, index }: { course: Course; index: n
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <div style={{
                 width: "26px", height: "26px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #fe2c55, #25f4ee)",
+                background: "linear-gradient(135deg, #FF0000, #282828)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: "11px", fontWeight: 700, color: "#fff",
               }}>

@@ -36,7 +36,7 @@ function fileToVideoData(file: string) {
   const likes = fakeNum(file + "l", 500, Math.floor(views * 0.15));
   return {
     videoSrc: `/videos/${file}`,
-    title: "TikTok viral video",
+    title: "YouTube viral video",
     duration: "0:15",
     views: fmt(views),
     likes: fmt(likes),
@@ -328,7 +328,7 @@ export default function CreatePage() {
         <div style={{
           width: "40px", height: "40px",
           border: "3px solid rgba(255,255,255,0.1)",
-          borderTopColor: "#fe2c55",
+          borderTopColor: "#FF0000",
           borderRadius: "50%",
           animation: "spin 1s linear infinite",
         }}/>
@@ -367,7 +367,7 @@ export default function CreatePage() {
           transition={{ type: "spring", stiffness: 200 }}
           style={{
             width: "100px", height: "100px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #fe2c55, #25f4ee)",
+            background: "linear-gradient(135deg, #FF0000, #282828)",
             display: "flex", alignItems: "center", justifyContent: "center",
             marginBottom: "24px",
           }}
@@ -408,7 +408,7 @@ export default function CreatePage() {
             marginBottom: "24px",
           }}
         >
-          <p style={{ fontSize: "13px", color: "#25f4ee", marginBottom: "4px" }}>Balance added to wallet</p>
+          <p style={{ fontSize: "13px", color: "#282828", marginBottom: "4px" }}>Balance added to wallet</p>
           <p style={{ fontSize: "32px", fontWeight: 800, color: "var(--text-primary)" }}>
             +${totalEarned > 0 ? totalEarned.toFixed(2) : "0.00"}
           </p>
@@ -442,7 +442,7 @@ export default function CreatePage() {
               width: "40px",
               height: "40px",
               borderRadius: "12px",
-              background: "linear-gradient(135deg, #fe2c55 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -473,7 +473,7 @@ export default function CreatePage() {
             style={{
               width: "100%",
               padding: "12px",
-              background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               border: "none",
               borderRadius: "10px",
               color: "#fff",
@@ -542,7 +542,7 @@ export default function CreatePage() {
                 gap: "8px",
                 padding: "12px 24px",
                 background: "rgba(20,20,24,0.95)",
-                border: `1px solid ${toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#fe2c55"}`,
+                border: `1px solid ${toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#FF0000"}`,
                 borderRadius: "12px", 
                 backdropFilter: "blur(20px)",
                 fontSize: "14px", 
@@ -552,7 +552,7 @@ export default function CreatePage() {
               }}
             >
               <span style={{ fontSize: "18px" }}>{toastData.emoji}</span>
-              <span style={{ color: toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#fe2c55" }}>
+              <span style={{ color: toastData.type === "happy" ? "#22c55e" : toastData.type === "neutral" ? "#eab308" : "#FF0000" }}>
                 {toastData.text}
               </span>
             </motion.div>
@@ -579,7 +579,7 @@ export default function CreatePage() {
               transition={{ type: "spring", stiffness: 200 }}
               style={{
                 width: "80px", height: "80px", borderRadius: "50%",
-                background: "linear-gradient(135deg, #22c55e, #25f4ee)",
+                background: "linear-gradient(135deg, #22c55e, #282828)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 marginBottom: "20px",
               }}
@@ -591,7 +591,7 @@ export default function CreatePage() {
             <h2 style={{ fontSize: "24px", fontWeight: 800, color: "var(--text-primary)", marginBottom: "8px" }}>
               Congratulations!
             </h2>
-            <p style={{ fontSize: "16px", color: "#25f4ee" }}>
+            <p style={{ fontSize: "16px", color: "#282828" }}>
               +${totalEarned.toFixed(2)} added!
             </p>
           </motion.div>
@@ -677,7 +677,7 @@ export default function CreatePage() {
           <motion.div
             animate={{ width: `${(ratings.filter(r => r !== null).length / (videoData.length || 1)) * 100}%` }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            style={{ height: "100%", background: "linear-gradient(90deg, #25f4ee, #fe2c55)", borderRadius: "0 2px 2px 0" }}
+            style={{ height: "100%", background: "linear-gradient(90deg, #282828, #FF0000)", borderRadius: "0 2px 2px 0" }}
           />
         </div>
 
@@ -737,7 +737,7 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #25f4ee",
+              border: "2px solid #282828",
               background: ratings[currentIndex] === "happy" ? "rgba(37,244,238,0.2)" : "transparent",
               transition: "all 200ms",
             }}
@@ -801,7 +801,7 @@ export default function CreatePage() {
               height: "clamp(44px, 12vw, 56px)", 
               borderRadius: "50%",
               display: "flex", alignItems: "center", justifyContent: "center",
-              border: "2px solid #fe2c55",
+              border: "2px solid #FF0000",
               background: ratings[currentIndex] === "sad" ? "rgba(254,44,85,0.2)" : "transparent",
               transition: "all 200ms",
             }}

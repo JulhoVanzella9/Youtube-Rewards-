@@ -91,7 +91,7 @@ export async function showNotification(title: string, body: string, tag?: string
         body,
         icon: "/icons/icon-192x192.jpg",
         badge: "/icons/icon-192x192.jpg",
-        tag: tag || "tikcash-notification",
+        tag: tag || "youcash-notification",
         vibrate: [100, 50, 100],
         data: { url: "/create" },
         actions: [
@@ -106,7 +106,7 @@ export async function showNotification(title: string, body: string, tag?: string
       new Notification(title, {
         body,
         icon: "/icons/icon-192x192.jpg",
-        tag: tag || "tikcash-notification",
+        tag: tag || "youcash-notification",
       });
       return true;
     }

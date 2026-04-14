@@ -18,7 +18,7 @@ export default function AccessGrantedPage() {
       });
       
       const link = document.createElement("a");
-      link.download = "TikCash-Access-Granted.png";
+      link.download = "YouCash-Access-Granted.png";
       link.href = canvas.toDataURL("image/png", 1.0);
       link.click();
     } catch (error) {
@@ -43,7 +43,7 @@ export default function AccessGrantedPage() {
           display: "flex",
           alignItems: "center",
           gap: "10px",
-          background: "linear-gradient(135deg, #25f4ee 0%, #1ed4cf 100%)",
+          background: "linear-gradient(135deg, #282828 0%, #1ed4cf 100%)",
           color: "#000",
           fontSize: "16px",
           fontWeight: 700,
@@ -105,7 +105,7 @@ export default function AccessGrantedPage() {
         <div style={{
           width: "100%",
           maxWidth: "600px",
-          background: "linear-gradient(135deg, #fe2c55 0%, #ff1744 50%, #d41442 100%)",
+          background: "linear-gradient(135deg, #FF0000 0%, #ff1744 50%, #d41442 100%)",
           borderRadius: "20px",
           padding: "28px 40px",
           textAlign: "center",
@@ -146,7 +146,7 @@ export default function AccessGrantedPage() {
             width: "70px",
             height: "70px",
             borderRadius: "50%",
-            background: "linear-gradient(135deg, #25f4ee 0%, #17b8b3 100%)",
+            background: "linear-gradient(135deg, #282828 0%, #17b8b3 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -169,7 +169,7 @@ export default function AccessGrantedPage() {
 
           <p style={{
             fontSize: "14px",
-            color: "#25f4ee",
+            color: "#282828",
             fontWeight: 600,
             margin: "0 0 24px 0",
             textTransform: "uppercase",
@@ -209,7 +209,7 @@ export default function AccessGrantedPage() {
             </p>
             <div style={{
               background: "linear-gradient(135deg, rgba(37,244,238,0.12) 0%, rgba(37,244,238,0.04) 100%)",
-              border: "2px solid #25f4ee",
+              border: "2px solid #282828",
               borderRadius: "12px",
               padding: "14px 28px",
               display: "inline-block",
@@ -247,7 +247,7 @@ export default function AccessGrantedPage() {
               justifyContent: "center",
               flexShrink: 0,
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
                 <rect x="2" y="4" width="20" height="16" rx="2"/>
                 <path d="M22 6l-10 7L2 6"/>
               </svg>
@@ -282,7 +282,7 @@ export default function AccessGrantedPage() {
               justifyContent: "center",
               flexShrink: 0,
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
               </svg>
             </div>
@@ -290,7 +290,7 @@ export default function AccessGrantedPage() {
               <p style={{ fontSize: "14px", fontWeight: 700, color: "#fff", margin: 0 }}>
                 Need Support?
               </p>
-              <p style={{ fontSize: "13px", color: "#25f4ee", margin: "2px 0 0 0", fontWeight: 600 }}>
+              <p style={{ fontSize: "13px", color: "#282828", margin: "2px 0 0 0", fontWeight: 600 }}>
                 {supportEmail}
               </p>
             </div>
@@ -309,7 +309,7 @@ export default function AccessGrantedPage() {
             justifyContent: "center",
             gap: "12px",
             width: "100%",
-            background: "linear-gradient(135deg, #25f4ee 0%, #1ed4cf 50%, #17b8b3 100%)",
+            background: "linear-gradient(135deg, #282828 0%, #1ed4cf 50%, #17b8b3 100%)",
             color: "#000",
             fontSize: "18px",
             fontWeight: 800,
@@ -337,7 +337,7 @@ export default function AccessGrantedPage() {
           </p>
         </div>
 
-        {/* TikCash Logo Footer */}
+        {/* YouCash Logo Footer */}
         <div style={{
           marginTop: "auto",
           paddingTop: "16px",
@@ -347,20 +347,16 @@ export default function AccessGrantedPage() {
           gap: "8px",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-              <text x="20" y="32" textAnchor="middle" fill="#000" fontSize="14" fontWeight="800">$</text>
-              <circle cx="36" cy="12" r="7" fill="#25F4EE" stroke="#000" strokeWidth="2"/>
-              <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800">$</text>
+            <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+              <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+              <path d="M27 34V14L45 24L27 34Z" fill="white"/>
             </svg>
             <span style={{
               fontSize: "22px",
               fontWeight: 800,
               color: "#fff",
             }}>
-              TikCash
+              YouCash
             </span>
           </div>
           <p style={{

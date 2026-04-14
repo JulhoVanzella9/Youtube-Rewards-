@@ -101,7 +101,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           width: "28px",
           height: "28px",
           border: "3px solid rgba(254,44,85,0.2)",
-          borderTopColor: "#fe2c55",
+          borderTopColor: "#FF0000",
           borderRadius: "50%",
           animation: "spin 0.6s linear infinite",
         }} />

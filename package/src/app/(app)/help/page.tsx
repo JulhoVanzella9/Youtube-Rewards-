@@ -28,13 +28,13 @@ const faqs: FAQItem[] = [
   },
   {
     question: "How do I request a refund?",
-    answer: "To request a refund, contact us at support@tikmoney.com within 7 days of purchase.",
+    answer: "To request a refund, contact us at support@youcash.com within 7 days of purchase.",
   },
 ];
 
 const contactOptions = [
-  { icon: "💬", title: "Live Chat", desc: "Response within 5 minutes", available: true, color: "#25f4ee" },
-  { icon: "📧", title: "Email", desc: "support@tikmoney.com", available: true, color: "#fe2c55" },
+  { icon: "💬", title: "Live Chat", desc: "Response within 5 minutes", available: true, color: "#282828" },
+  { icon: "📧", title: "Email", desc: "support@youcash.com", available: true, color: "#FF0000" },
   // WHATSAPP_DISABLED - Uncomment line below to re-enable WhatsApp
   // { icon: "📱", title: "WhatsApp", desc: "Mon-Fri, 9am to 6pm", available: true, color: "#25d366" },
 ];

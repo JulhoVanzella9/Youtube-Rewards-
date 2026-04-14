@@ -109,7 +109,7 @@ export default function InstallPrompt() {
           bottom: "90px",
           left: "16px",
           right: "16px",
-          background: "linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%)",
+          background: "linear-gradient(180deg, #1a1a1a 0%, #0f0f1a 100%)",
           borderRadius: "20px",
           padding: "20px",
           zIndex: 900,
@@ -138,23 +138,23 @@ export default function InstallPrompt() {
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>1</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Tap the <strong style={{ color: "#fe2c55" }}>Share</strong> button <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(bottom center in Safari)</span>
+                      Tap the <strong style={{ color: "#FF0000" }}>Share</strong> button <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(bottom center in Safari)</span>
                     </span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>2</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Scroll down and tap <strong style={{ color: "#fe2c55" }}>Add to Home Screen</strong>
+                      Scroll down and tap <strong style={{ color: "#FF0000" }}>Add to Home Screen</strong>
                     </span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -174,23 +174,23 @@ export default function InstallPrompt() {
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>1</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Tap <strong style={{ color: "#fe2c55" }}>menu</strong> <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(3 dots, top right)</span>
+                      Tap <strong style={{ color: "#FF0000" }}>menu</strong> <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(3 dots, top right)</span>
                     </span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>2</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Tap <strong style={{ color: "#fe2c55" }}>Install app</strong> or <strong style={{ color: "#fe2c55" }}>Add to Home screen</strong>
+                      Tap <strong style={{ color: "#FF0000" }}>Install app</strong> or <strong style={{ color: "#FF0000" }}>Add to Home screen</strong>
                     </span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -210,23 +210,23 @@ export default function InstallPrompt() {
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>1</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Click the <strong style={{ color: "#fe2c55" }}>install icon</strong> <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(in address bar)</span>
+                      Click the <strong style={{ color: "#FF0000" }}>install icon</strong> <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>(in address bar)</span>
                     </span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div style={{
                       width: "32px", height: "32px", borderRadius: "8px",
-                      background: "#fe2c55", display: "flex",
+                      background: "#FF0000", display: "flex",
                       alignItems: "center", justifyContent: "center",
                       fontWeight: 700, color: "#fff", fontSize: "14px",
                     }}>2</div>
                     <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>
-                      Click <strong style={{ color: "#fe2c55" }}>Install</strong> to add the app
+                      Click <strong style={{ color: "#FF0000" }}>Install</strong> to add the app
                     </span>
                   </div>
                 </>
@@ -240,18 +240,18 @@ export default function InstallPrompt() {
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <div style={{
               width: "48px", height: "48px", borderRadius: "14px",
-              background: "linear-gradient(135deg, #fe2c55 0%, #ff6b8a 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #ff6b8a 100%)",
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#fff"/>
-                <path d="M9 12l2 2 4-4" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M9 12l2 2 4-4" stroke="#FF0000" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
             <div style={{ flex: 1 }}>
               <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
-                Install TikCash
+                Install YouCash
               </h3>
               <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)" }}>
                 Add to home screen for the best experience

@@ -7,7 +7,7 @@ import { useTheme } from "@/lib/theme/context";
 
 // Module images organized by course ID
 const courseModuleImages: Record<string, Record<string, string>> = {
-  "tikcash-program": {
+  "youcash-program": {
     "mod-1": "/images/modules/module-01.png",
     "mod-2": "/images/modules/module-02.png",
     "mod-3": "/images/modules/module-03.png",
@@ -18,7 +18,7 @@ const courseModuleImages: Record<string, Record<string, string>> = {
     "mod-8": "/images/modules/module-08.png",
     "mod-9": "/images/modules/module-09.png",
   },
-  "tikcash-community": {
+  "youcash-community": {
     "tc-mod-1": "/images/modules/tc-module-01.jpg",
     "tc-mod-2": "/images/modules/tc-module-02.jpg",
     "tc-mod-3": "/images/modules/tc-module-03.jpg",
@@ -36,7 +36,7 @@ const courseModuleImages: Record<string, Record<string, string>> = {
 
 // Array-based fallback for courses with indexed modules
 const courseModuleImagesArray: Record<string, string[]> = {
-  "tikcash-program": [
+  "youcash-program": [
     "/images/modules/module-01.png",
     "/images/modules/module-02.png",
     "/images/modules/module-03.png",
@@ -47,7 +47,7 @@ const courseModuleImagesArray: Record<string, string[]> = {
     "/images/modules/module-08.png",
     "/images/modules/module-09.png",
   ],
-  "tikcash-community": [
+  "youcash-community": [
     "/images/modules/tc-module-01.jpg",
     "/images/modules/tc-module-02.jpg",
     "/images/modules/tc-module-03.jpg",
@@ -99,7 +99,7 @@ export default function ModulePage() {
     return (
       <div style={{ textAlign: "center", padding: "80px 20px" }}>
         <h2 style={{ color: "var(--text-primary)", marginBottom: "12px" }}>Module not found</h2>
-        <Link href={`/course/${params.courseId}`} style={{ color: "#fe2c55", fontWeight: 600, fontSize: "14px" }}>
+        <Link href={`/course/${params.courseId}`} style={{ color: "#FF0000", fontWeight: 600, fontSize: "14px" }}>
           Back to course
         </Link>
       </div>
@@ -143,7 +143,7 @@ export default function ModulePage() {
         <div style={{ padding: "80px 20px", textAlign: "center" }}>
           <div style={{
             width: "80px", height: "80px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
             display: "flex", alignItems: "center", justifyContent: "center",
             margin: "0 auto 24px",
           }}>

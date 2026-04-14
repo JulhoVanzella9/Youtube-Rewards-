@@ -25,7 +25,7 @@ export const achievements: Achievement[] = [
   { id: "first-lesson", title: "First Step", description: "Complete your first lesson", icon: "🎯", xp: 50, rarity: "common", category: "Learning" },
   { id: "first-course", title: "Dedicated Student", description: "Complete your first course", icon: "📚", xp: 200, rarity: "common", category: "Learning" },
   { id: "five-courses", title: "Course Master", description: "Complete 5 courses", icon: "🏆", xp: 500, rarity: "rare", category: "Learning", maxProgress: 5 },
-  { id: "ten-courses", title: "TikCash Expert", description: "Complete 10 courses", icon: "👑", xp: 1000, rarity: "epic", category: "Learning", maxProgress: 10 },
+  { id: "ten-courses", title: "YouCash Expert", description: "Complete 10 courses", icon: "👑", xp: 1000, rarity: "epic", category: "Learning", maxProgress: 10 },
   { id: "streak-3", title: "Consistency", description: "Maintain a 3-day streak", icon: "🔥", xp: 100, rarity: "common", category: "Dedication", maxProgress: 3 },
   { id: "streak-7", title: "Perfect Week", description: "Maintain a 7-day streak", icon: "⚡", xp: 300, rarity: "rare", category: "Dedication", maxProgress: 7 },
   { id: "streak-30", title: "On Fire", description: "Maintain a 30-day streak", icon: "💎", xp: 1000, rarity: "epic", category: "Dedication", maxProgress: 30 },

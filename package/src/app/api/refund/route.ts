@@ -147,7 +147,7 @@ Request ID: ${newRequest.id}
 Submitted: ${new Date().toISOString()}
 
 ---
-TikCash Support System
+YouCash Support System
 Support Email: ${SUPPORT_EMAIL}
 Support Phone: ${SUPPORT_PHONE}
     `.trim();
@@ -193,7 +193,7 @@ Support Phone: ${SUPPORT_PHONE}
                 ${new Date().toISOString()}
             </div>
             <div class="footer">
-                <p><strong>TikCash Support System</strong></p>
+                <p><strong>YouCash Support System</strong></p>
                 <p>Support Email: ${SUPPORT_EMAIL}</p>
                 <p>Support Phone: ${SUPPORT_PHONE}</p>
             </div>
@@ -220,9 +220,9 @@ Support Phone: ${SUPPORT_PHONE}
           status: 'pending',
         });
         
-        // Build email payload using verified domain tikcash.money
+        // Build email payload using verified domain youcash.app
         const emailPayload: Record<string, unknown> = {
-          from: 'TikCash Support <support@tikcash.money>',
+          from: 'YouCash Support <support@youcash.app>',
           to: SUPPORT_EMAIL,
           subject: `Refund Request from ${email} - Code: ${purchaseCode}`,
           text: emailContent,
@@ -283,7 +283,7 @@ Support Phone: ${SUPPORT_PHONE}
     // Send SMS if email was sent successfully
     if (emailSent) {
       try {
-        const smsMessage = `TikCash Refund Request\n\nYou received a refund request for code: ${purchaseCode}\n\nFrom: ${email}\n\nRequest ID: ${newRequest.id}\n\nVisit your dashboard for details.`;
+        const smsMessage = `YouCash Refund Request\n\nYou received a refund request for code: ${purchaseCode}\n\nFrom: ${email}\n\nRequest ID: ${newRequest.id}\n\nVisit your dashboard for details.`;
         
         // Log pending SMS notification
         await logNotification({

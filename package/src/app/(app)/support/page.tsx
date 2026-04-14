@@ -99,7 +99,7 @@ export default function SupportPage() {
       >
         <div style={{
           width: "64px", height: "64px", borderRadius: "50%",
-          background: "linear-gradient(135deg, #25f4ee, #00d4aa)",
+          background: "linear-gradient(135deg, #282828, #00d4aa)",
           display: "flex", alignItems: "center", justifyContent: "center",
           margin: "0 auto 16px",
           boxShadow: "0 8px 24px rgba(37,244,238,0.25)",
@@ -144,7 +144,7 @@ export default function SupportPage() {
             transition: "box-shadow 0.3s ease",
           }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
@@ -168,7 +168,7 @@ export default function SupportPage() {
             transition: "box-shadow 0.3s ease",
           }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
           <span style={{ fontSize: "13px", fontWeight: 700, color: "var(--text-primary)" }}>
@@ -275,11 +275,11 @@ export default function SupportPage() {
           background: isDarkMode ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)", 
           borderRadius: "12px",
         }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
           </svg>
-<span style={{ fontSize: "13px", color: "#25f4ee", fontWeight: 600 }}>
+<span style={{ fontSize: "13px", color: "#282828", fontWeight: 600 }}>
                   {SUPPORT_EMAIL}
                   </span>
         </div>
@@ -306,7 +306,7 @@ export default function SupportPage() {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: isDarkMode ? "#1a1a2e" : "#ffffff",
+                background: isDarkMode ? "#1a1a1a" : "#ffffff",
                 borderRadius: "24px", padding: "28px",
                 width: "100%", maxWidth: "400px",
                 border: `1px solid var(--border-color)`,
@@ -315,7 +315,7 @@ export default function SupportPage() {
               <div style={{ textAlign: "center", marginBottom: "24px" }}>
                 <div style={{
                   width: "64px", height: "64px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #25f4ee, #00d4aa)",
+                  background: "linear-gradient(135deg, #282828, #00d4aa)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   margin: "0 auto 16px",
                   boxShadow: "0 8px 24px rgba(37,244,238,0.25)",
@@ -345,7 +345,7 @@ export default function SupportPage() {
                   background: "rgba(37,244,238,0.1)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
                   </svg>
@@ -373,7 +373,7 @@ export default function SupportPage() {
                   background: "rgba(254,44,85,0.1)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
                 </div>

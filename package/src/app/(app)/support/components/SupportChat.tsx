@@ -25,7 +25,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
   const welcomeMessage = {
     id: "welcome",
     role: "assistant" as const,
-    parts: [{ type: "text" as const, text: "Hello! Welcome to TikCash Support. How can I help you today?" }],
+    parts: [{ type: "text" as const, text: "Hello! Welcome to YouCash Support. How can I help you today?" }],
   };
   
   const allMessages = messages.length === 0 ? [welcomeMessage] : messages;
@@ -113,7 +113,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                   width: "40px",
                   height: "40px",
                   borderRadius: "12px",
-                  background: "linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%)",
+                  background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -129,7 +129,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                     color: isDarkMode ? "#fff" : "#1a1a1a",
                     marginBottom: "2px",
                   }}>
-                    TikCash Support
+                    YouCash Support
                   </h3>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <div style={{
@@ -204,7 +204,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                         width: "28px",
                         height: "28px",
                         borderRadius: "8px",
-                        background: "linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%)",
+                        background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -220,7 +220,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                       padding: "12px 16px",
                       borderRadius: isUser ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                       background: isUser 
-                        ? "linear-gradient(135deg, #25f4ee 0%, #00d4aa 100%)"
+                        ? "linear-gradient(135deg, #282828 0%, #00d4aa 100%)"
                         : (isDarkMode ? "rgba(255,255,255,0.08)" : "#f3f4f6"),
                       color: isUser ? "#000" : (isDarkMode ? "#fff" : "#1a1a1a"),
                       fontSize: "14px",
@@ -264,7 +264,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                     width: "28px",
                     height: "28px",
                     borderRadius: "8px",
-                    background: "linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%)",
+                    background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -344,7 +344,7 @@ export default function SupportChat({ isOpen, onClose }: SupportChatProps) {
                   borderRadius: "12px",
                   background: isLoading || !input.trim() 
                     ? (isDarkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)")
-                    : "linear-gradient(135deg, #25f4ee 0%, #00d4aa 100%)",
+                    : "linear-gradient(135deg, #282828 0%, #00d4aa 100%)",
                   border: "none",
                   cursor: isLoading || !input.trim() ? "not-allowed" : "pointer",
                   display: "flex",

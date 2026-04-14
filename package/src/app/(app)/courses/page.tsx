@@ -33,7 +33,7 @@ export default function CoursesPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
             width: "40px", height: "40px", borderRadius: "12px",
-            background: "linear-gradient(135deg, #fe2c55 0%, #25f4ee 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
@@ -195,7 +195,7 @@ export default function CoursesPage() {
                       alignItems: "center",
                     }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
                           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                           <line x1="16" y1="2" x2="16" y2="6"/>
                           <line x1="8" y1="2" x2="8" y2="6"/>
@@ -226,7 +226,7 @@ export default function CoursesPage() {
                         fontSize: "14px",
                         fontWeight: 700,
                         padding: "12px 20px",
-                        background: "linear-gradient(135deg, #fe2c55 0%, #ff3366 100%)",
+                        background: "linear-gradient(135deg, #FF0000 0%, #FF1A1A 100%)",
                         color: "#fff",
                         border: "none",
                         borderRadius: "12px",
@@ -234,7 +234,7 @@ export default function CoursesPage() {
                         alignItems: "center",
                         justifyContent: "center",
                         gap: "8px",
-                        boxShadow: "0 4px 0 0 #b8183a, 0 6px 16px rgba(254, 44, 85, 0.3)",
+                        boxShadow: "0 4px 0 0 #990000, 0 6px 16px rgba(255, 0, 0, 0.3)",
                         cursor: "pointer",
                         transition: "all 0.15s ease",
                       }}

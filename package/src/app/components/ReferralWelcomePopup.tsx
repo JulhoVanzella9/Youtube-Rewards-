@@ -56,7 +56,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: "linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%)",
+              background: "linear-gradient(145deg, #1a1a1a 0%, #0f0f1a 100%)",
               borderRadius: "24px",
               padding: "32px 24px",
               maxWidth: "360px",
@@ -121,7 +121,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
               marginBottom: "24px",
               lineHeight: 1.5,
             }}>
-              A friend invited you to join the TikCash Program
+              A friend invited you to join the YouCash Program
             </p>
 
             {/* Bonus card */}
@@ -139,7 +139,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
             >
               <div style={{
                 fontSize: "12px",
-                color: "#25f4ee",
+                color: "#282828",
                 fontWeight: 600,
                 marginBottom: "4px",
                 textTransform: "uppercase",
@@ -207,7 +207,7 @@ export default function ReferralWelcomePopup({ referralCode }: ReferralWelcomePo
               style={{
                 width: "100%",
                 padding: "16px",
-                background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+                background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
                 border: "none",
                 borderRadius: "12px",
                 color: "#fff",

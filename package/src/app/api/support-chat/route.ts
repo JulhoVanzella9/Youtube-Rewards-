@@ -3,11 +3,11 @@ import { convertToModelMessages, streamText, UIMessage } from 'ai'
 export const maxDuration = 30
 
 // Support context for the AI assistant
-const SYSTEM_PROMPT = `You are the TikCash virtual support assistant. Be friendly, professional, and helpful.
+const SYSTEM_PROMPT = `You are the YouCash virtual support assistant. Be friendly, professional, and helpful.
 
 IMPORTANT INFORMATION:
 - Support email: accesssupport.ai@gmail.com
-- TikCash is a platform for courses and rewards
+- YouCash is a platform for courses and rewards
 - Refund policy: 30 days after purchase
 - To request a refund: send an email to accesssupport.ai@gmail.com with your purchase code
 

@@ -6,12 +6,12 @@ const steps = [
   {
     title: "1. Crie sua conta",
     desc: "Cadastre-se com seu email e senha. Voce recebera um email de confirmacao para ativar sua conta.",
-    color: "#fe2c55",
+    color: "#FF0000",
   },
   {
     title: "2. Explore os cursos",
     desc: "Navegue pela pagina Explorar e descubra cursos sobre criacao de conteudo, monetizacao e crescimento online.",
-    color: "#25f4ee",
+    color: "#282828",
   },
   {
     title: "3. Comece a assistir",

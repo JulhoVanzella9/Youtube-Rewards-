@@ -5,7 +5,7 @@ import Link from "next/link";
 const sections = [
   {
     title: "1. Aceitacao dos Termos",
-    content: "Ao acessar e utilizar a plataforma TikCash, voce concorda com estes Termos de Uso. Caso nao concorde com algum dos termos, por favor, nao utilize a plataforma.",
+    content: "Ao acessar e utilizar a plataforma YouCash, voce concorda com estes Termos de Uso. Caso nao concorde com algum dos termos, por favor, nao utilize a plataforma.",
   },
   {
     title: "2. Conta do Usuario",
@@ -17,7 +17,7 @@ const sections = [
   },
   {
     title: "4. Propriedade Intelectual",
-    content: "Todo o conteudo disponivel na plataforma, incluindo videos, textos, imagens e materiais de apoio, e protegido por direitos autorais e pertence ao TikCash e seus instrutores.",
+    content: "Todo o conteudo disponivel na plataforma, incluindo videos, textos, imagens e materiais de apoio, e protegido por direitos autorais e pertence ao YouCash e seus instrutores.",
   },
   {
     title: "5. Certificados",

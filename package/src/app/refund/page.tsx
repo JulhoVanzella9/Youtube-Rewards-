@@ -91,15 +91,11 @@ export default function RefundPage() {
     }
   };
 
-  // TikCash Logo SVG component
-  const TikCashLogo = () => (
-    <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-      <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-      <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-      <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-      <text x="20" y="32" textAnchor="middle" fill="#000" fontSize="14" fontWeight="800">$</text>
-      <circle cx="36" cy="12" r="7" fill="#25f4ee" stroke="#000" strokeWidth="2"/>
-      <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800">$</text>
+  // YouCash Logo SVG component
+  const YouCashLogo = () => (
+    <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+      <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+      <path d="M27 34V14L45 24L27 34Z" fill="white"/>
     </svg>
   );
 
@@ -144,8 +140,8 @@ export default function RefundPage() {
               marginTop: "10px",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                <TikCashLogo />
-                <span style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>TikCash</span>
+                <YouCashLogo />
+                <span style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>YouCash</span>
               </div>
               <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.6)" }}>Community</p>
             </div>
@@ -220,7 +216,7 @@ export default function RefundPage() {
               <div style={{ textAlign: "center", padding: "20px 0" }}>
                 <div style={{
                   width: "64px", height: "64px", borderRadius: "50%",
-                  background: "linear-gradient(135deg, #25f4ee, #00d4aa)",
+                  background: "linear-gradient(135deg, #282828, #00d4aa)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   margin: "0 auto 16px",
                 }}>
@@ -239,7 +235,7 @@ export default function RefundPage() {
                 {/* WhatsApp Support Button - TEMPORARILY DISABLED
                 <a
                   href={`https://wa.me/5546999192885?text=${encodeURIComponent(
-                    `Hello TikCash Support!\n\nI just submitted a refund request.\n\nEmail: ${email}\nPurchase Code: ${purchaseCode}\n\nReason:\n${reason}`
+                    `Hello YouCash Support!\n\nI just submitted a refund request.\n\nEmail: ${email}\nPurchase Code: ${purchaseCode}\n\nReason:\n${reason}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -290,19 +286,19 @@ export default function RefundPage() {
                 {/* Show existing pending/processing requests */}
                 {existingRequests.filter(r => r.status === 'pending' || r.status === 'processing').length > 0 && (
                   <div style={{
-                    background: "rgba(254, 44, 85, 0.15)",
-                    border: "1px solid rgba(254, 44, 85, 0.3)",
+                    background: "rgba(255, 0, 0, 0.15)",
+                    border: "1px solid rgba(255, 0, 0, 0.3)",
                     borderRadius: "12px",
                     padding: "12px 16px",
                     marginBottom: "16px",
                   }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FE2C55" strokeWidth="2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="12" y1="8" x2="12" y2="12"/>
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                       </svg>
-                      <span style={{ fontSize: "13px", fontWeight: 600, color: "#FE2C55" }}>
+                      <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>
                         Reembolso em processamento
                       </span>
                     </div>
@@ -315,19 +311,19 @@ export default function RefundPage() {
                 {/* Show duplicate error message */}
                 {duplicateError && (
                   <div style={{
-                    background: "rgba(254, 44, 85, 0.15)",
-                    border: "1px solid rgba(254, 44, 85, 0.3)",
+                    background: "rgba(255, 0, 0, 0.15)",
+                    border: "1px solid rgba(255, 0, 0, 0.3)",
                     borderRadius: "12px",
                     padding: "12px 16px",
                     marginBottom: "16px",
                   }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FE2C55" strokeWidth="2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="15" y1="9" x2="9" y2="15"/>
                         <line x1="9" y1="9" x2="15" y2="15"/>
                       </svg>
-                      <span style={{ fontSize: "13px", fontWeight: 600, color: "#FE2C55" }}>
+                      <span style={{ fontSize: "13px", fontWeight: 600, color: "#FF0000" }}>
                         {duplicateError}
                       </span>
                     </div>

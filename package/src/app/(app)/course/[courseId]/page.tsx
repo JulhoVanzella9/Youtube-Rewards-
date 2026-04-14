@@ -8,7 +8,7 @@ import { useTheme } from "@/lib/theme/context";
 
 // Module images for different courses
 const courseModuleImages: Record<string, string[]> = {
-  "tikcash-program": [
+  "youcash-program": [
     "/images/modules/module-01.png",
     "/images/modules/module-02.png",
     "/images/modules/module-03.png",
@@ -19,7 +19,7 @@ const courseModuleImages: Record<string, string[]> = {
     "/images/modules/module-08.png",
     "/images/modules/module-09.png",
   ],
-  "tikcash-community": [
+  "youcash-community": [
     "/images/modules/tc-module-01.jpg",
     "/images/modules/tc-module-02.jpg",
     "/images/modules/tc-module-03.jpg",
@@ -63,7 +63,7 @@ export default function CourseDetailPage() {
     return (
       <div style={{ textAlign: "center", padding: "80px 20px" }}>
         <h2 style={{ color: "var(--text-primary)", marginBottom: "12px" }}>Course not found</h2>
-        <Link href="/" style={{ color: "#fe2c55", fontWeight: 600, fontSize: "14px" }}>
+        <Link href="/" style={{ color: "#FF0000", fontWeight: 600, fontSize: "14px" }}>
           Back to home
         </Link>
       </div>
@@ -96,13 +96,9 @@ export default function CourseDetailPage() {
             display: "flex", alignItems: "center", justifyContent: "center",
             border: "1px solid rgba(255,255,255,0.1)",
           }}>
-            <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#25F4EE" transform="translate(-2, -1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#FE2C55" transform="translate(2, 1)"/>
-              <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-              <text x="20" y="32" textAnchor="middle" fill="#000" fontSize="14" fontWeight="800">$</text>
-              <circle cx="36" cy="12" r="7" fill="#25F4EE" stroke="#000" strokeWidth="2"/>
-              <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800">$</text>
+            <svg width="24" height="17" viewBox="0 0 68 48" fill="none">
+              <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+              <path d="M27 34V14L45 24L27 34Z" fill="white"/>
             </svg>
           </div>
           <div>
@@ -128,7 +124,7 @@ export default function CourseDetailPage() {
           gap: "20px",
         }}>
           {course.modules.map((module, index) => {
-            const courseImages = courseModuleImages[course.id] || courseModuleImages["tikcash-program"];
+            const courseImages = courseModuleImages[course.id] || courseModuleImages["youcash-program"];
             const moduleImage = courseImages[index] || courseImages[0] || "/images/modules/module-01.png";
             const totalLessons = getTotalLessons(index);
             
@@ -301,7 +297,7 @@ export default function CourseDetailPage() {
                 <h2 style={{
                   fontSize: "18px",
                   fontWeight: 700,
-                  color: "#fe2c55",
+                  color: "#FF0000",
                   marginBottom: "4px",
                 }}>
                   Module {String(selectedModuleIndex + 1).padStart(2, "0")} | {selectedModule.title.replace(/^Module \d+\s*[-|]\s*/i, "")}
@@ -349,14 +345,14 @@ export default function CourseDetailPage() {
                       height: "40px",
                       borderRadius: "10px",
                       background: isDarkMode 
-                        ? "linear-gradient(135deg, #1a1a2e, #252542)"
+                        ? "linear-gradient(135deg, #1a1a1a, #252542)"
                         : "linear-gradient(135deg, #f0f0f5, #e0e0e8)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontWeight: 800,
                       fontSize: "15px",
-                      color: "#fe2c55",
+                      color: "#FF0000",
                       flexShrink: 0,
                     }}>
                       {sIndex + 1}
@@ -577,7 +573,7 @@ export default function CourseDetailPage() {
                         height: "42px",
                         borderRadius: "50%",
                         background: lesson.contentType === "video" 
-                          ? "#fe2c55" 
+                          ? "#FF0000" 
                           : isDarkMode 
                             ? "rgba(255,255,255,0.08)" 
                             : "rgba(0,0,0,0.06)",
@@ -614,7 +610,7 @@ export default function CourseDetailPage() {
                         </h3>
                         <p style={{
                           fontSize: "12px",
-                          color: lesson.contentType === "video" ? "#fe2c55" : "var(--text-muted)",
+                          color: lesson.contentType === "video" ? "#FF0000" : "var(--text-muted)",
                           fontWeight: 500,
                         }}>
                           {lesson.contentType === "video" ? `Video - ${lesson.duration}` : "Text Content"}

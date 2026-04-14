@@ -68,8 +68,8 @@ export default function ProgressPage() {
         }}
       >
         {[
-          { value: totalCoursesCompleted, label: t("courses"), color: "#25f4ee" },
-          { value: totalLessonsCompleted, label: t("lessons"), color: "#fe2c55" },
+          { value: totalCoursesCompleted, label: t("courses"), color: "#282828" },
+          { value: totalLessonsCompleted, label: t("lessons"), color: "#FF0000" },
           { value: totalCoursesStarted, label: t("yourCourses"), color: "#ff6b35" },
         ].map((stat) => (
           <motion.div
@@ -121,7 +121,7 @@ export default function ProgressPage() {
                 whileTap={{ scale: 0.98 }}
                 style={{
                   padding: "12px 24px", fontSize: "14px", fontWeight: 700,
-                  background: "linear-gradient(135deg, #fe2c55, #ff4070)",
+                  background: "linear-gradient(135deg, #FF0000, #CC0000)",
                   color: "#fff", border: "none", borderRadius: "50px",
                   cursor: "pointer", fontFamily: "inherit",
                 }}
@@ -148,7 +148,7 @@ export default function ProgressPage() {
                   {/* Course Thumbnail */}
                   <div style={{
                     width: "60px", height: "60px", borderRadius: "12px",
-                    background: `linear-gradient(135deg, ${course.progress === 100 ? '#25f4ee' : '#fe2c55'}20, rgba(255,255,255,0.02))`,
+                    background: `linear-gradient(135deg, ${course.progress === 100 ? '#282828' : '#FF0000'}20, rgba(255,255,255,0.02))`,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontSize: "24px", flexShrink: 0,
                   }}>
@@ -180,8 +180,8 @@ export default function ProgressPage() {
                         style={{
                           height: "100%",
                           background: course.progress === 100
-                            ? "linear-gradient(90deg, #25f4ee, #5ff7f2)"
-                            : "linear-gradient(90deg, #fe2c55, #ff6b81)",
+                            ? "linear-gradient(90deg, #282828, #5ff7f2)"
+                            : "linear-gradient(90deg, #FF0000, #CC0000)",
                           borderRadius: "3px",
                         }}
                       />
@@ -191,7 +191,7 @@ export default function ProgressPage() {
                   {/* Progress Percentage */}
                   <div style={{
                     fontSize: "14px", fontWeight: 800,
-                    color: course.progress === 100 ? "#25f4ee" : "#fe2c55",
+                    color: course.progress === 100 ? "#282828" : "#FF0000",
                   }}>
                     {course.progress}%
                   </div>

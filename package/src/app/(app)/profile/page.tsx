@@ -48,7 +48,7 @@ export default function ProfilePage() {
   }, []);
 
   const stats = [
-    { value: String(profile?.total_xp || 0), label: t("xp"), color: "#fe2c55" },
+    { value: String(profile?.total_xp || 0), label: t("xp"), color: "#FF0000" },
     { value: profile?.total_watch_hours || "0h", label: t("watched"), color: "#a855f7" },
   ];
 
@@ -95,7 +95,7 @@ export default function ProfilePage() {
           transition={{ duration: 0.3 }}
           style={{
             width: "90px", height: "90px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #fe2c55, #25f4ee)",
+            background: "linear-gradient(135deg, #FF0000, #282828)",
             margin: "0 auto 14px", display: "flex", alignItems: "center",
             justifyContent: "center", fontSize: "36px", fontWeight: 800,
             color: "#fff", position: "relative",
@@ -225,7 +225,7 @@ export default function ProfilePage() {
               </div>
             </div>
           </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2.5">
             <polyline points="9 18 15 12 9 6"/>
           </svg>
         </motion.div>
@@ -278,13 +278,13 @@ export default function ProfilePage() {
         transition={{ duration: 0.25, delay: 0.15 }}
         style={{ padding: "0 0 20px" }}
       >
-        <Link href="/course/tikcash-program" prefetch={true}>
+        <Link href="/course/youcash-program" prefetch={true}>
           <motion.button
             whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(254,44,85,0.4)" }}
             whileTap={{ scale: 0.98 }}
             style={{
               width: "100%", padding: "14px", fontSize: "15px", fontWeight: 700,
-              background: "linear-gradient(135deg, #fe2c55 0%, #ff4070 100%)",
+              background: "linear-gradient(135deg, #FF0000 0%, #CC0000 100%)",
               color: "#fff",
               border: "none", borderRadius: "50px", cursor: "pointer",
               fontFamily: "inherit",

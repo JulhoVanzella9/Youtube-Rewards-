@@ -7,7 +7,7 @@ export default function Loading() {
       <div style={{
         width: "36px", height: "36px", borderRadius: "50%",
         border: "3px solid rgba(255,255,255,0.1)",
-        borderTopColor: "#fe2c55",
+        borderTopColor: "#FF0000",
         animation: "spin 0.8s linear infinite",
       }} />
     </div>

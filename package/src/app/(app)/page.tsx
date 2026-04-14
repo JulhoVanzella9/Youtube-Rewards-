@@ -13,18 +13,18 @@ export default function HomePage() {
   const features = [
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
           <path d="M22 12A10 10 0 0 0 12 2v10z"/>
         </svg>
       ),
       title: "Real-Time Analytics",
       description: "Track your performance with live data and insights to optimize your content strategy.",
-      color: "#25f4ee",
+      color: "#282828",
     },
     {
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
           <line x1="8" y1="21" x2="16" y2="21"/>
           <line x1="12" y1="17" x2="12" y2="21"/>
@@ -32,7 +32,7 @@ export default function HomePage() {
       ),
       title: "Automated Tools",
       description: "Save time with automation that handles repetitive tasks and maximizes efficiency.",
-      color: "#fe2c55",
+      color: "#FF0000",
     },
     {
       icon: (
@@ -57,7 +57,7 @@ export default function HomePage() {
   ];
 
   const gettingStartedSteps = [
-    "Navigate to the TikCash App section using the sidebar",
+    "Navigate to the YouCash App section using the sidebar",
     "Start watching videos and earn rewards daily",
     "Track your earnings and withdraw your balance anytime",
     "Access Support if you need help or have questions",
@@ -118,14 +118,14 @@ export default function HomePage() {
               justifyContent: "center",
               flexShrink: 0,
             }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fe2c55">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF0000">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
             </div>
             <h2 style={{
               fontSize: "22px",
               fontWeight: 800,
-              color: "#fe2c55",
+              color: "#FF0000",
             }}>
               Video Tutorial
             </h2>
@@ -137,7 +137,7 @@ export default function HomePage() {
             marginBottom: "20px",
             lineHeight: 1.5,
           }}>
-            Watch this quick tutorial to learn how to use the TikCash app and maximize your earnings.
+            Watch this quick tutorial to learn how to use the YouCash app and maximize your earnings.
           </p>
 
           {/* Video Player */}
@@ -195,7 +195,7 @@ export default function HomePage() {
         </motion.div>
       </div>
 
-      {/* 2. Welcome to TikCash - Hero Section */}
+      {/* 2. Welcome to YouCash - Hero Section */}
       <div style={{
         padding: "clamp(32px, 6vw, 60px) clamp(20px, 5vw, 60px)",
         textAlign: "center",
@@ -217,12 +217,12 @@ export default function HomePage() {
         >
           <span style={{ color: "var(--text-primary)" }}>Welcome to </span>
           <span style={{
-            background: "linear-gradient(135deg, #fe2c55 0%, #25f4ee 100%)",
+            background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
           }}>
-            TikCash
+            YouCash
           </span>
         </motion.h1>
 
@@ -238,7 +238,7 @@ export default function HomePage() {
             lineHeight: 1.5,
           }}
         >
-          Your gateway to monetizing your TikTok content and maximizing your earnings
+          Your gateway to monetizing your YouTube content and maximizing your earnings
         </motion.p>
 
         <motion.div
@@ -257,7 +257,7 @@ export default function HomePage() {
                 fontFamily: "inherit",
               }}
             >
-              Launch TikCash App
+              Launch YouCash App
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"/>
                 <polyline points="12 5 19 12 12 19"/>
@@ -267,7 +267,7 @@ export default function HomePage() {
         </motion.div>
       </div>
 
-      {/* 3. How TikCash Works Section */}
+      {/* 3. How YouCash Works Section */}
       <div style={{
         padding: "clamp(24px, 4vw, 48px) clamp(16px, 4vw, 40px)",
         maxWidth: "800px",
@@ -292,10 +292,10 @@ export default function HomePage() {
           <h2 style={{
             fontSize: "clamp(22px, 4vw, 32px)",
             fontWeight: 800,
-            color: "#fe2c55",
+            color: "#FF0000",
             marginBottom: "20px",
           }}>
-            How TikCash Works
+            How YouCash Works
           </h2>
           
           <p style={{
@@ -304,7 +304,7 @@ export default function HomePage() {
             lineHeight: 1.7,
             marginBottom: "20px",
           }}>
-            TikCash is your all-in-one platform for maximizing revenue from your TikTok presence. Our embedded app provides real-time analytics, monetization strategies, and automated tools to help you grow your income.
+            YouCash is your all-in-one platform for maximizing revenue from your YouTube presence. Our embedded app provides real-time analytics, monetization strategies, and automated tools to help you grow your income.
           </p>
 
           <p style={{
@@ -312,7 +312,7 @@ export default function HomePage() {
             color: "var(--text-secondary)",
             lineHeight: 1.7,
           }}>
-            Click on <strong style={{ color: "#fe2c55" }}>TikCash App</strong> in the sidebar to access the full suite of tools designed to supercharge your earnings.
+            Click on <strong style={{ color: "#FF0000" }}>YouCash App</strong> in the sidebar to access the full suite of tools designed to supercharge your earnings.
           </p>
         </motion.div>
       </div>
@@ -420,7 +420,7 @@ export default function HomePage() {
                   width: "28px",
                   height: "28px",
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, #fe2c55 0%, #25f4ee 100%)",
+                  background: "linear-gradient(135deg, #FF0000 0%, #282828 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -437,13 +437,13 @@ export default function HomePage() {
                   lineHeight: 1.6,
                   paddingTop: "3px",
                 }}>
-                  {step.includes("TikCash App") ? (
+                  {step.includes("YouCash App") ? (
                     <>
-                      Navigate to the <Link href="/create" style={{ color: "#fe2c55", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px" }}>TikCash App</Link> section using the sidebar
+                      Navigate to the <Link href="/create" style={{ color: "#FF0000", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px" }}>YouCash App</Link> section using the sidebar
                     </>
                   ) : step.includes("Support") ? (
                     <>
-                      Access <Link href="/support" style={{ color: "#25f4ee", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px" }}>Support</Link> if you need help or have questions
+                      Access <Link href="/support" style={{ color: "#282828", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px" }}>Support</Link> if you need help or have questions
                     </>
                   ) : (
                     step

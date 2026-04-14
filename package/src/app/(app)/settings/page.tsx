@@ -158,12 +158,12 @@ export default function SettingsPage() {
                 >
                   <span style={{
                     fontSize: "13px", fontWeight: 600,
-                    color: language === lang.code ? "#fe2c55" : "var(--text-secondary)",
+                    color: language === lang.code ? "#FF0000" : "var(--text-secondary)",
                   }}>
                     {lang.label}
                   </span>
                   {language === lang.code && (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2.5">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2.5">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   )}
@@ -239,10 +239,10 @@ export default function SettingsPage() {
               opacity: loggingOut ? 0.6 : 1,
             }}
           >
-            <div style={{ fontSize: "14px", fontWeight: 600, color: "#fe2c55" }}>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: "#FF0000" }}>
               {loggingOut ? t("loggingOut") : t("logout")}
             </div>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fe2c55" strokeWidth="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF0000" strokeWidth="2">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
               <polyline points="16 17 21 12 16 7"/>
               <line x1="21" y1="12" x2="9" y2="12"/>
@@ -258,7 +258,7 @@ export default function SettingsPage() {
         transition={{ duration: 0.4, delay: 0.4 }}
         style={{ textAlign: "center", marginTop: "32px", fontSize: "11px", color: "var(--text-muted)" }}
       >
-        TikCash v1.0.0
+        YouCash v1.0.0
       </motion.div>
     </div>
   );

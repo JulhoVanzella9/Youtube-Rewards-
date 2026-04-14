@@ -176,7 +176,7 @@ export default function LoginPage() {
           )}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <h1 style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>
-              Welcome to TikCash
+              Welcome to YouCash
             </h1>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function LoginPage() {
                 padding: "12px 16px", borderRadius: "12px",
                 background: "rgba(254,44,85,0.1)",
                 border: "1px solid rgba(254,44,85,0.2)",
-                color: "#fe2c55", fontSize: "13px", fontWeight: 500,
+                color: "#FF0000", fontSize: "13px", fontWeight: 500,
                 marginBottom: "16px", textAlign: "center",
               }}
             >
@@ -208,7 +208,7 @@ export default function LoginPage() {
                 padding: "12px 16px", borderRadius: "12px",
                 background: "rgba(37,244,238,0.1)",
                 border: "1px solid rgba(37,244,238,0.2)",
-                color: "#25f4ee", fontSize: "13px", fontWeight: 500,
+                color: "#282828", fontSize: "13px", fontWeight: 500,
                 marginBottom: "16px", textAlign: "center",
               }}
             >
@@ -223,7 +223,7 @@ export default function LoginPage() {
             <div
               style={{
                 borderRadius: "12px",
-                border: focusedField === "email" ? "2px solid #fe2c55" : "2px solid rgba(255,255,255,0.12)",
+                border: focusedField === "email" ? "2px solid #FF0000" : "2px solid rgba(255,255,255,0.12)",
                 transition: "all 0.2s",
                 overflow: "hidden",
                 background: "rgba(0,0,0,0.4)",
@@ -263,7 +263,7 @@ export default function LoginPage() {
                 <div
                   style={{
                     borderRadius: "12px",
-                    border: focusedField === "password" ? "2px solid #fe2c55" : "2px solid rgba(255,255,255,0.12)",
+                    border: focusedField === "password" ? "2px solid #FF0000" : "2px solid rgba(255,255,255,0.12)",
                     transition: "all 0.2s",
                     overflow: "hidden",
                     background: "rgba(0,0,0,0.4)",
@@ -281,7 +281,7 @@ export default function LoginPage() {
                     style={{
                       width: "100%", padding: "16px 18px", fontSize: "15px",
                       background: "transparent",
-                      border: "none", color: "#25f4ee", outline: "none", fontFamily: "inherit",
+                      border: "none", color: "#282828", outline: "none", fontFamily: "inherit",
                       fontWeight: 600,
                     }}
                   />
@@ -316,7 +316,7 @@ export default function LoginPage() {
           }}
         >
           {"By continuing, you agree to our "}
-          <span style={{ color: "#fe2c55", fontWeight: 600 }}>Terms of Service</span>
+          <span style={{ color: "#FF0000", fontWeight: 600 }}>Terms of Service</span>
           {" and acknowledge that you have read our "}
           <span style={{ fontWeight: 600, color: "#fff" }}>Privacy Policy</span>.
         </p>

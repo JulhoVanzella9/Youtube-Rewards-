@@ -24,7 +24,7 @@ export default function WelcomePage() {
       alignItems: "center",
       padding: "20px",
       paddingBottom: "40px",
-      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%)",
+      background: "linear-gradient(180deg, #0a0a0f 0%, #1a1a1a 50%, #0a0a0f 100%)",
       overflowX: "hidden",
     }}>
       {/* Particle Background */}
@@ -86,7 +86,7 @@ export default function WelcomePage() {
           width: "100%",
         }}
       >
-        {/* TikCash Logo */}
+        {/* YouCash Logo */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -95,7 +95,7 @@ export default function WelcomePage() {
             width: "72px",
             height: "72px",
             borderRadius: "20px",
-            background: "linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%)",
+            background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -103,12 +103,9 @@ export default function WelcomePage() {
             boxShadow: "0 12px 40px rgba(254,44,85,0.3), 0 8px 20px rgba(37,244,238,0.2)",
           }}
         >
-          <svg width="38" height="38" viewBox="0 0 48 48" fill="none">
-            {/* Musical note with dollar sign */}
-            <path d="M30 8V28C30 33.5 25.5 38 20 38C14.5 38 10 33.5 10 28C10 22.5 14.5 18 20 18C21.5 18 23 18.3 24 18.8V8H30Z" fill="#fff"/>
-            <text x="20" y="32" textAnchor="middle" fill="#fe2c55" fontSize="14" fontWeight="800" fontFamily="system-ui">$</text>
-            <circle cx="36" cy="12" r="7" fill="#25f4ee" stroke="#fff" strokeWidth="2"/>
-            <text x="36" y="15.5" textAnchor="middle" fill="#000" fontSize="9" fontWeight="800" fontFamily="system-ui">$</text>
+          <svg width="36" height="26" viewBox="0 0 68 48" fill="none">
+            <path d="M66.52 7.74C65.72 4.64 63.28 2.2 60.18 1.4C54.9 0 34 0 34 0S13.1 0 7.82 1.4C4.72 2.2 2.28 4.64 1.48 7.74C0 13.02 0 24 0 24S0 34.98 1.48 40.26C2.28 43.36 4.72 45.8 7.82 46.6C13.1 48 34 48 34 48S54.9 48 60.18 46.6C63.28 45.8 65.72 43.36 66.52 40.26C68 34.98 68 24 68 24S68 13.02 66.52 7.74Z" fill="#FF0000"/>
+            <path d="M27 34V14L45 24L27 34Z" fill="white"/>
           </svg>
         </motion.div>
 
@@ -128,7 +125,7 @@ export default function WelcomePage() {
             border: "1px solid rgba(255,255,255,0.15)",
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
           </svg>
@@ -155,12 +152,12 @@ export default function WelcomePage() {
           <p style={{
             fontSize: "22px",
             fontWeight: 700,
-            background: "linear-gradient(90deg, #25f4ee 0%, #fe2c55 100%)",
+            background: "linear-gradient(90deg, #282828 0%, #FF0000 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             marginBottom: "20px",
           }}>
-            TikCash Program
+            YouCash Program
           </p>
         </motion.div>
 
@@ -184,11 +181,11 @@ export default function WelcomePage() {
             gap: "8px",
             marginBottom: "8px",
           }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fe2c55">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
             </svg>
             <span style={{
-              color: "#fe2c55",
+              color: "#FF0000",
               fontSize: "14px",
               fontWeight: 700,
               textTransform: "uppercase",
@@ -196,7 +193,7 @@ export default function WelcomePage() {
             }}>
               Premium Access Required
             </span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fe2c55">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
             </svg>
           </div>
@@ -205,7 +202,7 @@ export default function WelcomePage() {
             color: "rgba(255,255,255,0.7)",
             lineHeight: 1.5,
           }}>
-            To access the TikCash platform and start earning money, a one-time activation fee is required.
+            To access the YouCash platform and start earning money, a one-time activation fee is required.
           </p>
         </motion.div>
 
@@ -238,7 +235,7 @@ export default function WelcomePage() {
               <div style={{
                 fontSize: "36px",
                 fontWeight: 800,
-                color: "#25f4ee",
+                color: "#282828",
                 textShadow: "0 0 30px rgba(37,244,238,0.5)",
               }}>
                 $50 - $500
@@ -248,7 +245,7 @@ export default function WelcomePage() {
               width: "60px",
               height: "60px",
               borderRadius: "50%",
-              background: "linear-gradient(135deg, #25f4ee 0%, #fe2c55 100%)",
+              background: "linear-gradient(135deg, #282828 0%, #FF0000 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -289,10 +286,10 @@ export default function WelcomePage() {
             What You Get:
           </h3>
           {[
-            { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", text: "Earn real money rating videos", color: "#25f4ee" },
-            { icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z", text: "Exclusive training & video tutorials", color: "#fe2c55" },
+            { icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", text: "Earn real money rating videos", color: "#282828" },
+            { icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z", text: "Exclusive training & video tutorials", color: "#FF0000" },
             { icon: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z", text: "Fast withdrawals via PayPal or Pix", color: "#ffd700" },
-            { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", text: "Lifetime premium access", color: "#25f4ee" },
+            { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", text: "Lifetime premium access", color: "#282828" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -334,7 +331,7 @@ export default function WelcomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.75 }}
           style={{
-            background: "linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%)",
+            background: "linear-gradient(135deg, #1a1a1a 0%, #0d0d1a 100%)",
             borderRadius: "16px",
             padding: "16px",
             marginBottom: "20px",
@@ -357,12 +354,12 @@ export default function WelcomePage() {
             <span style={{
               fontSize: "28px",
               fontWeight: 800,
-              color: "#25f4ee",
+              color: "#282828",
             }}>
               From $29.90
             </span>
             <span style={{
-              background: "#fe2c55",
+              background: "#FF0000",
               color: "#fff",
               fontSize: "11px",
               fontWeight: 700,

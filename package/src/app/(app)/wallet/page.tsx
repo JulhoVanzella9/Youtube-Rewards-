@@ -102,7 +102,7 @@ export default function WalletPage() {
         transition={{ duration: 0.3 }}
         style={{
           background: isDarkMode 
-            ? "linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%)"
+            ? "linear-gradient(145deg, #1a1a1a 0%, #0f0f1a 100%)"
             : "linear-gradient(145deg, #ffffff 0%, #f0f0f5 100%)",
           borderRadius: "20px", padding: "20px",
           marginBottom: "4px", position: "relative", overflow: "hidden",
@@ -267,7 +267,7 @@ export default function WalletPage() {
                   ? "linear-gradient(145deg, rgba(254,44,85,0.15), rgba(254,44,85,0.05))"
                   : isDarkMode ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)",
                 border: selectedAmount === amount.value
-                  ? "2px solid #fe2c55"
+                  ? "2px solid #FF0000"
                   : `2px solid var(--border-color)`,
                 borderRadius: "16px", cursor: "pointer",
                 display: "flex", flexDirection: "column",
@@ -280,7 +280,7 @@ export default function WalletPage() {
                 <div style={{
                   position: "absolute", top: "-10px", left: "50%",
                   transform: "translateX(-50%)",
-                  background: "linear-gradient(135deg, #fe2c55, #ff4070)",
+                  background: "linear-gradient(135deg, #FF0000, #CC0000)",
                   color: "#fff",
                   fontSize: "9px", fontWeight: 700,
                   padding: "3px 8px", borderRadius: "6px",
@@ -293,7 +293,7 @@ export default function WalletPage() {
               <span style={{
                 fontSize: "clamp(14px, 4vw, 17px)", 
                 fontWeight: 800,
-                color: selectedAmount === amount.value ? "#fe2c55" : "var(--text-primary)",
+                color: selectedAmount === amount.value ? "#FF0000" : "var(--text-primary)",
                 wordBreak: "break-word",
                 textAlign: "center",
               }}>
@@ -344,7 +344,7 @@ export default function WalletPage() {
           position: "absolute",
           top: "12px",
           right: "12px",
-          background: "linear-gradient(135deg, #25f4ee, #00d4aa)",
+          background: "linear-gradient(135deg, #282828, #00d4aa)",
           padding: "6px 12px",
           borderRadius: "20px",
           display: "flex",
@@ -370,12 +370,12 @@ export default function WalletPage() {
             flexShrink: 0,
             border: "2px solid rgba(37,244,238,0.3)",
           }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#25f4ee" strokeWidth="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#282828" strokeWidth="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
           <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#25f4ee", marginBottom: "6px" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#282828", marginBottom: "6px" }}>
               {t("refundTitle") || "30-Day Refund Policy"}
             </h3>
             <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.5, marginBottom: "16px" }}>
@@ -395,7 +395,7 @@ export default function WalletPage() {
             fontSize: "15px",
             fontWeight: 700,
             padding: "14px 24px",
-            background: "linear-gradient(135deg, #25f4ee 0%, #00d4aa 100%)",
+            background: "linear-gradient(135deg, #282828 0%, #00d4aa 100%)",
             color: "#000",
             border: "none",
             borderRadius: "14px",
@@ -403,7 +403,7 @@ export default function WalletPage() {
             alignItems: "center",
             justifyContent: "center",
             gap: "10px",
-            boxShadow: "0 4px 0 0 #15a8a3, 0 8px 20px rgba(37, 244, 238, 0.35)",
+            boxShadow: "0 4px 0 0 #15a8a3, 0 8px 20px rgba(40, 40, 40, 0.35)",
             cursor: "pointer",
             transition: "all 0.15s ease",
           }}
@@ -443,7 +443,7 @@ export default function WalletPage() {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: "linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%)",
+                background: "linear-gradient(145deg, #1a1a1a 0%, #0f0f1a 100%)",
                 borderRadius: "24px",
                 padding: "32px 24px",
                 maxWidth: "380px",
@@ -535,7 +535,7 @@ export default function WalletPage() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   style={{
                     height: "100%",
-                    background: "linear-gradient(90deg, #fe2c55, #ff6b8a)",
+                    background: "linear-gradient(90deg, #FF0000, #ff6b8a)",
                     borderRadius: "8px",
                   }}
                 />

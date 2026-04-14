@@ -20,7 +20,7 @@ export default function LessonPage() {
     return (
       <div style={{ textAlign: "center", padding: "80px 20px" }}>
         <h2 style={{ color: "#fff" }}>Lesson not found</h2>
-        <Link href="/explore" style={{ color: "#fe2c55", fontWeight: 600 }}>← Back</Link>
+        <Link href="/explore" style={{ color: "#FF0000", fontWeight: 600 }}>← Back</Link>
       </div>
     );
   }
@@ -61,7 +61,7 @@ export default function LessonPage() {
             background: showList ? "rgba(254,44,85,0.15)" : "rgba(255,255,255,0.06)",
             border: showList ? "1px solid rgba(254,44,85,0.3)" : "1px solid rgba(255,255,255,0.08)",
             borderRadius: "20px", padding: "8px 16px", cursor: "pointer",
-            color: showList ? "#fe2c55" : "#fff", fontSize: "13px", fontWeight: 600, fontFamily: "inherit",
+            color: showList ? "#FF0000" : "#fff", fontSize: "13px", fontWeight: 600, fontFamily: "inherit",
             display: "flex", alignItems: "center", gap: "8px",
             transition: "all 0.2s",
           }}
@@ -119,7 +119,7 @@ export default function LessonPage() {
                 <div key={mod.id}>
                   <div style={{
                     padding: "10px 20px", background: "rgba(255,255,255,0.02)",
-                    fontSize: "11px", fontWeight: 700, color: "#fe2c55",
+                    fontSize: "11px", fontWeight: 700, color: "#FF0000",
                     textTransform: "uppercase", letterSpacing: "0.5px",
                   }}>
                     {mod.title}
@@ -140,12 +140,12 @@ export default function LessonPage() {
                             display: "flex", alignItems: "center", gap: "12px",
                             padding: "12px 20px", cursor: "pointer",
                             background: isActive ? "rgba(254,44,85,0.1)" : "transparent",
-                            borderLeft: isActive ? "3px solid #fe2c55" : "3px solid transparent",
+                            borderLeft: isActive ? "3px solid #FF0000" : "3px solid transparent",
                             transition: "all 0.2s",
                           }}>
                             <div style={{
                               width: "28px", height: "28px", borderRadius: "50%", flexShrink: 0,
-                              background: isActive ? "#fe2c55" : isCompleted ? "#25f4ee" : "rgba(255,255,255,0.08)",
+                              background: isActive ? "#FF0000" : isCompleted ? "#282828" : "rgba(255,255,255,0.08)",
                               display: "flex", alignItems: "center", justifyContent: "center",
                               fontSize: "11px", fontWeight: 700, 
                               color: isActive || isCompleted ? "#fff" : "var(--text-muted)",
@@ -171,7 +171,7 @@ export default function LessonPage() {
                             {isActive && (
                               <div style={{
                                 width: "8px", height: "8px", borderRadius: "50%",
-                                background: "#fe2c55",
+                                background: "#FF0000",
                               }}/>
                             )}
                           </div>
@@ -227,8 +227,8 @@ export default function LessonPage() {
               border: "1px solid rgba(255,255,255,0.1)",
             }}>
               <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
-                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#25F4EE" transform="translate(-2, -1)"/>
-                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#FE2C55" transform="translate(2, 1)"/>
+                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#282828" transform="translate(-2, -1)"/>
+                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#FF0000" transform="translate(2, 1)"/>
                 <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#fff"/>
               </svg>
             </div>
@@ -258,7 +258,7 @@ export default function LessonPage() {
           <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
             <span style={{
               padding: "5px 12px", borderRadius: "20px", fontSize: "12px",
-              fontWeight: 600, background: "rgba(254,44,85,0.12)", color: "#fe2c55",
+              fontWeight: 600, background: "rgba(254,44,85,0.12)", color: "#FF0000",
             }}>
               Lesson {currentIndex + 1} of {allLessons.length}
             </span>
