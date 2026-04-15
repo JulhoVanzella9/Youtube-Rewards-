@@ -168,10 +168,10 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
           style={{
             position: "fixed", inset: 0,
             background: "rgba(0,0,0,0.95)",
-            display: "flex", alignItems: "flex-start", justifyContent: "center",
-            padding: "8px", zIndex: 1000,
-            flexDirection: "column",
+            display: "block",
+            padding: "0", zIndex: 1000,
             overflowY: "auto",
+            overflowX: "hidden",
             WebkitOverflowScrolling: "touch",
           }}
           onClick={() => !isSubmitting && handleClose()}
@@ -184,8 +184,9 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
             style={{
               width: "100%", maxWidth: step === "form" ? "420px" : "600px",
               display: "flex", flexDirection: "column", alignItems: "center",
-              margin: "auto",
-              padding: "10px 0",
+              margin: "0 auto",
+              padding: "20px 8px 120px",
+              boxSizing: "border-box",
             }}
           >
             {step === "legal" ? (
