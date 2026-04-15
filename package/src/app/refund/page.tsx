@@ -116,20 +116,20 @@ export default function RefundPage() {
   );
 
   return (
-    <div style={{
-      minHeight: "100dvh",
-      background: "linear-gradient(180deg, #0a0a0a 0%, #111 100%)",
-      padding: "20px 16px",
-      paddingTop: "max(20px, env(safe-area-inset-top, 20px))",
-      paddingBottom: "max(80px, calc(60px + env(safe-area-inset-bottom, 0px)))",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      overflowX: "hidden",
-      width: "100%",
-      maxWidth: "100vw",
-      boxSizing: "border-box",
-    } as React.CSSProperties}>
+    <>
+      <style>{`
+        .refund-page-root { min-height: 100vh; min-height: 100dvh; }
+        html, body { height: auto !important; overflow-y: auto !important; overflow-x: hidden !important; }
+      `}</style>
+      <div className="refund-page-root" style={{
+        background: "linear-gradient(180deg, #0a0a0a 0%, #111 100%)",
+        padding: "20px 16px 120px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        boxSizing: "border-box",
+      }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -696,5 +696,6 @@ export default function RefundPage() {
         )}
       </motion.div>
     </div>
+    </>
   );
 }
