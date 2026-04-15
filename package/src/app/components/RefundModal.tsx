@@ -42,6 +42,21 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
 
   const allAcknowledged = ack1 && ack2 && ack3 && ack4 && ack5;
 
+  // Hide header/footer and lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     if (isOpen) {
       const supabase = createClient();
@@ -161,6 +176,11 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
+        <>
+        <style>{`
+          .bottom-nav { display: none !important; }
+          header { display: none !important; }
+        `}</style>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -169,7 +189,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
             position: "fixed", inset: 0,
             background: "rgba(0,0,0,0.95)",
             display: "block",
-            padding: "0", zIndex: 1000,
+            padding: "0", zIndex: 9999,
             overflowY: "auto",
             overflowX: "hidden",
             WebkitOverflowScrolling: "touch",
@@ -731,6 +751,7 @@ export default function RefundModal({ isOpen, onClose }: RefundModalProps) {
             )}
           </motion.div>
         </motion.div>
+        </>
       )}
     </AnimatePresence>
   );
