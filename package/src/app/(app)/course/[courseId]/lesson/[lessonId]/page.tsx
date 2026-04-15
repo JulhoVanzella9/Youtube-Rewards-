@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getLessonById, getAllLessons, getNextLesson, getPrevLesson } from "@/app/data/courses";
 import { useState } from "react";
 import { useProgress } from "@/lib/hooks/useProgress";
+import { useTheme } from "@/lib/theme/context";
 
 export default function LessonPage() {
   const params = useParams();
@@ -14,6 +15,8 @@ export default function LessonPage() {
   const [showList, setShowList] = useState(false);
   const [saving, setSaving] = useState(false);
   const { markLessonComplete, isLessonCompleted } = useProgress();
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
   const result = getLessonById(courseId, lessonId);
   if (!result) {
@@ -37,9 +40,9 @@ export default function LessonPage() {
       <div style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "16px 20px",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)"}`,
         position: "sticky", top: 0, zIndex: 10,
-        background: "var(--bg-primary)",
+        background: isDarkMode ? "var(--bg-primary)" : "#fff",
       }}>
         <Link href={`/course/${courseId}`} style={{
           display: "flex", alignItems: "center", gap: "8px",
@@ -58,10 +61,10 @@ export default function LessonPage() {
           whileTap={{ scale: 0.95 }}
           onClick={() => setShowList(!showList)}
           style={{
-            background: showList ? "rgba(255,0,0,0.15)" : "rgba(255,255,255,0.06)",
-            border: showList ? "1px solid rgba(255,0,0,0.3)" : "1px solid rgba(255,255,255,0.08)",
+            background: showList ? "rgba(255,0,0,0.15)" : (isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)"),
+            border: showList ? "1px solid rgba(255,0,0,0.3)" : `1px solid ${isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.1)"}`,
             borderRadius: "20px", padding: "8px 16px", cursor: "pointer",
-            color: showList ? "#FF0000" : "#fff", fontSize: "13px", fontWeight: 600, fontFamily: "inherit",
+            color: showList ? "#FF0000" : (isDarkMode ? "#fff" : "#333"), fontSize: "13px", fontWeight: 600, fontFamily: "inherit",
             display: "flex", alignItems: "center", gap: "8px",
             transition: "all 0.2s",
           }}
@@ -85,17 +88,17 @@ export default function LessonPage() {
             transition={{ duration: 0.3 }}
             style={{
               overflow: "hidden",
-              background: "rgba(0,0,0,0.4)",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              background: isDarkMode ? "rgba(0,0,0,0.4)" : "rgba(0,0,0,0.03)",
+              borderBottom: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)"}`,
             }}
           >
-            <div style={{ 
-              padding: "16px 20px", 
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
+            <div style={{
+              padding: "16px 20px",
+              borderBottom: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)"}`,
               display: "flex", alignItems: "center", justifyContent: "space-between",
             }}>
               <div>
-                <div style={{ fontSize: "15px", fontWeight: 700, color: "#fff" }}>
+                <div style={{ fontSize: "15px", fontWeight: 700, color: isDarkMode ? "#fff" : "#0F0F0F" }}>
                   Course Content
                 </div>
                 <div style={{ fontSize: "12px", color: "var(--text-muted)", marginTop: "2px" }}>
@@ -118,7 +121,7 @@ export default function LessonPage() {
               {course.modules.map((mod) => (
                 <div key={mod.id}>
                   <div style={{
-                    padding: "10px 20px", background: "rgba(255,255,255,0.02)",
+                    padding: "10px 20px", background: isDarkMode ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)",
                     fontSize: "11px", fontWeight: 700, color: "#FF0000",
                     textTransform: "uppercase", letterSpacing: "0.5px",
                   }}>
@@ -145,10 +148,10 @@ export default function LessonPage() {
                           }}>
                             <div style={{
                               width: "28px", height: "28px", borderRadius: "50%", flexShrink: 0,
-                              background: isActive ? "#FF0000" : isCompleted ? "#282828" : "rgba(255,255,255,0.08)",
+                              background: isActive ? "#FF0000" : isCompleted ? (isDarkMode ? "#282828" : "#e0e0e0") : (isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"),
                               display: "flex", alignItems: "center", justifyContent: "center",
-                              fontSize: "11px", fontWeight: 700, 
-                              color: isActive || isCompleted ? "#fff" : "var(--text-muted)",
+                              fontSize: "11px", fontWeight: 700,
+                              color: isActive ? "#fff" : isCompleted ? (isDarkMode ? "#fff" : "#333") : "var(--text-muted)",
                             }}>
                               {isCompleted && !isActive ? (
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -212,7 +215,9 @@ export default function LessonPage() {
           animate={{ opacity: 1 }}
           style={{
             padding: "32px 20px",
-            background: "linear-gradient(145deg, rgba(255,0,0,0.05) 0%, transparent 100%)",
+            background: isDarkMode
+              ? "linear-gradient(145deg, rgba(255,0,0,0.05) 0%, transparent 100%)"
+              : "linear-gradient(145deg, rgba(255,0,0,0.03) 0%, transparent 100%)",
             minHeight: "200px",
           }}
         >
@@ -221,27 +226,28 @@ export default function LessonPage() {
           }}>
             <div style={{
               width: "52px", height: "52px", borderRadius: "14px",
-              background: "#000",
+              background: isDarkMode ? "#000" : "#FF0000",
               display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: isDarkMode ? "0 4px 20px rgba(0,0,0,0.4)" : "0 4px 20px rgba(255,0,0,0.25)",
+              border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.1)" : "rgba(255,0,0,0.2)"}`,
             }}>
               <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
-                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#282828" transform="translate(-2, -1)"/>
+                <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill={isDarkMode ? "#282828" : "#cc0000"} transform="translate(-2, -1)"/>
                 <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#FF0000" transform="translate(2, 1)"/>
                 <path d="M33.5 7.7c-1.3-1.5-2.1-3.4-2.1-5.2h-5.7v23.3c0 3.1-2.5 5.7-5.7 5.7s-5.7-2.5-5.7-5.7 2.5-5.7 5.7-5.7c.6 0 1.2.1 1.8.3v-5.5c-.6-.1-1.2-.1-1.8-.1-6.2 0-11.2 5-11.2 11.2S13.8 37 20 37s11.2-5 11.2-11.2V14.5c2.3 1.6 5.1 2.6 8.1 2.5v-5.5c-2.2-.1-4.3-1.4-5.8-3.8z" fill="#fff"/>
               </svg>
             </div>
             <div>
-              <h3 style={{ fontSize: "17px", fontWeight: 700, color: "#fff" }}>Text Lesson</h3>
+              <h3 style={{ fontSize: "17px", fontWeight: 700, color: isDarkMode ? "#fff" : "#0F0F0F" }}>Text Lesson</h3>
               <p style={{ fontSize: "13px", color: "var(--text-muted)" }}>Read the content below</p>
             </div>
           </div>
-          <div 
+          <div
             style={{
-              fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.8,
-              background: "rgba(0,0,0,0.3)", padding: "24px", borderRadius: "16px",
-              border: "1px solid rgba(255,255,255,0.06)",
+              fontSize: "15px", color: isDarkMode ? "var(--text-secondary)" : "#1a1a1a", lineHeight: 1.8,
+              background: isDarkMode ? "rgba(0,0,0,0.3)" : "rgba(0,0,0,0.04)",
+              padding: "24px", borderRadius: "16px",
+              border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.08)"}`,
             }}
             dangerouslySetInnerHTML={{ __html: lesson.textContent || lesson.description }}
           />
@@ -264,7 +270,7 @@ export default function LessonPage() {
             </span>
             <span style={{
               padding: "5px 12px", borderRadius: "20px", fontSize: "12px",
-              fontWeight: 500, background: "rgba(255,255,255,0.06)",
+              fontWeight: 500, background: isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
               color: "var(--text-muted)",
             }}>
               {lesson.duration}
@@ -272,7 +278,7 @@ export default function LessonPage() {
           </div>
 
           <h1 style={{
-            fontSize: "22px", fontWeight: 800, color: "#fff",
+            fontSize: "22px", fontWeight: 800, color: isDarkMode ? "#fff" : "#0F0F0F",
             lineHeight: 1.3, marginBottom: "12px",
           }}>
             {lesson.title}

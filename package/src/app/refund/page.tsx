@@ -120,18 +120,16 @@ export default function RefundPage() {
       minHeight: "100dvh",
       background: "linear-gradient(180deg, #0a0a0a 0%, #111 100%)",
       padding: "20px 16px",
-      paddingTop: "env(safe-area-inset-top, 20px)",
-      paddingBottom: "40px",
+      paddingTop: "max(20px, env(safe-area-inset-top, 20px))",
+      paddingBottom: "max(80px, calc(60px + env(safe-area-inset-bottom, 0px)))",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       overflowX: "hidden",
-      overflowY: "auto",
       width: "100%",
       maxWidth: "100vw",
       boxSizing: "border-box",
-      WebkitOverflowScrolling: "touch",
-    }}>
+    } as React.CSSProperties}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -112,33 +112,86 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* Modules Grid */}
-      <div style={{ 
-        padding: "20px",
-        maxWidth: "1200px",
-        margin: "0 auto",
-      }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-          gap: "20px",
-        }}>
-          {course.modules.map((module, index) => {
-            const courseImages = courseModuleImages[course.id] || courseModuleImages["youcash-program"];
-            const moduleImage = courseImages[index] || courseImages[0] || "/images/modules/module-01.png";
-            const totalLessons = getTotalLessons(index);
-            
-            return (
-              <motion.div
-                key={module.id}
-                initial={{ opacity: 0, y: 15, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  delay: index * 0.04,
-                  duration: 0.35,
-                  ease: [0.16, 1, 0.3, 1]
+      {/* Netflix-style Module Rows */}
+      <div style={{ padding: "16px 0", overflow: "hidden" }}>
+        {course.modules.map((module, index) => {
+          const courseImages = courseModuleImages[course.id] || courseModuleImages["youcash-program"];
+          const moduleImage = courseImages[index] || courseImages[0] || "/images/modules/module-01.png";
+          const totalLessons = getTotalLessons(index);
+
+          return (
+            <motion.div
+              key={module.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              style={{ marginBottom: "28px" }}
+            >
+              {/* Row Title */}
+              <div
+                style={{
+                  padding: "0 16px",
+                  marginBottom: "12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
                 }}
               >
+                <div>
+                  <h2 style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: isDarkMode ? "#fff" : "#0F0F0F",
+                    marginBottom: "2px",
+                  }}>
+                    {module.title.replace("Module 0", "Module ").replace("ProfiUp 09", "Module 09")}
+                  </h2>
+                  <p style={{
+                    fontSize: "12px",
+                    color: "var(--text-muted)",
+                  }}>
+                    {module.comingSoon ? "Coming Soon" : `${module.subModules.length} sections · ${totalLessons} lessons`}
+                  </p>
+                </div>
+                {!module.comingSoon && (
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setSelectedModule(module);
+                      setSelectedModuleIndex(index);
+                    }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "#FF0000",
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      padding: "4px 8px",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    See All →
+                  </motion.button>
+                )}
+              </div>
+
+              {/* Horizontal Scroll Row */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  overflowX: "auto",
+                  paddingLeft: "16px",
+                  paddingRight: "16px",
+                  paddingBottom: "4px",
+                  scrollSnapType: "x mandatory",
+                  WebkitOverflowScrolling: "touch",
+                  msOverflowStyle: "none",
+                  scrollbarWidth: "none",
+                } as React.CSSProperties}
+              >
+                {/* Main module card (large) */}
                 <div
                   onClick={() => {
                     if (!module.comingSoon) {
@@ -146,39 +199,53 @@ export default function CourseDetailPage() {
                       setSelectedModuleIndex(index);
                     }
                   }}
-                  style={{ textDecoration: "none", cursor: module.comingSoon ? "not-allowed" : "pointer" }}
+                  style={{
+                    flexShrink: 0,
+                    width: "200px",
+                    cursor: module.comingSoon ? "not-allowed" : "pointer",
+                    scrollSnapAlign: "start",
+                  }}
                 >
-                  <motion.div 
-                    whileHover={module.comingSoon ? {} : { y: -3, boxShadow: "0 12px 32px rgba(0,0,0,0.5)" }}
-                    whileTap={module.comingSoon ? {} : { scale: 0.97 }}
-                    transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                  <motion.div
+                    whileTap={module.comingSoon ? {} : { scale: 0.96 }}
                     style={{
-                      background: isDarkMode ? "#0f0f0f" : "#fff",
-                      borderRadius: "16px",
+                      borderRadius: "12px",
                       overflow: "hidden",
+                      background: isDarkMode ? "#0f0f0f" : "#fff",
                       border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}`,
                       opacity: module.comingSoon ? 0.5 : 1,
-                      cursor: module.comingSoon ? "not-allowed" : "pointer",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-                    }}>
-                    {/* Module Image */}
+                      boxShadow: isDarkMode ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.08)",
+                    }}
+                  >
                     <div style={{
                       position: "relative",
-                      aspectRatio: "1/1",
+                      aspectRatio: "16/10",
                       overflow: "hidden",
                     }}>
-                      <motion.img 
-                        src={moduleImage} 
+                      <img
+                        src={moduleImage}
                         alt={module.title}
-                        whileHover={module.comingSoon ? {} : { scale: 1.05 }}
-                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                         style={{
                           width: "100%",
                           height: "100%",
                           objectFit: "cover",
-                          transformOrigin: "center",
                         }}
                       />
+                      {/* Module number badge */}
+                      <div style={{
+                        position: "absolute",
+                        top: "8px",
+                        left: "8px",
+                        background: "rgba(0,0,0,0.7)",
+                        backdropFilter: "blur(8px)",
+                        padding: "4px 10px",
+                        borderRadius: "6px",
+                        fontSize: "11px",
+                        fontWeight: 700,
+                        color: "#fff",
+                      }}>
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
                       {module.comingSoon && (
                         <div style={{
                           position: "absolute",
@@ -190,9 +257,9 @@ export default function CourseDetailPage() {
                         }}>
                           <span style={{
                             background: "rgba(255,0,0,0.9)",
-                            padding: "8px 16px",
-                            borderRadius: "8px",
-                            fontSize: "12px",
+                            padding: "6px 14px",
+                            borderRadius: "6px",
+                            fontSize: "11px",
                             fontWeight: 700,
                             color: "#fff",
                             textTransform: "uppercase",
@@ -202,36 +269,102 @@ export default function CourseDetailPage() {
                         </div>
                       )}
                     </div>
-                    
-                    {/* Module Info */}
-                    <div style={{ padding: "14px", background: isDarkMode ? "#0a0a0a" : "#fff" }}>
+                    <div style={{ padding: "10px 12px" }}>
                       <h3 style={{
-                        fontSize: "13px",
-                        fontWeight: 700,
+                        fontSize: "12px",
+                        fontWeight: 600,
                         color: "var(--text-primary)",
                         lineHeight: 1.3,
-                        minHeight: "34px",
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical" as const,
                         overflow: "hidden",
-                        marginBottom: "6px",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
                       }}>
-                        {module.title.replace("Module 0", "Module ").replace("ProfiUp 09", "Module 09")}
+                        {module.title.replace(/^Module \d+\s*[-|]\s*/i, "")}
                       </h3>
-                      <p style={{
-                        fontSize: "11px",
-                        color: "var(--text-muted)",
-                      }}>
-                        {module.comingSoon ? "Coming Soon" : `${module.subModules.length} sections - ${totalLessons} lessons`}
-                      </p>
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+
+                {/* Sub-module cards */}
+                {!module.comingSoon && module.subModules.map((subModule, sIndex) => (
+                  <div
+                    key={subModule.id}
+                    onClick={() => {
+                      setSelectedModule(module);
+                      setSelectedModuleIndex(index);
+                      setSelectedSubModule(subModule);
+                    }}
+                    style={{
+                      flexShrink: 0,
+                      width: "150px",
+                      cursor: "pointer",
+                      scrollSnapAlign: "start",
+                    }}
+                  >
+                    <motion.div
+                      whileTap={{ scale: 0.96 }}
+                      style={{
+                        borderRadius: "12px",
+                        overflow: "hidden",
+                        background: isDarkMode ? "#0f0f0f" : "#fff",
+                        border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`,
+                        boxShadow: isDarkMode ? "0 2px 10px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.06)",
+                        height: "100%",
+                      }}
+                    >
+                      <div style={{
+                        aspectRatio: "16/10",
+                        background: isDarkMode
+                          ? `linear-gradient(135deg, #1a1a2e, #16213e)`
+                          : `linear-gradient(135deg, #f0f0f5, #e8e8f0)`,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                      }}>
+                        <span style={{
+                          fontSize: "24px",
+                          fontWeight: 800,
+                          color: "#FF0000",
+                          opacity: 0.8,
+                        }}>
+                          {sIndex + 1}
+                        </span>
+                        <div style={{
+                          position: "absolute",
+                          bottom: "6px",
+                          right: "6px",
+                          background: "rgba(255,0,0,0.9)",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontSize: "10px",
+                          fontWeight: 600,
+                          color: "#fff",
+                        }}>
+                          {subModule.lessons.length} lessons
+                        </div>
+                      </div>
+                      <div style={{ padding: "8px 10px" }}>
+                        <h4 style={{
+                          fontSize: "11px",
+                          fontWeight: 600,
+                          color: "var(--text-primary)",
+                          lineHeight: 1.3,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical" as const,
+                          overflow: "hidden",
+                        }}>
+                          {subModule.title}
+                        </h4>
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Bottom Sheet Modal - Sections List */}
