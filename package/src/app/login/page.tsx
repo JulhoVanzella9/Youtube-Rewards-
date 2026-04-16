@@ -11,7 +11,7 @@ export default function LoginPage() {
   const referralCode = searchParams.get("ref");
   const { t } = useI18n();
   const [email, setEmail] = useState("");
-  const [password] = useState("myaccess2026");
+  const [password] = useState("myacess2026");
   const [step, setStep] = useState<"email" | "password">("email");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -54,42 +54,7 @@ export default function LoginPage() {
       return;
     }
 
-    // Try legacy password for existing users, then migrate silently
-    if (signInError) {
-      const { data: legacyData, error: legacyError } = await supabase.auth.signInWithPassword({
-        email,
-        password: "myacess2026",
-      });
-
-      if (legacyData?.session) {
-        supabase.auth.updateUser({ password }).catch(() => {});
-        window.location.href = "/";
-        return;
-      }
-
-      // Both passwords failed - force reset password via admin API and retry
-      try {
-        const resetRes = await fetch("/api/reset-password", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, newPassword: password }),
-        });
-        if (resetRes.ok) {
-          const { data: retryData } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-          });
-          if (retryData?.session) {
-            window.location.href = "/";
-            return;
-          }
-        }
-      } catch {
-        // Reset failed, continue to signup
-      }
-    }
-
-    // If all fail, try to sign up (new user)
+    // If login fails, try to sign up (new user)
     if (signInError) {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -297,28 +262,16 @@ export default function LoginPage() {
                 <div
                   style={{
                     borderRadius: "12px",
-                    border: focusedField === "password" ? "2px solid #FF0000" : "2px solid rgba(0,0,0,0.15)",
-                    transition: "all 0.2s",
+                    border: "2px solid rgba(0,0,0,0.15)",
                     overflow: "hidden",
                     background: "rgba(0,0,0,0.03)",
+                    padding: "16px 18px",
+                    textAlign: "center",
                   }}
                 >
-                  <input
-                    type="text"
-                    placeholder="Password"
-                    value={password}
-                    onFocus={() => setFocusedField("password")}
-                    onBlur={() => setFocusedField(null)}
-                    required
-                    minLength={6}
-                    readOnly
-                    style={{
-                      width: "100%", padding: "16px 18px", fontSize: "15px",
-                      background: "transparent",
-                      border: "none", color: "#282828", outline: "none", fontFamily: "inherit",
-                      fontWeight: 600,
-                    }}
-                  />
+                  <span style={{ fontSize: "15px", color: "#282828", fontWeight: 600, fontFamily: "inherit" }}>
+                    {password}
+                  </span>
                 </div>
               </motion.div>
             )}
