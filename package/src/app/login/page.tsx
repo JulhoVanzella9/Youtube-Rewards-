@@ -62,21 +62,34 @@ export default function LoginPage() {
       });
 
       if (legacyData?.session) {
-        // Migrate password silently - don't block on failure
         supabase.auth.updateUser({ password }).catch(() => {});
         window.location.href = "/";
         return;
       }
 
-      // If legacy also failed and it's not "invalid credentials", show the error
-      if (legacyError && !legacyError.message.includes("Invalid login")) {
-        setError(legacyError.message);
-        setLoading(false);
-        return;
+      // Both passwords failed - force reset password via admin API and retry
+      try {
+        const resetRes = await fetch("/api/reset-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, newPassword: password }),
+        });
+        if (resetRes.ok) {
+          const { data: retryData } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+          });
+          if (retryData?.session) {
+            window.location.href = "/";
+            return;
+          }
+        }
+      } catch {
+        // Reset failed, continue to signup
       }
     }
 
-    // If both fail, try to sign up (new user)
+    // If all fail, try to sign up (new user)
     if (signInError) {
       const { data, error } = await supabase.auth.signUp({
         email,
