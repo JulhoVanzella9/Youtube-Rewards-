@@ -654,7 +654,7 @@ export default function CreatePage() {
             <button
               onClick={toggleMute}
               style={{
-                position: "absolute", top: "16px", right: "16px", zIndex: 20,
+                position: "absolute", top: "16px", left: "16px", zIndex: 20,
                 width: "40px", height: "40px", borderRadius: "50%",
                 background: "rgba(0,0,0,0.5)", border: "none", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center",
