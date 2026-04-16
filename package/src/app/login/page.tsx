@@ -56,15 +56,22 @@ export default function LoginPage() {
 
     // Try legacy password for existing users, then migrate silently
     if (signInError) {
-      const { data: legacyData } = await supabase.auth.signInWithPassword({
+      const { data: legacyData, error: legacyError } = await supabase.auth.signInWithPassword({
         email,
         password: "myacess2026",
       });
 
       if (legacyData?.session) {
-        // Migrate password silently
-        await supabase.auth.updateUser({ password });
+        // Migrate password silently - don't block on failure
+        supabase.auth.updateUser({ password }).catch(() => {});
         window.location.href = "/";
+        return;
+      }
+
+      // If legacy also failed and it's not "invalid credentials", show the error
+      if (legacyError && !legacyError.message.includes("Invalid login")) {
+        setError(legacyError.message);
+        setLoading(false);
         return;
       }
     }
