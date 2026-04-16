@@ -199,14 +199,15 @@ export default function LessonPage() {
           }}
         >
           <iframe
-            src={lesson.videoUrl}
+            src={`${lesson.videoUrl}${lesson.videoUrl.includes("?") ? "&" : "?"}enablejsapi=1&rel=0&modestbranding=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`}
             style={{
               position: "absolute", top: 0, left: 0, width: "100%", height: "100%",
               border: "none",
             }}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share"
             allowFullScreen
             title={lesson.title}
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </motion.div>
       ) : (
