@@ -55,26 +55,8 @@ export default function LoginPage() {
       return;
     }
 
-    // If login fails, check if email has payment before allowing signup
+    // If login fails, try to sign up (new user)
     if (signInError) {
-      // Verify payment exists for this email
-      try {
-        const paymentCheck = await fetch("/api/check-payment", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        });
-        const paymentData = await paymentCheck.json();
-
-        if (!paymentData.paid) {
-          setError("No payment found for this email. Please use the same email you used to purchase.");
-          setLoading(false);
-          return;
-        }
-      } catch {
-        // If check fails, allow through to avoid blocking legitimate users
-      }
-
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
