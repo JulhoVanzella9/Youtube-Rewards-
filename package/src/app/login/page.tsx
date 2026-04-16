@@ -54,8 +54,29 @@ export default function LoginPage() {
       return;
     }
 
-    // If login fails, try to sign up (new user)
+    // If login fails, check payment before allowing signup
     if (signInError) {
+      // Check if this email has paid
+      try {
+        const res = await fetch("/api/check-payment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        const { paid } = await res.json();
+
+        if (!paid) {
+          setError("You need to purchase access before creating an account. Please use the same email you used to pay.");
+          setLoading(false);
+          return;
+        }
+      } catch {
+        // If check fails, block signup to be safe
+        setError("Unable to verify payment. Please try again.");
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
