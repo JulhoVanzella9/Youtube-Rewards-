@@ -24,7 +24,7 @@ const faqItems = [
   },
   {
     question: "What is the minimum withdrawal amount?",
-    answer: "The minimum withdrawal amount is $0.40. The first withdrawal of $0.40 can only be done once per account."
+    answer: "The minimum withdrawal amount is $5,000.00. You need to reach a balance of at least $5,000.00 before you can request a withdrawal."
   },
   {
     question: "How do I contact support?",

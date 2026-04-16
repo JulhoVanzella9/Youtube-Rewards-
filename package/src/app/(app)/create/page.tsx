@@ -59,6 +59,7 @@ export default function CreatePage() {
   const [displayedBalance, setDisplayedBalance] = useState(0);
   const [limitReached, setLimitReached] = useState(false);
   const [allRated, setAllRated] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
   const [supabaseDataLoaded, setSupabaseDataLoaded] = useState(false);
@@ -171,19 +172,20 @@ export default function CreatePage() {
     setTimeout(() => setShowToast(false), 700);
   }, []);
 
-  const updateVideoMutes = useCallback((activeIndex: number) => {
-    videoRefs.current.forEach((video, i) => {
-      if (video) {
-        if (i === activeIndex) {
-          video.muted = false;
-          video.play().catch(() => {});
-        } else {
-          video.muted = true;
-          video.pause();
-        }
+  const toggleMute = useCallback(() => {
+    const newMuted = !isMuted;
+    setIsMuted(newMuted);
+    const v = videoRefs.current[currentIndex];
+    if (v) {
+      v.muted = newMuted;
+      if (!newMuted) {
+        v.play().catch(() => {
+          v.muted = true;
+          setIsMuted(true);
+        });
       }
-    });
-  }, []);
+    }
+  }, [isMuted, currentIndex]);
 
   const slideTo = useCallback((idx: number) => {
     if (idx < 0 || idx >= videoData.length) return;
@@ -304,19 +306,24 @@ export default function CreatePage() {
     }
   }, [ratings, currentIndex, animating, displayToast, goNext, totalEarned, userId]);
 
-  // Play current video (always muted = autoplay guaranteed)
+  // Play current video
   useEffect(() => {
     if (loading || videoData.length === 0) return;
     const v = videoRefs.current[currentIndex];
     if (v) {
-      v.muted = true;
-      v.play().catch(() => {});
+      v.muted = isMuted;
+      v.play().catch(() => {
+        // If play fails (autoplay policy), ensure muted and retry
+        v.muted = true;
+        setIsMuted(true);
+        v.play().catch(() => {});
+      });
     }
     // pause previous
     videoRefs.current.forEach((ref, i) => {
       if (i !== currentIndex && ref) ref.pause();
     });
-  }, [loading, currentIndex, videoData.length]);
+  }, [loading, currentIndex, videoData.length, isMuted]);
 
   // Loading screen
   if (loading || videoData.length === 0) {
@@ -393,7 +400,7 @@ export default function CreatePage() {
           transition={{ delay: 0.3 }}
           style={{ fontSize: "15px", color: "var(--text-secondary)", marginBottom: "16px", maxWidth: "320px", lineHeight: 1.6 }}
         >
-          You have already rated all 3 videos for today. Come back in 24 hours to rate more videos and keep earning!
+          You have already rated all videos for today. Come back in 24 hours to rate more videos and keep earning!
         </motion.p>
 
         <motion.div
@@ -632,7 +639,7 @@ export default function CreatePage() {
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               loop
               playsInline
-              muted
+              muted={isMuted}
               autoPlay
               preload="auto"
             />
@@ -642,6 +649,31 @@ export default function CreatePage() {
               position: "absolute", inset: 0, pointerEvents: "none",
               background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.85) 100%)",
             }} />
+
+            {/* Mute/Unmute button */}
+            <button
+              onClick={toggleMute}
+              style={{
+                position: "absolute", top: "16px", right: "16px", zIndex: 20,
+                width: "40px", height: "40px", borderRadius: "50%",
+                background: "rgba(0,0,0,0.5)", border: "none", cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              {isMuted ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <line x1="23" y1="9" x2="17" y2="15"/>
+                  <line x1="17" y1="9" x2="23" y2="15"/>
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+              )}
+            </button>
 
             {/* Video info */}
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px" }}>
