@@ -1,8 +1,53 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { Resend } from "resend";
 
 // MundPay postback secret - set this in your environment variables
 const MUNDPAY_SECRET = process.env.MUNDPAY_WEBHOOK_SECRET || "";
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const LOGIN_URL = process.env.NEXT_PUBLIC_SITE_URL
+  ? `${process.env.NEXT_PUBLIC_SITE_URL}/login`
+  : "https://youcash-rewards.vercel.app/login";
+
+function buildAccessEmail(email: string) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:480px;margin:40px auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+    <div style="background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);padding:40px 32px;text-align:center;">
+      <h1 style="color:#fff;font-size:28px;margin:0 0 8px;">YouCash</h1>
+      <p style="color:rgba(255,255,255,0.9);font-size:14px;margin:0;">Your access is ready!</p>
+    </div>
+    <div style="padding:32px;">
+      <p style="color:#333;font-size:15px;line-height:1.6;margin:0 0 16px;">
+        Hi! Your payment has been confirmed successfully.
+      </p>
+      <p style="color:#333;font-size:15px;line-height:1.6;margin:0 0 24px;">
+        Click the button below to access your account. Use the email <strong>${email}</strong> to log in.
+      </p>
+      <div style="text-align:center;margin:32px 0;">
+        <a href="${LOGIN_URL}" style="display:inline-block;background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);color:#fff;text-decoration:none;padding:16px 48px;border-radius:12px;font-size:16px;font-weight:700;box-shadow:0 4px 16px rgba(255,0,0,0.3);">
+          Click here to access
+        </a>
+      </div>
+      <p style="color:#999;font-size:12px;text-align:center;margin:24px 0 0;line-height:1.5;">
+        If the button doesn't work, copy and paste this link in your browser:<br>
+        <a href="${LOGIN_URL}" style="color:#FF0000;">${LOGIN_URL}</a>
+      </p>
+    </div>
+    <div style="background:#f9f9f9;padding:20px 32px;text-align:center;border-top:1px solid #eee;">
+      <p style="color:#999;font-size:11px;margin:0;">YouCash &copy; 2026 — All rights reserved</p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
 
 export async function POST(request: Request) {
   try {
@@ -82,6 +127,20 @@ export async function POST(request: Request) {
       // User hasn't registered yet - store payment so they get access when they sign up
       // The auth callback or login flow will check the payments table
       console.log("[MundPay Postback] No profile found for email, payment stored for future activation:", email);
+    }
+
+    // Send access email to customer
+    try {
+      await resend.emails.send({
+        from: "YouCash <onboarding@resend.dev>",
+        to: email,
+        subject: "Your access is ready! — YouCash",
+        html: buildAccessEmail(email),
+      });
+      console.log("[MundPay Postback] Access email sent to:", email);
+    } catch (emailErr) {
+      console.error("[MundPay Postback] Failed to send email:", emailErr);
+      // Don't fail the webhook if email fails
     }
 
     return NextResponse.json({ received: true, activated: !!profile });
