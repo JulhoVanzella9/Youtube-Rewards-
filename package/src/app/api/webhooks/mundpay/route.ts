@@ -79,7 +79,18 @@ function buildAccessEmail(email: string) {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+    let body: Record<string, string> = {};
+
+    if (contentType.includes("application/json")) {
+      body = await request.json();
+    } else {
+      // form-urlencoded (GuzzleHttp default)
+      const text = await request.text();
+      console.log("[MundPay Postback] Raw body:", text);
+      const params = new URLSearchParams(text);
+      params.forEach((value, key) => { body[key] = value; });
+    }
 
     // Validate the postback authenticity
     // MundPay typically sends a token/secret for validation
