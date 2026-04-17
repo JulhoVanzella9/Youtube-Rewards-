@@ -20,33 +20,59 @@ function buildAccessEmail(email: string) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <div style="max-width:480px;margin:40px auto;background:#ffffff;border-radius:24px;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-    <div style="background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);padding:40px 32px;text-align:center;border-radius:24px 24px 0 0;">
-      <h1 style="color:#fff;font-size:28px;margin:0 0 8px;">YouCash</h1>
-      <p style="color:rgba(255,255,255,0.9);font-size:14px;margin:0;">Your access is ready!</p>
-    </div>
-    <div style="padding:32px;">
-      <p style="color:#333;font-size:15px;line-height:1.6;margin:0 0 16px;">
-        Hi! Your payment has been confirmed successfully.
-      </p>
-      <p style="color:#333;font-size:15px;line-height:1.6;margin:0 0 24px;">
-        Click the button below to access your account. Use the email <strong>${email}</strong> to log in.
-      </p>
-      <div style="text-align:center;margin:32px 0;">
-        <a href="${loginUrl}" style="display:inline-block;background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);color:#fff;text-decoration:none;padding:16px 48px;border-radius:50px;font-size:16px;font-weight:700;">
-          Click here to access
-        </a>
-      </div>
-      <p style="color:#999;font-size:12px;text-align:center;margin:24px 0 0;line-height:1.5;">
-        If the button doesn't work, copy and paste this link in your browser:<br>
-        <a href="${loginUrl}" style="color:#FF0000;">${loginUrl}</a>
-      </p>
-    </div>
-    <div style="background:#f9f9f9;padding:20px 32px;text-align:center;border-top:1px solid #eee;border-radius:0 0 24px 24px;">
-      <p style="color:#999;font-size:11px;margin:0;">YouCash &copy; 2026 — All rights reserved</p>
-    </div>
-  </div>
+<body style="margin:0;padding:0;background:#000000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#000000;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="480" cellpadding="0" cellspacing="0" style="max-width:480px;width:100%;">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);padding:40px 32px;text-align:center;border-radius:24px 24px 0 0;">
+              <div style="font-size:32px;font-weight:900;color:#fff;letter-spacing:-1px;">YouCash</div>
+              <div style="font-size:14px;color:rgba(255,255,255,0.9);margin-top:6px;">Your access is ready! 🎉</div>
+            </td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="background:#111111;padding:36px 32px;">
+              <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;margin:0 0 12px;">
+                Hi! Your payment has been confirmed successfully.
+              </p>
+              <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;margin:0 0 32px;">
+                Use the email <strong style="color:#FF4444;">${email}</strong> to log in.
+              </p>
+
+              <!-- BUTTON -->
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="padding:8px 0 32px;">
+                    <a href="${loginUrl}" style="display:inline-block;background:linear-gradient(135deg,#FF0000 0%,#CC0000 100%);color:#ffffff;text-decoration:none;padding:18px 52px;border-radius:50px;font-size:16px;font-weight:800;letter-spacing:0.5px;">
+                      Click here to access
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="color:rgba(255,255,255,0.3);font-size:12px;text-align:center;margin:0;line-height:1.6;">
+                If the button doesn't work:<br>
+                <a href="${loginUrl}" style="color:#FF4444;word-break:break-all;">${loginUrl}</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background:#0a0a0a;padding:20px 32px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);border-radius:0 0 24px 24px;">
+              <p style="color:rgba(255,255,255,0.25);font-size:11px;margin:0;">YouCash &copy; 2026 — All rights reserved</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>`;
 }
