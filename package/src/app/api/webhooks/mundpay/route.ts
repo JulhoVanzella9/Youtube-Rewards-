@@ -135,7 +135,7 @@ export async function POST(request: Request) {
     try {
       const r = new Resend(process.env.RESEND_API_KEY);
       await r.emails.send({
-        from: "YouCash <onboarding@resend.dev>",
+        from: "YouCash <noreply@tikcash.money>",
         to: email,
         subject: "Your access is ready! — YouCash",
         html: buildAccessEmail(email),
