@@ -20,8 +20,8 @@ function buildAccessEmail(email: string) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin:0;padding:0;background:#000000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#000000;padding:40px 16px;">
+<body style="margin:0;padding:0;background:#f0f0f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;padding:40px 16px;">
     <tr>
       <td align="center">
         <table width="480" cellpadding="0" cellspacing="0" style="max-width:480px;width:100%;">
@@ -36,12 +36,12 @@ function buildAccessEmail(email: string) {
 
           <!-- BODY -->
           <tr>
-            <td style="background:#111111;padding:36px 32px;">
-              <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;margin:0 0 12px;">
+            <td style="background:#ffffff;padding:36px 32px;">
+              <p style="color:#333333;font-size:15px;line-height:1.7;margin:0 0 12px;">
                 Hi! Your payment has been confirmed successfully.
               </p>
-              <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.7;margin:0 0 32px;">
-                Use the email <strong style="color:#FF4444;">${email}</strong> to log in.
+              <p style="color:#333333;font-size:15px;line-height:1.7;margin:0 0 32px;">
+                Use the email <strong style="color:#FF0000;">${email}</strong> to log in.
               </p>
 
               <!-- BUTTON -->
@@ -55,17 +55,17 @@ function buildAccessEmail(email: string) {
                 </tr>
               </table>
 
-              <p style="color:rgba(255,255,255,0.3);font-size:12px;text-align:center;margin:0;line-height:1.6;">
+              <p style="color:#aaaaaa;font-size:12px;text-align:center;margin:0;line-height:1.6;">
                 If the button doesn't work:<br>
-                <a href="${loginUrl}" style="color:#FF4444;word-break:break-all;">${loginUrl}</a>
+                <a href="${loginUrl}" style="color:#FF0000;word-break:break-all;">${loginUrl}</a>
               </p>
             </td>
           </tr>
 
           <!-- FOOTER -->
           <tr>
-            <td style="background:#0a0a0a;padding:20px 32px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);border-radius:0 0 24px 24px;">
-              <p style="color:rgba(255,255,255,0.25);font-size:11px;margin:0;">YouCash &copy; 2026 — All rights reserved</p>
+            <td style="background:#f9f9f9;padding:20px 32px;text-align:center;border-top:1px solid #eeeeee;border-radius:0 0 24px 24px;">
+              <p style="color:#aaaaaa;font-size:11px;margin:0;">YouCash &copy; 2026 — All rights reserved</p>
             </td>
           </tr>
 
