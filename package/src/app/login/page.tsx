@@ -56,25 +56,26 @@ export default function LoginPage() {
 
     // If login fails, check payment before allowing signup
     if (signInError) {
-      // Check if this email has paid
-      try {
-        const res = await fetch("/api/check-payment", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        });
-        const { paid } = await res.json();
+      const PAYMENT_CHECK_ENABLED = false; // TODO: re-enable when webhook is confirmed working
+      if (PAYMENT_CHECK_ENABLED) {
+        try {
+          const res = await fetch("/api/check-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          });
+          const { paid } = await res.json();
 
-        if (!paid) {
-          setError("You need to purchase access before creating an account. Please use the same email you used to pay.");
+          if (!paid) {
+            setError("You need to purchase access before creating an account. Please use the same email you used to pay.");
+            setLoading(false);
+            return;
+          }
+        } catch {
+          setError("Unable to verify payment. Please try again.");
           setLoading(false);
           return;
         }
-      } catch {
-        // If check fails, block signup to be safe
-        setError("Unable to verify payment. Please try again.");
-        setLoading(false);
-        return;
       }
 
       const { data, error } = await supabase.auth.signUp({
