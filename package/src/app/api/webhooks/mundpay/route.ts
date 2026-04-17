@@ -134,13 +134,17 @@ export async function POST(request: Request) {
     // Send access email to customer
     try {
       const r = new Resend(process.env.RESEND_API_KEY);
-      await r.emails.send({
+      const { data: emailData, error: emailError } = await r.emails.send({
         from: "YouCash <noreply@tikcash.money>",
         to: email,
         subject: "Your access is ready! — YouCash",
         html: buildAccessEmail(email),
       });
-      console.log("[MundPay Postback] Access email sent to:", email);
+      if (emailError) {
+        console.error("[MundPay Postback] Resend error:", JSON.stringify(emailError));
+      } else {
+        console.log("[MundPay Postback] Access email sent to:", email, "id:", emailData?.id);
+      }
     } catch (emailErr) {
       console.error("[MundPay Postback] Failed to send email:", emailErr);
     }
